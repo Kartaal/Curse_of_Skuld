@@ -39,3 +39,7 @@ sysinfo.txt
 
 # Exclude rider idea data
 .idea
+
+curse-of-skuld/UserSettings/Search.settings
+
+curse-of-skuld/.vsconfig
