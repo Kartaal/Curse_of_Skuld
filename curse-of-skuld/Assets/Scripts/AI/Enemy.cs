@@ -8,8 +8,9 @@ using UnityEngine.AI;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private EnemyData enemyData;
+    [SerializeField] private bool loopPatrol;
     [SerializeField] private Transform [] patrolTargets;
-    
+   
     private int _arrayDir;
     private int _curr;
 
@@ -35,16 +36,24 @@ public class Enemy : MonoBehaviour
     private void Patrol()
     {
         _agent.destination = patrolTargets[_curr].position;
-        
-        if (_curr == patrolTargets.Length - 1)
-        {
-            _arrayDir = -1 ;
-        }
-        else if (_curr == 0)
-        {
-            _arrayDir = 1;
-        }
 
-        _curr += _arrayDir;
+        if (loopPatrol)
+        {
+            _curr = (_curr + _arrayDir) % patrolTargets.Length;
+        }
+        else
+        {
+            if (_curr == patrolTargets.Length - 1)
+            {
+                _arrayDir = -1 ;
+            }
+            else if (_curr == 0)
+            {
+                _arrayDir = 1;
+            }
+
+            _curr += _arrayDir;
+        }
+        
     }
 }
