@@ -17,11 +17,12 @@ public class PlayerController : MonoBehaviour
     private Vector3 _movementVector;
 
     private CharacterController _charController;
-
+    private GameObject _collisionDetector;
 
     void Start()
     {
         _charController = GetComponent<CharacterController>();
+
     }
 
     void Update()
@@ -46,6 +47,8 @@ public class PlayerController : MonoBehaviour
     //It is important the method is named this way for the input system to find it.
     public void OnInteract()
     {
+        //make a reference to the collisionDetection sensor that is attached to the main character and then switch it on or off here with each E pressed
+        //collisiondetection.setactive
         print("in interact");
     }
 }
