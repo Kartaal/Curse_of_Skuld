@@ -7,10 +7,10 @@ public class EnemyKillTrigger : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        /*var player = other.GetComponent<>();
+        var player = other.GetComponent<PlayerController>();
         if (player != null)
         {
-            
-        }*/
+            player.Die();   
+        }
     }
 }

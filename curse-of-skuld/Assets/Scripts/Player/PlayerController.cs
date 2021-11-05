@@ -51,4 +51,9 @@ public class PlayerController : MonoBehaviour
         //collisiondetection.setactive
         print("in interact");
     }
+
+    public void Die()
+    {
+        Destroy(gameObject);
+    }
 }
