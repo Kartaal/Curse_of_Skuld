@@ -107,7 +107,7 @@ GameObject:
   m_Component:
   - component: {fileID: 568999964835103282}
   m_Layer: 0
-  m_Name: Prototype_Level
+  m_Name: Prefab_prototypeLevel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
