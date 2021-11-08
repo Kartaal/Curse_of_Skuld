@@ -9,6 +9,8 @@ public class Door : MonoBehaviour,IInteractable
     private bool _canOpen = false;
     [SerializeField]
     private float openingSpeed = 0.1f;
+    [SerializeField]
+    public GameObject boss;
     void Start()
     {
         
@@ -37,9 +39,12 @@ public class Door : MonoBehaviour,IInteractable
 
     IEnumerator Opening()
     {
+        
         this.transform.position =
             new Vector3(transform.position.x, transform.position.y, transform.position.z + openingSpeed);
         yield return new WaitForSeconds(0.2f);
+        if (this.gameObject.transform.position.z < 54)
+            boss.SetActive(true);
         if (this.gameObject.transform.position.z < 65)
             StartCoroutine(Opening());
 
