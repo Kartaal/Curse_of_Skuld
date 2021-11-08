@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,14 +15,23 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Camera camera;
 
+    [SerializeField] private Collider interactDetection;
+
     private Vector3 _movementVector;
 
     private CharacterController _charController;
     private GameObject _collisionDetector;
 
+    private void Awake()
+    {
+        interactDetection.enabled = false;
+    }
+
     void Start()
     {
         _charController = GetComponent<CharacterController>();
+        Vector3 moveVec = transform.forward + Vector3.down * 30f;
+        _charController.Move(moveVec);
 
     }
 
@@ -29,7 +39,8 @@ public class PlayerController : MonoBehaviour
     {
         if (_movementVector == Vector3.zero) return;
 
-        _charController.Move(transform.forward * speed * Time.deltaTime);
+        Vector3 moveVec = transform.forward + Vector3.down * 9f;
+        _charController.Move(moveVec * speed * Time.deltaTime);
 
         float _angle = Mathf.Atan2(_movementVector.x, _movementVector.z) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.AngleAxis(_angle + camera.transform.eulerAngles.y, Vector3.up), Time.deltaTime * rotationSpeed);
@@ -48,7 +59,20 @@ public class PlayerController : MonoBehaviour
     public void OnInteract()
     {
         //make a reference to the collisionDetection sensor that is attached to the main character and then switch it on or off here with each E pressed
-        //collisiondetection.setactive
+        StartCoroutine(InteractDuration());
         print("in interact");
+    }
+
+    public void Die()
+    {
+        Destroy(gameObject);
+    }
+
+    private IEnumerator InteractDuration()
+    {
+        interactDetection.enabled = true;
+        yield return new WaitForSeconds(0.5f);
+        interactDetection.enabled = false;
+
     }
 }
