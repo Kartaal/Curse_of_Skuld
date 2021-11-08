@@ -19,6 +19,10 @@ public class Closet : MonoBehaviour, IInteractable
     //Call this function for switching between enable and disable mesh on the character 
     public void Interact()
     {
-        _player.gameObject.GetComponent<MeshRenderer>().enabled = !_player.gameObject.GetComponent<MeshRenderer>().enabled;
+        var childRenderers = _player.gameObject.GetComponentsInChildren<MeshRenderer>();
+        foreach (var mesh in childRenderers)
+        {
+            mesh.enabled = !mesh.enabled;
+        }
     }
 }
