@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Closet
   - Key
+  - Door
   layers:
   - Default
   - TransparentFX

@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
     {
         //make a reference to the collisionDetection sensor that is attached to the main character and then switch it on or off here with each E pressed
         StartCoroutine(InteractDuration());
-        print("in interact");
+        // print("in interact");
     }
 
     public void Die()
