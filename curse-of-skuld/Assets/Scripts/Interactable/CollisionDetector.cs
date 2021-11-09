@@ -30,14 +30,14 @@ public class CollisionDetector : MonoBehaviour
     }
     public void InteractionKeyPressed()
     { 
-        if (_isInCollider)
+        if (_isInCollider&&_other)
         {
             _other.GetComponent<IInteractable>().Interact();
         }
     }
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.GetComponent<IInteractable>()!=null)
+        if (collision.gameObject.GetComponent<IInteractable>()!=null&&collision.gameObject!=null)
         {
             collision.gameObject.GetComponent<IInteractable>().DisplayName();
             _isInCollider = true;
@@ -46,7 +46,7 @@ public class CollisionDetector : MonoBehaviour
     }
     private void OnTriggerExit(Collider collision)
     {
-        if (collision.gameObject.GetComponent<IInteractable>()!=null)
+        if (collision.gameObject.GetComponent<IInteractable>()!=null&&collision.gameObject!=null)
         {
             SystemManager.Instance.ClearScreen();
             _isInCollider = false;
