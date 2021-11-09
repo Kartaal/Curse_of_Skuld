@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: -4468588368040845366}
   m_Layer: 0
   m_Name: Prefab_Key
-  m_TagString: Key
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
