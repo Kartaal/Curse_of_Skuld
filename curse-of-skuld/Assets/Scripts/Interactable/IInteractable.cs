@@ -4,6 +4,8 @@ using UnityEngine;
 public interface IInteractable
 {
     void Interact();
-    //void DisplayGuideText
+
+    void DisplayName();
+    
     //void DisplayPickedUpText
 }

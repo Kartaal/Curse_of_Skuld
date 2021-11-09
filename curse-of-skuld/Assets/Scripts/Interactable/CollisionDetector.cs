@@ -39,6 +39,7 @@ public class CollisionDetector : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<IInteractable>()!=null)
         {
+            collision.gameObject.GetComponent<IInteractable>().DisplayName();
             _isInCollider = true;
             _other = collision.gameObject;
         }
@@ -47,6 +48,7 @@ public class CollisionDetector : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<IInteractable>()!=null)
         {
+            SystemManager.Instance.ClearScreen();
             _isInCollider = false;
             _other = null;
         }

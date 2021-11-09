@@ -226,4 +226,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6473588bd4ac794ba15393b7a220356, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 0}
+  player: {fileID: 0}
+  objectName: Closet
+  textToDisplayAfterInteraction: Hiden In Closet

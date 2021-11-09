@@ -227,3 +227,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   door: {fileID: 0}
+  objectName: Key
+  textToDisplayAfterInteraction: Picked the key

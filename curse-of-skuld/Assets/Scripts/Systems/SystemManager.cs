@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.UI;
 
 
 public class SystemManager : MonoBehaviour
@@ -19,6 +19,8 @@ public class SystemManager : MonoBehaviour
 
     private Scene _currentScene;
     
+    [SerializeField]
+    private Text text;
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -40,5 +42,31 @@ public class SystemManager : MonoBehaviour
     public void ResetScene()
     {
         SceneManager.LoadScene(_currentScene.name);
+    }
+
+    
+    //UI manager 
+    
+    public void ClearScreen()
+    {
+        text.GetComponent<Text>().text ="";
+    }
+
+    public void DisplayTextOnScreen(string textToDisplay)
+    {
+        text.GetComponent<Text>().text = textToDisplay;
+    }
+
+    public void DisplayAndClearTextAfterDelay(string textToDisplay,float Delay)
+    {
+        text.GetComponent<Text>().text = textToDisplay;
+        StartCoroutine(ShortDelay(Delay));
+    }
+
+    IEnumerator ShortDelay(float Delay)
+    {
+        
+        yield return new WaitForSeconds(3f);
+        text.GetComponent<Text>().text = "";
     }
 }
