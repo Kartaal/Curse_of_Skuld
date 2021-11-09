@@ -8,7 +8,7 @@ public class Door : MonoBehaviour,IInteractable
     // Start is called before the first frame update
     private bool _canOpen = false;
     [SerializeField]
-    private float openingSpeed = 0.1f;
+    private float openingSpeed;
     [SerializeField]
     public GameObject boss;
     void Start()
