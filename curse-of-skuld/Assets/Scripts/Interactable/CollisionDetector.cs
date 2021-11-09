@@ -6,15 +6,55 @@ using UnityEngine;
 
 public class CollisionDetector : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private static CollisionDetector _instance;
+    public static CollisionDetector Instance
+    {
+        get { return _instance; }
+    }
+
+    private bool _isInCollider;
+    
+    private GameObject _other;
+    private void Awake()
+    {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            _instance = this;
+        }
+
+        _isInCollider = false;
+    }
+    
+
+    public void Interaction()
+    { 
+        if (_isInCollider)
+        {
+            _other.GetComponent<IInteractable>().Interact();
+        }
+    }
     private void OnTriggerEnter(Collider collision)
     {
-        var interactable = collision.gameObject.GetComponent<IInteractable>();
-        if (interactable != null)
+        //do the explanation here 
+        // var interactable = 
+        if (collision.gameObject.GetComponent<IInteractable>()!=null)
         {
-            collision.gameObject.GetComponent<IInteractable>().Interact();
+            _isInCollider = true;
+            _other = collision.gameObject;
+          
         }
     }
 
-  
+    private void OnTriggerExit(Collider collision)
+    {
+        if (collision.gameObject.GetComponent<IInteractable>()!=null)
+        {
+            _isInCollider = false;
+            _other = null;
+        }
+    }
 }
