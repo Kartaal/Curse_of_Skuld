@@ -28,9 +28,7 @@ public class CollisionDetector : MonoBehaviour
 
         _isInCollider = false;
     }
-    
-
-    public void Interaction()
+    public void InteractionKeyPressed()
     { 
         if (_isInCollider)
         {
@@ -39,16 +37,12 @@ public class CollisionDetector : MonoBehaviour
     }
     private void OnTriggerEnter(Collider collision)
     {
-        //do the explanation here 
-        // var interactable = 
         if (collision.gameObject.GetComponent<IInteractable>()!=null)
         {
             _isInCollider = true;
             _other = collision.gameObject;
-          
         }
     }
-
     private void OnTriggerExit(Collider collision)
     {
         if (collision.gameObject.GetComponent<IInteractable>()!=null)

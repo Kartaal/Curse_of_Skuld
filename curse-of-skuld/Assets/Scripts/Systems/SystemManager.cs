@@ -34,6 +34,7 @@ public class SystemManager : MonoBehaviour
     private void Start()
     {
         _currentScene = SceneManager.GetActiveScene();
+        Cursor.visible = false;
     }
 
     public void ResetScene()

@@ -59,29 +59,15 @@ public class PlayerController : MonoBehaviour
     //It is important the method is named this way for the input system to find it.
     public void OnInteract()
     {
-        CollisionDetector.Instance.Interaction();
-        //make a reference to the collisionDetection sensor that is attached to the main character and then switch it on or off here with each E pressed
-        // StartCoroutine(InteractDuration());
-        // print("in interact");
-        
+        CollisionDetector.Instance.InteractionKeyPressed();
     }
 
     public void OnDebug()
     {
-       
         SystemManager.Instance.ResetScene();
     }
     public void Die()
     {
         Destroy(gameObject);
     }
-
-    // private IEnumerator InteractDuration()
-    // {
-    //     // print("in cour");
-    //     //
-    //     // yield return new WaitForSeconds(0.5f);
-    //     // CollisionDetector.Instance.Interaction();
-    //     //
-    // }
 }
