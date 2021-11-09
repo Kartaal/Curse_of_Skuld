@@ -6,9 +6,19 @@ public class Key : MonoBehaviour, IInteractable
 {
     [SerializeField]
     private GameObject door;
+
+    [SerializeField] private string objectName;
+    [SerializeField] private string textToDisplayAfterInteraction;
     public void Interact()
     {
-        door.GetComponent<Door>().Open();
+        SystemManager.Instance.ClearScreen();
+        SystemManager.Instance.DisplayAndClearTextAfterDelay(textToDisplayAfterInteraction,4f);
+        door.GetComponent<Door>().CanOpen();
         Destroy(this.gameObject);
+    }
+
+    public void DisplayName()
+    {
+        SystemManager.Instance.DisplayTextOnScreen(objectName);
     }
 }

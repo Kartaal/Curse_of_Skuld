@@ -15,16 +15,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Camera camera;
 
-    [SerializeField] private Collider interactDetection;
+    
 
     private Vector3 _movementVector;
 
     private CharacterController _charController;
-    private GameObject _collisionDetector;
+    // private GameObject _collisionDetector;
 
     private void Awake()
     {
-        interactDetection.enabled = false;
+        // interactDetection.enabled = false;
+       
     }
 
     void Start()
@@ -58,21 +59,15 @@ public class PlayerController : MonoBehaviour
     //It is important the method is named this way for the input system to find it.
     public void OnInteract()
     {
-        //make a reference to the collisionDetection sensor that is attached to the main character and then switch it on or off here with each E pressed
-        StartCoroutine(InteractDuration());
-        // print("in interact");
+        CollisionDetector.Instance.InteractionKeyPressed();
     }
 
+    public void OnDebug()
+    {
+        SystemManager.Instance.ResetScene();
+    }
     public void Die()
     {
         Destroy(gameObject);
-    }
-
-    private IEnumerator InteractDuration()
-    {
-        interactDetection.enabled = true;
-        yield return new WaitForSeconds(0.5f);
-        interactDetection.enabled = false;
-
     }
 }
