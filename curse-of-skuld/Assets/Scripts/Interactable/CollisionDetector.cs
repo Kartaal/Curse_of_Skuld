@@ -10,9 +10,9 @@ public class CollisionDetector : MonoBehaviour
     private void OnTriggerEnter(Collider collision)
     {
         
-        if (collision.gameObject.CompareTag("Closet") ||collision.gameObject.CompareTag("Key"))
+        if (collision.gameObject.CompareTag("Closet") ||collision.gameObject.CompareTag("Key")||collision.gameObject.CompareTag("Door"))
         {
-            collision.gameObject.gameObject.GetComponent<IInteractable>().Interact();
+            collision.gameObject.GetComponent<IInteractable>().Interact();
         }
         
     }
