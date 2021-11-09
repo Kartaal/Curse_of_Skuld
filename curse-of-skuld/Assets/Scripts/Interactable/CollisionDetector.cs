@@ -9,19 +9,12 @@ public class CollisionDetector : MonoBehaviour
     // Start is called before the first frame update
     private void OnTriggerEnter(Collider collision)
     {
-        
-        if (collision.gameObject.CompareTag("Closet") ||collision.gameObject.CompareTag("Key")||collision.gameObject.CompareTag("Door"))
+        var interactable = collision.gameObject.GetComponent<IInteractable>();
+        if (interactable != null)
         {
             collision.gameObject.GetComponent<IInteractable>().Interact();
         }
-        
     }
 
-    // Update is called once per frame
-   
-
-    void Update()
-    {
-        
-    }
+  
 }
