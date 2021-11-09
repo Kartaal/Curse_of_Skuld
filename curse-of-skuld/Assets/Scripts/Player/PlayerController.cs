@@ -63,6 +63,11 @@ public class PlayerController : MonoBehaviour
         // print("in interact");
     }
 
+    public void OnDebug()
+    {
+       
+        SystemManager.Instance.ResetScene();
+    }
     public void Die()
     {
         Destroy(gameObject);
