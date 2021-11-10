@@ -7,6 +7,9 @@ using UnityEngine;
 public class EnemyData : ScriptableObject
 {
     [SerializeField] private float moveSpeed;
+    [SerializeField] private float chaseSpeed;
 
     public float MoveSpeed => moveSpeed;
+
+    public float ChaseSpeed => chaseSpeed;
 }

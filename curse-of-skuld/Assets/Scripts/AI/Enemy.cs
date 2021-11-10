@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour
    
     private int _arrayDir;
     private int _curr;
+    private Transform _playerTransform;
 
 
     private NavMeshAgent _agent;
@@ -23,11 +24,20 @@ public class Enemy : MonoBehaviour
         _agent.autoBraking = false;
         _curr = 0;
         _arrayDir = 1;
+        _playerTransform = FindObjectOfType<PlayerController>().gameObject.transform;
     }
 
     private void Update()
     {
-        if (!_agent.pathPending && _agent.remainingDistance < 0.5f)
+        Debug.Log(_playerTransform.position);
+        NavMeshHit hit;
+        if (!_agent.Raycast(_playerTransform.position, out hit))
+        {
+            Debug.Log("Line of sight");
+            Debug.DrawRay(_agent.transform.position, hit.position);
+            Chase(hit);
+        }
+        else if (!_agent.pathPending && _agent.remainingDistance < 0.5f)
         {
             Patrol();
         }
@@ -35,6 +45,11 @@ public class Enemy : MonoBehaviour
 
     private void Patrol()
     {
+        if (_agent.speed != enemyData.MoveSpeed)
+        {
+            _agent.speed = enemyData.MoveSpeed;
+        }
+        
         _agent.destination = patrolTargets[_curr].position;
 
         if (loopPatrol)
@@ -55,5 +70,14 @@ public class Enemy : MonoBehaviour
             _curr += _arrayDir;
         }
         
+    }
+
+    private void Chase(NavMeshHit hit)
+    {
+        if (_agent.speed != enemyData.ChaseSpeed)
+        {
+            _agent.speed = enemyData.ChaseSpeed;
+        }
+        _agent.destination = hit.position;
     }
 }
