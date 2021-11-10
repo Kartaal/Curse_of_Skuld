@@ -7,14 +7,10 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]
-    private float maxSpeed;
+    private float speed = 5f;
 
     [SerializeField]
-    private float rotationSpeed;
-
-    [SerializeField]
-    private float speedChangeRate;
-    
+    private float rotationSpeed = 2f;
 
     [SerializeField]
     private Camera camera;
@@ -22,12 +18,11 @@ public class PlayerController : MonoBehaviour
     private Vector3 _movementVector;
 
     private CharacterController _charController;
-
-    private float _currentSpeed;
-
+    // private GameObject _collisionDetector;
 
     private void Awake()
     {
+        // interactDetection.enabled = false;
        
     }
 
@@ -41,7 +36,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        float targetSpeed = _movementVector == Vector3.zero ? 0 : maxSpeed;
+        if (_movementVector == Vector3.zero) return;
 
         Vector3 moveVec = camera.transform.TransformDirection(_movementVector);
 
