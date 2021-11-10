@@ -19,8 +19,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Camera camera;
 
-    
-
     private Vector3 _movementVector;
 
     private CharacterController _charController;
@@ -46,10 +44,8 @@ public class PlayerController : MonoBehaviour
         float targetSpeed = _movementVector == Vector3.zero ? 0 : maxSpeed;
 
         Vector3 moveVec = camera.transform.TransformDirection(_movementVector);
-        moveVec.y = -2f;
 
         // a reference to the players current horizontal velocity
-        float currentHorizontalSpeed = new Vector3(_charController.velocity.x, 0.0f, _charController.velocity.z).magnitude;
         float speedOffset = 0.1f;
         // accelerate or decelerate to target speed
         if (_currentSpeed < targetSpeed - speedOffset || _currentSpeed > targetSpeed + speedOffset)
@@ -60,13 +56,15 @@ public class PlayerController : MonoBehaviour
         {
             _currentSpeed = targetSpeed;
         }
+        moveVec *= _currentSpeed;
+        moveVec.y = -9f;
+        _charController.Move(moveVec * Time.deltaTime);
 
-        _charController.Move(moveVec * _currentSpeed * Time.deltaTime);
-
-
-        float _angle = Mathf.Atan2(_movementVector.x, _movementVector.z) * Mathf.Rad2Deg;
-        print(_angle);
-        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.AngleAxis(_angle + camera.transform.eulerAngles.y, Vector3.up), Time.deltaTime * rotationSpeed);
+        if (targetSpeed != 0)
+        {
+            float _angle = Mathf.Atan2(_movementVector.x, _movementVector.z) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.AngleAxis(_angle + camera.transform.eulerAngles.y, Vector3.up), Time.deltaTime * rotationSpeed);
+        }
     }
 
     //It is important the method is named this way for the input system to find it.
