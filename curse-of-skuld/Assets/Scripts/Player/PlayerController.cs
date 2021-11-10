@@ -40,10 +40,14 @@ public class PlayerController : MonoBehaviour
         if (_movementVector == Vector3.zero) return;
 
         Vector3 moveVec = transform.forward + Vector3.down * 9f;
-        _charController.Move(moveVec * speed * Time.deltaTime);
+            _charController.Move(moveVec * speed * Time.deltaTime);
+
 
         float _angle = Mathf.Atan2(_movementVector.x, _movementVector.z) * Mathf.Rad2Deg;
+        print(_angle);
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.AngleAxis(_angle + camera.transform.eulerAngles.y, Vector3.up), Time.deltaTime * rotationSpeed);
+        print("from " + transform.rotation.ToString() + " to " + Quaternion.AngleAxis(_angle + camera.transform.eulerAngles.y, Vector3.up).ToString());
+
 
     }
 
@@ -60,7 +64,6 @@ public class PlayerController : MonoBehaviour
     {
         //make a reference to the collisionDetection sensor that is attached to the main character and then switch it on or off here with each E pressed
         StartCoroutine(InteractDuration());
-        // print("in interact");
     }
 
     public void Die()
