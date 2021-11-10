@@ -7,27 +7,24 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]
-    private float maxSpeed;
+    private float speed = 5f;
 
     [SerializeField]
-    private float rotationSpeed;
-
-    [SerializeField]
-    private float speedChangeRate;
-    
+    private float rotationSpeed = 2f;
 
     [SerializeField]
     private Camera camera;
 
+    
+
     private Vector3 _movementVector;
 
     private CharacterController _charController;
-
-    private float _currentSpeed;
-
+    // private GameObject _collisionDetector;
 
     private void Awake()
     {
+        // interactDetection.enabled = false;
        
     }
 
@@ -41,30 +38,14 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        float targetSpeed = _movementVector == Vector3.zero ? 0 : maxSpeed;
+        if (_movementVector == Vector3.zero) return;
 
-        Vector3 moveVec = camera.transform.TransformDirection(_movementVector);
+        Vector3 moveVec = transform.forward + Vector3.down * 9f;
+        _charController.Move(moveVec * speed * Time.deltaTime);
 
-        // a reference to the players current horizontal velocity
-        float speedOffset = 0.1f;
-        // accelerate or decelerate to target speed
-        if (_currentSpeed < targetSpeed - speedOffset || _currentSpeed > targetSpeed + speedOffset)
-        {
-            _currentSpeed = Mathf.Lerp(_currentSpeed, targetSpeed, Time.deltaTime * speedChangeRate);
-        }
-        else
-        {
-            _currentSpeed = targetSpeed;
-        }
-        moveVec *= _currentSpeed;
-        moveVec.y = -9f;
-        _charController.Move(moveVec * Time.deltaTime);
+        float _angle = Mathf.Atan2(_movementVector.x, _movementVector.z) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.AngleAxis(_angle + camera.transform.eulerAngles.y, Vector3.up), Time.deltaTime * rotationSpeed);
 
-        if (targetSpeed != 0)
-        {
-            float _angle = Mathf.Atan2(_movementVector.x, _movementVector.z) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.AngleAxis(_angle + camera.transform.eulerAngles.y, Vector3.up), Time.deltaTime * rotationSpeed);
-        }
     }
 
     //It is important the method is named this way for the input system to find it.
