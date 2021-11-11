@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
     private CharacterController _charController;
     // private GameObject _collisionDetector;
 
+    [SerializeField] private bool _controllerLocked = false;
+
     private void Awake()
     {
         // interactDetection.enabled = false;
@@ -41,6 +43,9 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (_controllerLocked)
+            return;
+
         float targetSpeed = _movementVector == Vector3.zero ? 0 : maxSpeed;
 
         Vector3 moveVec = camera.transform.TransformDirection(_movementVector);
@@ -88,5 +93,10 @@ public class PlayerController : MonoBehaviour
     public void Die()
     {
         Destroy(gameObject);
+    }
+
+    public void ToggleControllerLocked()
+    {
+        _controllerLocked = !_controllerLocked;
     }
 }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3099129015992146730}
   - component: {fileID: 3099129015992146728}
   - component: {fileID: 3099129015992146731}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: KillTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67,7 +67,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3099129016274849287}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Point 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 3099129016599626298}
   - component: {fileID: 3099129016599626303}
   - component: {fileID: 3099129016599626302}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BasicEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -240,7 +240,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3099129017147693322}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Prefab_BasicEnemyContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -273,7 +273,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3099129017326282679}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Point 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -304,7 +304,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3099129017794378305}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PatrolPath
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -339,7 +339,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3085909537355799073}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Point 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -370,7 +370,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9113132290959179893}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Point 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
