@@ -28,6 +28,7 @@ public class Closet : MonoBehaviour, IInteractable
         {
             mesh.enabled = !mesh.enabled;
         }
+        player.GetComponentInChildren<PlayerController>().ToggleControllerLocked();
     }
 
     public void DisplayName()
