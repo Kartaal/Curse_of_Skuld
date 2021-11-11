@@ -7,18 +7,25 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]
-    private float speed = 5f;
+    private float maxSpeed;
 
     [SerializeField]
-    private float rotationSpeed = 2f;
+    private float rotationSpeed;
+
+    [SerializeField]
+    private float speedChangeRate;
 
     [SerializeField]
     private Camera camera;
 
     private Vector3 _movementVector;
 
+    private float _currentSpeed;
+
     private CharacterController _charController;
     // private GameObject _collisionDetector;
+
+    [SerializeField] private bool _controllerLocked = false;
 
     private void Awake()
     {
@@ -36,7 +43,10 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (_movementVector == Vector3.zero) return;
+        if (_controllerLocked)
+            return;
+
+        float targetSpeed = _movementVector == Vector3.zero ? 0 : maxSpeed;
 
         Vector3 moveVec = camera.transform.TransformDirection(_movementVector);
 
@@ -83,5 +93,10 @@ public class PlayerController : MonoBehaviour
     public void Die()
     {
         Destroy(gameObject);
+    }
+
+    public void ToggleControllerLocked()
+    {
+        _controllerLocked = !_controllerLocked;
     }
 }
