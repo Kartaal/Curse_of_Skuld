@@ -26,8 +26,18 @@ public class Closet : MonoBehaviour, IInteractable
     {
         SystemManager.Instance.ClearScreen();
         _isPlayerInside = !_isPlayerInside;
-        if(_isPlayerInside)
-            SystemManager.Instance.DisplayAndClearTextAfterDelay(textToDisplayAfterInteraction,2f);
+        
+        if (_isPlayerInside)
+        {
+            SystemManager.Instance.DisplayAndClearTextAfterDelay(textToDisplayAfterInteraction, 2f);
+            player.GetComponentInChildren<CharacterController>().detectCollisions = false;
+        }
+        else
+        {
+            player.GetComponentInChildren<CharacterController>().detectCollisions = true;
+        }
+        
+
         var childRenderers = player.gameObject.GetComponentsInChildren<MeshRenderer>();
         foreach (var mesh in childRenderers)
         {
