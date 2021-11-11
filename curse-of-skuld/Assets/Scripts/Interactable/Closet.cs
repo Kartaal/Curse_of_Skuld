@@ -1,3 +1,4 @@
+using Cinemachine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -14,6 +15,10 @@ public class Closet : MonoBehaviour, IInteractable
 
     [SerializeField] private string textToDisplayAfterInteraction;
 
+    [SerializeField] private CinemachineVirtualCamera closetCamera;
+
+    [SerializeField] private Canvas closetCanvas;
+
     private bool _isPlayerInside = false;
     
     //Call this function for switching between enable and disable mesh on the character 
@@ -29,6 +34,8 @@ public class Closet : MonoBehaviour, IInteractable
             mesh.enabled = !mesh.enabled;
         }
         player.GetComponentInChildren<PlayerController>().ToggleControllerLocked();
+        closetCamera.gameObject.SetActive(!closetCamera.gameObject.activeInHierarchy);
+        closetCanvas.gameObject.SetActive(!closetCanvas.gameObject.activeInHierarchy);
     }
 
     public void DisplayName()
