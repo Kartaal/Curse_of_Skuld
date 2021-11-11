@@ -37,7 +37,7 @@ public class CollisionDetector : MonoBehaviour
     }
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.GetComponent<IInteractable>()!=null&&collision.gameObject!=null)
+        if (collision.gameObject.GetComponent<IInteractable>()!=null && collision.gameObject!=null)
         {
             collision.gameObject.GetComponent<IInteractable>().DisplayName();
             _isInCollider = true;
