@@ -11,6 +11,7 @@ public class Door : MonoBehaviour,IInteractable
     [SerializeField] private string objectName;
     [SerializeField] private string textToDisplayAfterInteraction;
     [SerializeField] private string textToDisplayIfCannotInteract;
+    
     public void CanOpen()
     {
         _canOpen = true;
