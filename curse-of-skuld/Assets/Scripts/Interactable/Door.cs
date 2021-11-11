@@ -2,27 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Door : MonoBehaviour,IInteractable
 {
     // Start is called before the first frame update
     private bool _canOpen = false;
-    [SerializeField]
-    private float openingSpeed;
-    void Start()
+    [SerializeField] private string objectName;
+    [SerializeField] private string textToDisplayAfterInteraction;
+    [SerializeField] private string textToDisplayIfCannotInteract;
+    
+    public void CanOpen()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void Open()
-    {
-        
         _canOpen = true;
     }
 
@@ -30,18 +21,22 @@ public class Door : MonoBehaviour,IInteractable
     {
         if (_canOpen)
         {
-            StartCoroutine(Opening());
+            SystemManager.Instance.ClearScreen();
+            SystemManager.Instance.DisplayAndClearTextAfterDelay(textToDisplayAfterInteraction,4f);
+            Destroy(this.gameObject);
             // this.GetComponent<MeshRenderer>().enabled = false;
+        }
+        else
+        {
+            SystemManager.Instance.ClearScreen();
+            SystemManager.Instance.DisplayAndClearTextAfterDelay(textToDisplayIfCannotInteract,4f);
         }
     }
 
-    IEnumerator Opening()
+    public void DisplayName()
     {
-        this.transform.position =
-            new Vector3(transform.position.x, transform.position.y, transform.position.z + openingSpeed);
-        yield return new WaitForSeconds(0.2f);
-        if (this.gameObject.transform.position.z < 65)
-            StartCoroutine(Opening());
-
+        SystemManager.Instance.DisplayTextOnScreen(objectName);
     }
+
+    
 }
