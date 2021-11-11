@@ -113,21 +113,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: Note 1
   textToDisplayAfterInteraction: 'Lorem ipsum dolor sit amet, consectetur adipiscing
-    elit. Fusce tincidunt erat quam, eget faucibus purus accumsan ac. Mauris ornare
-    risus turpis, vel aliquet diam varius id. Phasellus et orci risus. Nam id vestibulum
-    ligula. Pellentesque semper finibus orci et tincidunt. Quisque facilisis pretium
-    nunc nec pellentesque. In bibendum nunc commodo purus euismod, eu varius augue
-    aliquet. Suspendisse mattis dapibus neque, ac tincidunt lacus feugiat id. Class
-    aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
-    Praesent egestas a tortor et egestas. Donec eget quam nisi. Phasellus ligula
-    diam, consequat at risus vel, sagittis lobortis sem.
+    elit. Fusce tincidunt erat quam, eget faucibus purus accumsan ac.
 
-    
 
-    Etiam venenatis
-    eleifend tincidunt. Phasellus vulputate ultricies lacus, vel malesuada tortor
-    varius sed. Aliquam suscipit semper bibendum. Nulla turpis odio, pretium eget
-    pulvinar at, euismod eu nisi. Curabitur euismod mauris eget congue lobortis.
-    Proin viverra est ultrices purus lobortis, non laoreet ante ornare. Morbi ac
-    tellus eu orci porta porta. Morbi ultricies ex eu ex accumsan, ac ornare nisl
-    fringilla. Nullam varius pharetra cursus.'
+
+    Etiam
+    venenatis eleifend tincidunt. Phasellus vulputate ultricies lacus, vel malesuada
+    tortor varius sed. Aliquam suscipit semper bibendum.'

@@ -12,8 +12,8 @@ public class Note : MonoBehaviour, IInteractable
 
     private void Awake()
     {
-        // Ensure note UI isn't displayed, bad because of finding by name...
-        GameObject.Find("NoteUIContainer").SetActive(false);
+        // Delay to ensure SystemManager can find the NoteUI before it is set to inactive
+        StartCoroutine(HideNoteUIAfterDelay(0.5f));
     }
 
     public void Interact()
@@ -33,5 +33,13 @@ public class Note : MonoBehaviour, IInteractable
     public void DisplayName()
     {
         SystemManager.Instance.DisplayTextOnScreen(objectName);
+    }
+
+
+    private IEnumerator HideNoteUIAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        // Ensure note UI isn't displayed, bad because of finding by name...
+        GameObject.Find("NoteUIContainer").SetActive(false);
     }
 }

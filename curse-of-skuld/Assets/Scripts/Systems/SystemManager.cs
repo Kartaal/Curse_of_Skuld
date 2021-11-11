@@ -23,7 +23,7 @@ public class SystemManager : MonoBehaviour
     [SerializeField]
     private Text text;
 
-    [SerializeField] private GameObject _note;
+    private GameObject _note;
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -40,6 +40,8 @@ public class SystemManager : MonoBehaviour
     {
         _currentScene = SceneManager.GetActiveScene();
         Cursor.visible = false;
+        // Really ugly hack but prevents issues of forgetting references in editor
+        _note = GameObject.Find("NoteUIContainer").gameObject;
     }
 
     public void ResetScene()
