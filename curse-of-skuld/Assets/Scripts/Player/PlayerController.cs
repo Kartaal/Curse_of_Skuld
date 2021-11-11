@@ -18,6 +18,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Camera camera;
 
+    [SerializeField]
+    private Animator moveAnim;
+
     private Vector3 _movementVector;
 
     private float _currentSpeed;
@@ -47,6 +50,9 @@ public class PlayerController : MonoBehaviour
             return;
 
         float targetSpeed = _movementVector == Vector3.zero ? 0 : maxSpeed;
+
+        if(moveAnim != null)
+            moveAnim.SetBool("IsMoving", _movementVector != Vector3.zero);
 
         Vector3 moveVec = camera.transform.TransformDirection(_movementVector);
 
