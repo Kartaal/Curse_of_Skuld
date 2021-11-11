@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class Closet : MonoBehaviour, IInteractable
 {
     // Start is called before the first frame update
-    [SerializeField] private GameObject player;
+    private GameObject player;
 
     [SerializeField] private string objectName;
 
@@ -22,6 +22,11 @@ public class Closet : MonoBehaviour, IInteractable
     private bool _isPlayerInside = false;
     
     //Call this function for switching between enable and disable mesh on the character 
+    public void Start()
+    {
+        player = SystemManager.Instance.playerGameObject;
+    }
+
     public void Interact()
     {
         SystemManager.Instance.ClearScreen();

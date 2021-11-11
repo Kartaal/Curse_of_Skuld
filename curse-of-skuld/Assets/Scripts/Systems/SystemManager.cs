@@ -11,13 +11,15 @@ public class SystemManager : MonoBehaviour
 {
 
     private static SystemManager _instance;
-    
     public static SystemManager Instance
     {
         get { return _instance; }
     }
-
+    
     private Scene _currentScene;
+    
+   
+    public GameObject playerGameObject;
     
     [SerializeField]
     private Text text;
@@ -31,6 +33,9 @@ public class SystemManager : MonoBehaviour
         {
             _instance = this;
         }
+
+       // var temp = FindObjectOfType<PlayerController>();
+       //  _playerGameObject = temp.gameObject;
     }
 
     private void Start()
