@@ -29,17 +29,9 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(_playerTransform.position);
-        NavMeshHit hit;
-        if (!_agent.Raycast(_playerTransform.position, out hit))
+        if (!_agent.pathPending && _agent.remainingDistance < 0.5f)
         {
-            Debug.Log("Line of sight");
-            Debug.DrawRay(_agent.transform.position, hit.position);
-            Chase(hit);
-        }
-        else if (!_agent.pathPending && _agent.remainingDistance < 0.5f)
-        {
-            Patrol();
+            //Patrol();
         }
     }
 
@@ -72,12 +64,15 @@ public class Enemy : MonoBehaviour
         
     }
 
-    private void Chase(NavMeshHit hit)
+    private void Chase()
     {
-        if (_agent.speed != enemyData.ChaseSpeed)
-        {
-            _agent.speed = enemyData.ChaseSpeed;
-        }
-        _agent.destination = hit.position;
+
+    }
+    public NavMeshAgent Agent => _agent;
+
+    public Transform PlayerTransform
+    {
+        get => _playerTransform;
+        set => _playerTransform = value;
     }
 }
