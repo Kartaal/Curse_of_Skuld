@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor.Searcher;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -69,7 +70,8 @@ public class Enemy : MonoBehaviour
             case State.Search:
                 Debug.Log("Search");
                 if (!_searching)
-                    StartCoroutine(Search(2f));
+                    StartCoroutine(StartSearch(2f));
+                Search();
                 break;
         }
     }
@@ -119,12 +121,20 @@ public class Enemy : MonoBehaviour
         _state = State.Patrol;
     }
 
-    private IEnumerator Search(float searchDuration)
+    private void Search()
+    {
+        if(!_agent.pathPending && _agent.remainingDistance < 0.5f)
+        {
+            Vector3 searchDir = (_playerTransform.position - transform.position).normalized;
+            NavMeshHit hit;
+            if(NavMesh.SamplePosition(searchDir * 5, out hit, 10, NavMesh.AllAreas))
+                _agent.destination = hit.position;
+        }
+    }
+    private IEnumerator StartSearch(float searchDuration)
     {
         _searching = true;
         _agent.speed = enemyData.MoveSpeed;
-        Vector3 searchDir = (_playerTransform.position - _lastKnownLocation).normalized;
-        
         yield return new WaitForSeconds(searchDuration);
         _agent.ResetPath();
         _searching = false;
