@@ -49,26 +49,24 @@ public class Enemy : MonoBehaviour
         switch (_state)
         {
             case State.Patrol:
-                Debug.Log("Patrol");
                 Patrol();
                 break;
             
             case State.Chase:
-                Debug.Log("Chase");
-                Chase();
                 if (_playerTransform == null)
                 {
                     StartCoroutine(ResumePatrol());
+                    break;
                 }
                 else if (_playerTransform.position != _lastKnownLocation)
                 {
-                    Debug.Log("yay");
                     _state = State.Search;
+                    break;
                 }
+                Chase();
                 break;
                 
             case State.Search:
-                Debug.Log("Search");
                 if (!_searching)
                     StartCoroutine(StartSearch(2f));
                 Search();
@@ -112,7 +110,20 @@ public class Enemy : MonoBehaviour
     {
         _agent.speed = enemyData.ChaseSpeed;
         _agent.destination = _lastKnownLocation;
-        
+        NavMeshHit hit;
+        if (!_agent.Raycast(_playerTransform.position, out hit))
+        {
+            if (hit.distance < enemyData.KillDistance)
+            {
+                KillPlayer();
+            }
+        }
+    }
+
+    private void KillPlayer()
+    {
+        var player = _playerTransform.GetComponent<PlayerController>();
+        player.Die();
     }
 
     private IEnumerator ResumePatrol()
@@ -126,8 +137,12 @@ public class Enemy : MonoBehaviour
         if(!_agent.pathPending && _agent.remainingDistance < 0.5f)
         {
             Vector3 searchDir = (_playerTransform.position - transform.position).normalized;
+            Vector3 searchLocation = _lastKnownLocation + searchDir * 3f;
+            Vector2 random2DPoint = UnityEngine.Random.insideUnitCircle * 5f;
+            Vector3 randomPointInSearchDir = searchLocation + new Vector3(random2DPoint.x, searchLocation.y, random2DPoint.y );
+            
             NavMeshHit hit;
-            if(NavMesh.SamplePosition(searchDir * 5, out hit, 10, NavMesh.AllAreas))
+            if(NavMesh.SamplePosition(randomPointInSearchDir, out hit, 1, NavMesh.AllAreas))
                 _agent.destination = hit.position;
         }
     }

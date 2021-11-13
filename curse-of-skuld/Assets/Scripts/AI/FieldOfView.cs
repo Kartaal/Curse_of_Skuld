@@ -40,7 +40,6 @@ public class FieldOfView : MonoBehaviour
         {
             if (!_enemy.Agent.Raycast(player.position, out _hit))
             {
-                Debug.Log("Spotted");
                 _enemy.PlayerSpotted(player.position);
                 _playerVisualization = player;
             }
