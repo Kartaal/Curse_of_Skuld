@@ -55,6 +55,8 @@ public class PlayerController : MonoBehaviour
             moveAnim.SetBool("IsMoving", _movementVector != Vector3.zero);
 
         Vector3 moveVec = camera.transform.TransformDirection(_movementVector);
+        moveVec.y = 0;
+        moveVec.Normalize();
 
         // a reference to the players current horizontal velocity
         float speedOffset = 0.1f;
