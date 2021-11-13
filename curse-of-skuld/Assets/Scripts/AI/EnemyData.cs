@@ -8,8 +8,11 @@ public class EnemyData : ScriptableObject
 {
     [SerializeField] private float moveSpeed;
     [SerializeField] private float chaseSpeed;
+    [SerializeField] private float killDistance;
 
     public float MoveSpeed => moveSpeed;
 
     public float ChaseSpeed => chaseSpeed;
+
+    public float KillDistance => killDistance;
 }
