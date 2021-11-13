@@ -68,7 +68,7 @@ public class Enemy : MonoBehaviour
                 
             case State.Search:
                 if (!_searching)
-                    StartCoroutine(StartSearch(2f));
+                    StartCoroutine(StartSearch());
                 Search();
                 break;
         }
@@ -146,11 +146,11 @@ public class Enemy : MonoBehaviour
                 _agent.destination = hit.position;
         }
     }
-    private IEnumerator StartSearch(float searchDuration)
+    private IEnumerator StartSearch()
     {
         _searching = true;
         _agent.speed = enemyData.MoveSpeed;
-        yield return new WaitForSeconds(searchDuration);
+        yield return new WaitForSeconds(enemyData.SearchDuration);
         _agent.ResetPath();
         _searching = false;
         _state = State.Patrol;
