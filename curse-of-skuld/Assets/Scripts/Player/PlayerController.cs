@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour
 {
@@ -30,6 +31,13 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private bool _controllerLocked = false;
 
+    [FormerlySerializedAs("sprintActualSpeed")]
+    [Header("SprintSetting")] 
+    [SerializeField] float sprintMovementSpeed;
+    [SerializeField] float sprintAnimSpeedMultiplier;
+
+    private float _tempMaxSpeed;
+    
     private void Awake()
     {
         // interactDetection.enabled = false;
@@ -41,6 +49,9 @@ public class PlayerController : MonoBehaviour
         _charController = GetComponent<CharacterController>();
         Vector3 moveVec = transform.forward + Vector3.down * 30f;
         _charController.Move(moveVec);
+        
+        // probably needs change
+        _tempMaxSpeed = maxSpeed;
 
     }
 
@@ -50,7 +61,7 @@ public class PlayerController : MonoBehaviour
             return;
 
         float targetSpeed = _movementVector == Vector3.zero ? 0 : maxSpeed;
-
+        
         if(moveAnim != null)
             moveAnim.SetBool("IsMoving", _movementVector != Vector3.zero);
 
@@ -98,6 +109,19 @@ public class PlayerController : MonoBehaviour
     {
         SystemManager.Instance.ResetScene();
     }
+
+    public void OnStartSprint()
+    {
+        maxSpeed = sprintMovementSpeed;
+        moveAnim.SetFloat("Speed",sprintAnimSpeedMultiplier);
+    }
+
+    public void OnStopSprint()
+    {
+        maxSpeed = _tempMaxSpeed;
+        moveAnim.SetFloat("Speed",1);
+    }
+    
     public void Die()
     {
         print("Died");
