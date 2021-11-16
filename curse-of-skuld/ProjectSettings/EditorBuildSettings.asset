@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Prototype_Scene.unity
     guid: ac41ad8b362f96b47bcf74e2e36c9847
+  - enabled: 1
+    path: Assets/Scenes/Scene_Mahmoud.unity
+    guid: cab9ed774463b52408068df31cb26b78
+  - enabled: 1
+    path: Assets/Scenes/Scene_Win.unity
+    guid: 32cdf2c66d16a76409de2e595e3c8b15
   m_configObjects: {}
