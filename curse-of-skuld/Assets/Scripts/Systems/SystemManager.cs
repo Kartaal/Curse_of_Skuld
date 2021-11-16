@@ -22,7 +22,7 @@ public class SystemManager : MonoBehaviour
     public GameObject playerGameObject;
     
     [SerializeField]
-    private Text text;
+    private Text UItext;
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -55,17 +55,17 @@ public class SystemManager : MonoBehaviour
     
     public void ClearScreen()
     {
-        text.GetComponent<Text>().text ="";
+        UItext.text ="";
     }
 
     public void DisplayTextOnScreen(string textToDisplay)
     {
-        text.GetComponent<Text>().text = textToDisplay;
+        UItext.text = textToDisplay;
     }
 
     public void DisplayAndClearTextAfterDelay(string textToDisplay,float Delay)
     {
-        text.GetComponent<Text>().text = textToDisplay;
+        UItext.text = textToDisplay;
         StartCoroutine(ShortDelay(Delay));
     }
 
@@ -73,6 +73,6 @@ public class SystemManager : MonoBehaviour
     {
         
         yield return new WaitForSeconds(3f);
-        text.GetComponent<Text>().text = "";
+        UItext.text = "";
     }
 }

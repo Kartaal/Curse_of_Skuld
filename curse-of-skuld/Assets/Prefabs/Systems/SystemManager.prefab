@@ -45,4 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerGameObject: {fileID: 0}
-  text: {fileID: 0}
+  UItext: {fileID: 0}
