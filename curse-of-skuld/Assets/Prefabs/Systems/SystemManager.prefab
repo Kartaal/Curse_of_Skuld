@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8223161222343044308}
   - component: {fileID: 8223161222343044309}
+  - component: {fileID: 1699369532}
   m_Layer: 0
   m_Name: SystemManager
   m_TagString: Untagged
@@ -46,3 +47,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerGameObject: {fileID: 0}
   UItext: {fileID: 0}
+--- !u!114 &1699369532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8223161222343044310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74293a9e87d00f7468b9479c4987273d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  staminaBar: {fileID: 0}
+  maxStamina: 1
+  currentStamina: 0
+  increasingStaminaTime: 0.01
+  increaseingStaminaAmount: 0.01
+  decreasingStaminaTime: 0.01
+  decreasingStaminaAmount: 0.01

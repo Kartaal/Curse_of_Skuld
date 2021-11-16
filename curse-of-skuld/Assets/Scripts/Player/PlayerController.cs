@@ -33,10 +33,11 @@ public class PlayerController : MonoBehaviour
 
     [FormerlySerializedAs("sprintActualSpeed")]
     [Header("SprintSetting")] 
-    [SerializeField] float sprintMovementSpeed;
-    [SerializeField] float sprintAnimSpeedMultiplier;
-
+    [SerializeField] private float sprintMovementSpeed;
+    [SerializeField] private float sprintAnimSpeedMultiplier;
+    private bool _canSprint;
     private float _tempMaxSpeed;
+    
     
     private void Awake()
     {
@@ -52,7 +53,7 @@ public class PlayerController : MonoBehaviour
         
         // probably needs change
         _tempMaxSpeed = maxSpeed;
-
+        _canSprint = false;
     }
 
     void Update()
@@ -89,6 +90,18 @@ public class PlayerController : MonoBehaviour
             float _angle = Mathf.Atan2(_movementVector.x, _movementVector.z) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.AngleAxis(_angle + camera.transform.eulerAngles.y, Vector3.up), Time.deltaTime * rotationSpeed);
         }
+        
+        //Sprint
+        if (StaminaManager.Instance.currentStamina != 0&& _canSprint )
+        {
+            maxSpeed = sprintMovementSpeed;
+            moveAnim.SetFloat("Speed",sprintAnimSpeedMultiplier);
+        }
+        else
+        {
+            maxSpeed = _tempMaxSpeed;
+            moveAnim.SetFloat("Speed",1);
+        }
     }
 
     //It is important the method is named this way for the input system to find it.
@@ -112,14 +125,14 @@ public class PlayerController : MonoBehaviour
 
     public void OnStartSprint()
     {
-        maxSpeed = sprintMovementSpeed;
-        moveAnim.SetFloat("Speed",sprintAnimSpeedMultiplier);
+        StaminaManager.Instance.StartDecreaseStamina();
+        _canSprint = true;
     }
 
     public void OnStopSprint()
     {
-        maxSpeed = _tempMaxSpeed;
-        moveAnim.SetFloat("Speed",1);
+        _canSprint = false;
+        StaminaManager.Instance.StopDecreasingStamina();
     }
     
     public void Die()
