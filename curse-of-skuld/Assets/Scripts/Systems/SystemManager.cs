@@ -42,6 +42,7 @@ public class SystemManager : MonoBehaviour
     {
         _currentScene = SceneManager.GetActiveScene();
         Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void ResetScene()
