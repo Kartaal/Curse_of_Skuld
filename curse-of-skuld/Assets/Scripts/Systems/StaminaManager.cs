@@ -40,6 +40,7 @@ public class StaminaManager : MonoBehaviour
 
     public void Start()
     {
+        if(staminaBar!=null)
         staminaBar.value = maxStamina;
         currentStamina = maxStamina;
     }
