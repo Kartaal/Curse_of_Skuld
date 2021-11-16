@@ -100,7 +100,15 @@ public class PlayerController : MonoBehaviour
     }
     public void Die()
     {
-        Destroy(gameObject);
+        print("Died");
+        var childRenderers = gameObject.GetComponentsInChildren<MeshRenderer>();
+        foreach (var mesh in childRenderers)
+        {
+            mesh.enabled = !mesh.enabled;
+        }
+
+        gameObject.GetComponent<PlayerController>().enabled = false;
+        // Destroy(gameObject);
     }
 
     public void ToggleControllerLocked()
