@@ -107,4 +107,10 @@ public class PlayerController : MonoBehaviour
     {
         _controllerLocked = !_controllerLocked;
     }
+
+    public void MoveTo(Vector3 position, Vector3 lookAt)
+    {
+        this.transform.position = position;
+        this.transform.LookAt(lookAt);
+    }
 }
