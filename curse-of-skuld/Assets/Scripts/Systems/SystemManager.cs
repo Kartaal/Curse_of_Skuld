@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -22,7 +23,7 @@ public class SystemManager : MonoBehaviour
     public GameObject playerGameObject;
     
     [SerializeField]
-    private Text UItext;
+    private TextMeshProUGUI UItext;
     private void Awake()
     {
         if (_instance != null && _instance != this)

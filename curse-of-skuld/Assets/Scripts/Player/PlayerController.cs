@@ -155,7 +155,10 @@ public class PlayerController : MonoBehaviour
 
     public void MoveTo(Vector3 position, Vector3 lookAt)
     {
+        //character controller resets the position, so it needs to be disabled to set it
+        _charController.enabled = false;
         this.transform.position = position;
         this.transform.LookAt(lookAt);
+        _charController.enabled = true;
     }
 }
