@@ -40,6 +40,7 @@ public class Closet : MonoBehaviour, IInteractable
         else
         {
             player.GetComponentInChildren<CharacterController>().detectCollisions = true;
+            player.GetComponentInChildren<PlayerController>().MoveTo(this.transform.position - this.transform.forward, this.transform.position - this.transform.forward * 20);
         }
         
 
