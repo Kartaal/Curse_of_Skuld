@@ -37,12 +37,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float sprintAnimSpeedMultiplier;
     private bool _canSprint;
     private float _tempMaxSpeed;
+
+    private bool _dead;
     
     
     private void Awake()
     {
-        // interactDetection.enabled = false;
-       
+        _dead = false;
     }
 
     void Start()
@@ -145,7 +146,7 @@ public class PlayerController : MonoBehaviour
         }
 
         enabled = false;
-        // Destroy(gameObject);
+        _dead = true;
     }
 
     public void ToggleControllerLocked()
@@ -161,4 +162,6 @@ public class PlayerController : MonoBehaviour
         this.transform.LookAt(lookAt);
         _charController.enabled = true;
     }
+
+    public bool Dead => _dead;
 }
