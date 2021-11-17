@@ -144,7 +144,7 @@ public class PlayerController : MonoBehaviour
             mesh.enabled = !mesh.enabled;
         }
 
-        gameObject.GetComponent<PlayerController>().enabled = false;
+        enabled = false;
         // Destroy(gameObject);
     }
 
