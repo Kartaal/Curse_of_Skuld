@@ -53,7 +53,7 @@ public class Enemy : MonoBehaviour
                 break;
             
             case State.Chase:
-                if (_playerTransform == null)
+                if (_playerTransform.GetComponent<PlayerController>().Dead)
                 {
                     StartCoroutine(ResumePatrol());
                     break;
