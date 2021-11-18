@@ -1,0 +1,24 @@
+/**
+ * Free Old Paper Stock Photos
+ *
+ * URL: http://designinstruct.com/free-resources/stock-photos/free-old-paper-stock-photos/
+ *
+ * This downloadable freebie source file package includes 5
+ * photos of old paper.
+ *
+ * You MAY use the source files in this package for commercial
+ * purposes.
+ *
+ * You MAY NOT redistribute or sell the source files in this package.
+ *
+ * Design Instruct (designinstruct.com)
+ *
+ * LICENSE: This source file package is subject to the
+ * Design Instruct Downloadable Freebie Files Usage Terms
+ * that is viewable through the following URL:
+ * http://designinstruct.com/freebie-usage-terms/
+ *
+ * Author     Isaac Gube (designinstruct.com)
+ * Copyright  Design Instruct
+ * License    http://designinstruct.com/freebie-usage-terms/
+ */
