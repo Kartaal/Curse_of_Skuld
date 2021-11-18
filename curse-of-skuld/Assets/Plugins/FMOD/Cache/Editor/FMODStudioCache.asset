@@ -79,7 +79,7 @@ MonoBehaviour:
   Labels:
   - walking
   - running
-  Exists: 0
+  Exists: 1
 --- !u!114 &-5400085105373293130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,33 +106,6 @@ MonoBehaviour:
   - walking
   - running
   Exists: 0
---- !u!114 &-2502557979261457071
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/FS_Boots/Material
-  m_EditorClassIdentifier: 
-  Name: Material
-  StudioPath: 
-  Min: 0
-  Max: 2
-  Default: 0
-  ID:
-    data1: 0
-    data2: 0
-  Type: 2
-  IsGlobal: 0
-  Labels:
-  - Stone
-  - Grass
-  - Wood
-  Exists: 1
 --- !u!114 &-537096047970470654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,7 +132,7 @@ MonoBehaviour:
   - Stone
   - Grass
   - Wood
-  Exists: 0
+  Exists: 1
 --- !u!114 &-347120214726356802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,7 +183,7 @@ MonoBehaviour:
   - {fileID: 3702260848228244771}
   StringsBanks:
   - {fileID: 6863431473704130039}
-  cacheTime: 637728363537295758
+  cacheTime: 637728349315884494
   cacheVersion: 9
 --- !u!114 &711112637671641935
 MonoBehaviour:
@@ -289,8 +262,8 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: 7589715614548188728}
-  - {fileID: -2502557979261457071}
+  - {fileID: -5914536917832965140}
+  - {fileID: -537096047970470654}
   MinDistance: 1
   MaxDistance: 20
   Length: 0
@@ -362,7 +335,7 @@ MonoBehaviour:
   Path: FMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637728363537107453
+  lastModified: 637728349315840768
   FileSizes:
   - Name: Desktop
     Value: 99872
@@ -409,36 +382,10 @@ MonoBehaviour:
   Path: FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637728363537295758
+  lastModified: 637728349315884494
   FileSizes:
   - Name: Desktop
     Value: 1062
-  Exists: 1
---- !u!114 &7589715614548188728
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/FS_Boots/WalkRun
-  m_EditorClassIdentifier: 
-  Name: WalkRun
-  StudioPath: 
-  Min: 0
-  Max: 1
-  Default: 0
-  ID:
-    data1: 0
-    data2: 0
-  Type: 2
-  IsGlobal: 0
-  Labels:
-  - walking
-  - running
   Exists: 1
 --- !u!114 &7707929080160559178
 MonoBehaviour:
