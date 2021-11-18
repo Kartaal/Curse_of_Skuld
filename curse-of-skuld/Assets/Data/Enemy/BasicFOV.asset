@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a685537a1c1c24fa0c52bb05cf6a33, type: 3}
   m_Name: BasicFOV
   m_EditorClassIdentifier: 
-  viewRadius: 19.25
-  viewAngle: 67
+  viewRadius: 5
+  viewAngle: 60
