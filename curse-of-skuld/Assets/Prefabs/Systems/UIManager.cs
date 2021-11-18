@@ -64,4 +64,9 @@ public class UIManager : MonoBehaviour
         yield return new WaitForSeconds(3f);
         _noticeText.text = "";
     }
+
+    public void OnInteract()
+    {
+        this.ClearNote();
+    }
 }

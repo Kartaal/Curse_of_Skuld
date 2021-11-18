@@ -1457,10 +1457,23 @@ PrefabInstance:
       propertyPath: m_Name
       value: Root
       objectReference: {fileID: 0}
+    - target: {fileID: 2915714632326628373, guid: 6dcefe49a934b344192723f0db92c7d1,
+        type: 3}
+      propertyPath: m_text
+      value: "Sorry I won\u2019t be staying through the night, this place is making
+        my hairs stand on end, so I won\u2019t be sticking around the castle for
+        any longer than I must.\r\n\r\nI know this place is important to you given
+        your history with this pile of rocks and the people who used to live here
+        but I\u2019m hearing what sounds like voices and it\u2019s not your snoring,
+        and I don\u2019t want to hang around waiting for you to wake up with these
+        noises coming from inside. Guess what they say about past mistakes haunting
+        you is more literal in your case huh? Good luck.  \r\n\r\nI hope you can
+        find the redemption you\u2019re looking for. \r\n"
+      objectReference: {fileID: 0}
     - target: {fileID: 2915714634202600141, guid: 6dcefe49a934b344192723f0db92c7d1,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4285905943347346642, guid: 6dcefe49a934b344192723f0db92c7d1,
         type: 3}
@@ -1491,6 +1504,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4285905943347346644, guid: 6dcefe49a934b344192723f0db92c7d1,
+        type: 3}
+      propertyPath: m_DefaultBlend.m_Time
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4327663118397150843, guid: 6dcefe49a934b344192723f0db92c7d1,
         type: 3}
