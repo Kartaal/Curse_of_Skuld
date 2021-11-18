@@ -20,21 +20,21 @@ public class Door : MonoBehaviour,IInteractable
     {
         if (_canOpen)
         {
-            SystemManager.Instance.ClearScreen();
-            SystemManager.Instance.DisplayAndClearTextAfterDelay(textToDisplayAfterInteraction,4f);
+            UIManager.Instance.ClearScreen();
+            UIManager.Instance.DisplayAndClearTextAfterDelay(textToDisplayAfterInteraction,4f);
             Destroy(this.gameObject);
             // this.GetComponent<MeshRenderer>().enabled = false;
         }
         else
         {
-            SystemManager.Instance.ClearScreen();
-            SystemManager.Instance.DisplayAndClearTextAfterDelay(textToDisplayIfCannotInteract,4f);
+            UIManager.Instance.ClearScreen();
+            UIManager.Instance.DisplayAndClearTextAfterDelay(textToDisplayIfCannotInteract,4f);
         }
     }
 
     public void DisplayName()
     {
-        SystemManager.Instance.DisplayTextOnScreen(objectName);
+        UIManager.Instance.DisplayTextOnScreen(objectName);
     }
 
     

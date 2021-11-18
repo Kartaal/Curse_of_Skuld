@@ -48,7 +48,8 @@ public class CollisionDetector : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<IInteractable>()!=null&&collision.gameObject!=null)
         {
-            SystemManager.Instance.ClearScreen();
+            UIManager.Instance.ClearScreen();
+            UIManager.Instance.ClearNote();
             _isInCollider = false;
             _other = null;
         }
