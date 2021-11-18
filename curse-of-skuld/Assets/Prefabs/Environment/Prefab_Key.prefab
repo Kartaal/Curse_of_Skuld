@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8708705472176781552}
   - component: {fileID: 5593059571515995479}
   - component: {fileID: -4468588368040845366}
+  - component: {fileID: 9084698764056465423}
   m_Layer: 0
   m_Name: Prefab_Key
   m_TagString: Untagged
@@ -157,3 +158,34 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2817675935878334107}
   m_PrefabAsset: {fileID: 0}
+  textToDisplayAfterInteraction: Picked the key
+--- !u!114 &9084698764056465423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3161389408014029006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 696204270
+      Data2: 1303018451
+      Data3: -2038536522
+      Data4: -1643541997
+    Path: event:/FX/FX_Key
+  Event: 
+  PlayEvent: 2
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 1
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
