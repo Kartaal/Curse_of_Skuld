@@ -12,19 +12,13 @@ public class SystemManager : MonoBehaviour
 {
 
     private static SystemManager _instance;
-    public static SystemManager Instance
-    {
-        get { return _instance; }
-    }
-    
+    public static SystemManager Instance => _instance;
+
     private Scene _currentScene;
     
    
     public GameObject playerGameObject;
-    
-    [SerializeField]
-    private TextMeshProUGUI UItext;
-    [SerializeField] private GameObject _noteContainer;
+
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -35,9 +29,6 @@ public class SystemManager : MonoBehaviour
         {
             _instance = this;
         }
-
-       // var temp = FindObjectOfType<PlayerController>();
-       //  _playerGameObject = temp.gameObject;
     }
 
     private void Start()
@@ -50,43 +41,5 @@ public class SystemManager : MonoBehaviour
     public void ResetScene()
     {
         SceneManager.LoadScene(_currentScene.name);
-    }
-
-    
-    //UI manager 
-    
-    public void ClearScreen()
-    {
-        UItext.text ="";
-    }
-
-    public void ClearNote()
-    {
-        _noteContainer.GetComponentInChildren<TextMeshProUGUI>().text = "";
-        _noteContainer.SetActive(false);
-    }
-
-    public void DisplayTextOnScreen(string textToDisplay)
-    {
-        UItext.text = textToDisplay;
-    }
-    
-    public void DisplayNoteOnScreen(string textToDisplay)
-    {
-        _noteContainer.GetComponentInChildren<TextMeshProUGUI>().text = textToDisplay;
-        _noteContainer.SetActive(true);
-    }
-
-    public void DisplayAndClearTextAfterDelay(string textToDisplay,float Delay)
-    {
-        UItext.text = textToDisplay;
-        StartCoroutine(ShortDelay(Delay));
-    }
-
-    IEnumerator ShortDelay(float Delay)
-    {
-        
-        yield return new WaitForSeconds(3f);
-        UItext.text = "";
     }
 }

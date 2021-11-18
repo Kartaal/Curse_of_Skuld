@@ -20,18 +20,18 @@ public class Note : MonoBehaviour, IInteractable
     {
         if (!_displayingNoteUI)
         {
-            SystemManager.Instance.DisplayNoteOnScreen(textToDisplayAfterInteraction);
+            UIManager.Instance.DisplayNoteOnScreen(textToDisplayAfterInteraction);
             _displayingNoteUI = true;
         }
         else
         {
-            SystemManager.Instance.ClearNote();
+            UIManager.Instance.ClearNote();
             _displayingNoteUI = false;
         }
     }
 
     public void DisplayName()
     {
-        SystemManager.Instance.DisplayTextOnScreen(objectName);
+        UIManager.Instance.DisplayTextOnScreen(objectName);
     }
 }

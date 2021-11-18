@@ -11,14 +11,14 @@ public class Key : MonoBehaviour, IInteractable
     [SerializeField] private string textToDisplayAfterInteraction;
     public void Interact()
     {
-        SystemManager.Instance.ClearScreen();
-        SystemManager.Instance.DisplayAndClearTextAfterDelay(textToDisplayAfterInteraction,4f);
+        UIManager.Instance.ClearScreen();
+        UIManager.Instance.DisplayAndClearTextAfterDelay(textToDisplayAfterInteraction,4f);
         door.GetComponent<Door>().CanOpen();
         Destroy(this.gameObject);
     }
 
     public void DisplayName()
     {
-        SystemManager.Instance.DisplayTextOnScreen(objectName);
+        UIManager.Instance.DisplayTextOnScreen(objectName);
     }
 }
