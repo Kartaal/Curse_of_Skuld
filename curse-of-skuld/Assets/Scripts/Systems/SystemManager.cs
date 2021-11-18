@@ -24,6 +24,7 @@ public class SystemManager : MonoBehaviour
     
     [SerializeField]
     private TextMeshProUGUI UItext;
+    [SerializeField] private GameObject _noteContainer;
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -59,9 +60,21 @@ public class SystemManager : MonoBehaviour
         UItext.text ="";
     }
 
+    public void ClearNote()
+    {
+        _noteContainer.GetComponentInChildren<TextMeshProUGUI>().text = "";
+        _noteContainer.SetActive(false);
+    }
+
     public void DisplayTextOnScreen(string textToDisplay)
     {
         UItext.text = textToDisplay;
+    }
+    
+    public void DisplayNoteOnScreen(string textToDisplay)
+    {
+        _noteContainer.GetComponentInChildren<TextMeshProUGUI>().text = textToDisplay;
+        _noteContainer.SetActive(true);
     }
 
     public void DisplayAndClearTextAfterDelay(string textToDisplay,float Delay)
