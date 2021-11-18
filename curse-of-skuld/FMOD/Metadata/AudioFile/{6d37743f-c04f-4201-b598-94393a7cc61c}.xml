@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{6d37743f-c04f-4201-b598-94393a7cc61c}">
+		<property name="assetPath">
+			<value>FX/FX_MonsterGrowl.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>96</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>2.3713958333333331</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{dbf35ea9-e9ed-4555-8cb8-256a5931934b}</destination>
+		</relationship>
+	</object>
+</objects>
