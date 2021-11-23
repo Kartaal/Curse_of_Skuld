@@ -149,6 +149,12 @@ public class PlayerController : MonoBehaviour
         _dead = true;
     }
 
+    public void Trapped()
+    {
+        _tempMaxSpeed= 0;
+        sprintMovementSpeed = 0;
+    }
+
     public void ToggleControllerLocked()
     {
         _controllerLocked = !_controllerLocked;
