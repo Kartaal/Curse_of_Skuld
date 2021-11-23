@@ -13,11 +13,13 @@ public class FieldOfView : MonoBehaviour
 
     private Enemy _enemy;
     private Transform _playerVisualization;
+    private int _hitCount;
     NavMeshHit _hit;
 
     private void Awake()
     {
         _enemy = GetComponent<Enemy>();
+        _hitCount = 0;
     }
 
     private void Update()
@@ -38,10 +40,17 @@ public class FieldOfView : MonoBehaviour
         Vector3 dirToTarget = (player.position - transform.position).normalized;
         if (Vector3.Angle(transform.forward, dirToTarget) < ViewAngle / 2)
         {
-            if (!_enemy.Agent.Raycast(player.position, out _hit))
+            _hitCount = 0;
+            var playerDir = player.position - transform.position;
+            if (!Physics.Raycast(_enemy.transform.position, playerDir, viewData.ViewRadius, playerMask))
             {
                 _enemy.PlayerSpotted(player.position);
                 _playerVisualization = player;
+                _hitCount++;
+            }
+            if (!_enemy.Agent.Raycast(player.position, out _hit))
+            {
+                
             }
         }
     }
