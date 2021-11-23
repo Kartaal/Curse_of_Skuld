@@ -18,6 +18,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private EnemyData enemyData;
     [SerializeField] private bool loopPatrol;
     [SerializeField] private Transform [] patrolTargets;
+    [SerializeField] private Animator anim;
    
     private int _arrayDir;
     private int _curr;
@@ -45,7 +46,9 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        
+
+        anim.SetBool("IsChasing", _state == State.Chase);
+
         switch (_state)
         {
             case State.Patrol:

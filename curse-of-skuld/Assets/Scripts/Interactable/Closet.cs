@@ -29,12 +29,12 @@ public class Closet : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        SystemManager.Instance.ClearScreen();
+        UIManager.Instance.ClearScreen();
         _isPlayerInside = !_isPlayerInside;
         
         if (_isPlayerInside)
         {
-            SystemManager.Instance.DisplayAndClearTextAfterDelay(textToDisplayAfterInteraction, 2f);
+            UIManager.Instance.DisplayAndClearTextAfterDelay(textToDisplayAfterInteraction, 2f);
             player.GetComponentInChildren<CharacterController>().detectCollisions = false;
         }
         else
@@ -56,6 +56,6 @@ public class Closet : MonoBehaviour, IInteractable
 
     public void DisplayName()
     {
-       SystemManager.Instance.DisplayTextOnScreen(objectName);
+        UIManager.Instance.DisplayTextOnScreen(objectName);
     }
 }

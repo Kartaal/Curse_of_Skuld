@@ -11,13 +11,13 @@ public class WinObject : MonoBehaviour,IInteractable
     
     public void Interact()
     {
-        SystemManager.Instance.ClearScreen();
-        SystemManager.Instance.DisplayAndClearTextAfterDelay(textToDisplayAfterInteraction,4f);
+        UIManager.Instance.ClearScreen();
+        UIManager.Instance.DisplayAndClearTextAfterDelay(textToDisplayAfterInteraction,4f);
         SceneManager.LoadScene("Scene_Win");
       
     }
     public void DisplayName()
     {
-        SystemManager.Instance.DisplayTextOnScreen(objectName);
+        UIManager.Instance.DisplayTextOnScreen(objectName);
     }
 }
