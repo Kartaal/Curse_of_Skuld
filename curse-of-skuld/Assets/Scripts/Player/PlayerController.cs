@@ -3,24 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField]
-    private float maxSpeed;
+    [SerializeField] private PlayerData playerData;
 
-    [SerializeField]
-    private float rotationSpeed;
+    private Camera _camera;
 
-    [SerializeField]
-    private float speedChangeRate;
-
-    [SerializeField]
-    private Camera camera;
-
-    [SerializeField]
-    private Animator moveAnim;
+    private Animator _moveAnim;
 
     private Vector3 _movementVector;
 
@@ -31,10 +23,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private bool _controllerLocked = false;
 
-    [FormerlySerializedAs("sprintActualSpeed")]
-    [Header("SprintSetting")] 
-    [SerializeField] private float sprintMovementSpeed;
-    [SerializeField] private float sprintAnimSpeedMultiplier;
+    
     private bool _canSprint;
     private float _tempMaxSpeed;
 
@@ -49,11 +38,12 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         _charController = GetComponent<CharacterController>();
+        _moveAnim = GetComponentInChildren<Animator>();
         Vector3 moveVec = transform.forward + Vector3.down * 30f;
         _charController.Move(moveVec);
+        _camera = Camera.main;
         
-        // probably needs change
-        _tempMaxSpeed = maxSpeed;
+        _tempMaxSpeed = playerData.MaxSpeed;
         _canSprint = false;
     }
 
@@ -62,12 +52,12 @@ public class PlayerController : MonoBehaviour
         if (_controllerLocked)
             return;
 
-        float targetSpeed = _movementVector == Vector3.zero ? 0 : maxSpeed;
+        float targetSpeed = _movementVector == Vector3.zero ? 0 : _tempMaxSpeed;
         
-        if(moveAnim != null)
-            moveAnim.SetBool("IsMoving", _movementVector != Vector3.zero);
+        if(_moveAnim != null)
+            _moveAnim.SetBool("IsMoving", _movementVector != Vector3.zero);
 
-        Vector3 moveVec = camera.transform.TransformDirection(_movementVector);
+        Vector3 moveVec = _camera.transform.TransformDirection(_movementVector);
         moveVec.y = 0;
         moveVec.Normalize();
 
@@ -76,7 +66,7 @@ public class PlayerController : MonoBehaviour
         // accelerate or decelerate to target speed
         if (_currentSpeed < targetSpeed - speedOffset || _currentSpeed > targetSpeed + speedOffset)
         {
-            _currentSpeed = Mathf.Lerp(_currentSpeed, targetSpeed, Time.deltaTime * speedChangeRate);
+            _currentSpeed = Mathf.Lerp(_currentSpeed, targetSpeed, Time.deltaTime * playerData.SpeedChangeRate);
         }
         else
         {
@@ -89,19 +79,19 @@ public class PlayerController : MonoBehaviour
         if (targetSpeed != 0)
         {
             float _angle = Mathf.Atan2(_movementVector.x, _movementVector.z) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.AngleAxis(_angle + camera.transform.eulerAngles.y, Vector3.up), Time.deltaTime * rotationSpeed);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.AngleAxis(_angle + _camera.transform.eulerAngles.y, Vector3.up), Time.deltaTime * playerData.RotationSpeed);
         }
         
         //Sprint
         if (StaminaManager.Instance.currentStamina != 0&& _canSprint )
         {
-            maxSpeed = sprintMovementSpeed;
-            moveAnim.SetFloat("Speed",sprintAnimSpeedMultiplier);
+            _tempMaxSpeed = playerData.SprintMaxSpeed;
+            _moveAnim.SetFloat("Speed",playerData.SprintAnimSpeedMultiplier);
         }
         else
         {
-            maxSpeed = _tempMaxSpeed;
-            moveAnim.SetFloat("Speed",1);
+            _tempMaxSpeed = playerData.MaxSpeed;
+            _moveAnim.SetFloat("Speed",1);
         }
     }
 
@@ -138,7 +128,6 @@ public class PlayerController : MonoBehaviour
     
     public void Die()
     {
-        print("Died");
         var childRenderers = gameObject.GetComponentsInChildren<MeshRenderer>();
         foreach (var mesh in childRenderers)
         {
@@ -147,11 +136,19 @@ public class PlayerController : MonoBehaviour
 
         enabled = false;
         _dead = true;
+        StartCoroutine(GoToDeathScreen());
     }
 
+
+    IEnumerator GoToDeathScreen()
+    {
+        yield return new WaitForSeconds(4f);
+        SceneManager.LoadScene("Scene_Lose");
+    }
     public void ToggleControllerLocked()
     {
         _controllerLocked = !_controllerLocked;
+        _moveAnim.SetBool("IsMoving", false);
     }
 
     public void MoveTo(Vector3 position, Vector3 lookAt)
