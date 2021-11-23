@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour
@@ -127,7 +128,6 @@ public class PlayerController : MonoBehaviour
     
     public void Die()
     {
-        print("Died");
         var childRenderers = gameObject.GetComponentsInChildren<MeshRenderer>();
         foreach (var mesh in childRenderers)
         {
@@ -136,8 +136,20 @@ public class PlayerController : MonoBehaviour
 
         enabled = false;
         _dead = true;
+        StartCoroutine(GoToDeathScreen());
     }
 
+    public void Trapped()
+    {
+        _tempMaxSpeed= 0;
+        sprintMovementSpeed = 0;
+    }
+
+    IEnumerator GoToDeathScreen()
+    {
+        yield return new WaitForSeconds(4f);
+        SceneManager.LoadScene("Scene_Lose");
+    }
     public void ToggleControllerLocked()
     {
         _controllerLocked = !_controllerLocked;
