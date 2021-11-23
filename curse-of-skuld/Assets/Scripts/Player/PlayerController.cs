@@ -139,11 +139,6 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(GoToDeathScreen());
     }
 
-    public void Trapped()
-    {
-        _tempMaxSpeed= 0;
-        sprintMovementSpeed = 0;
-    }
 
     IEnumerator GoToDeathScreen()
     {
