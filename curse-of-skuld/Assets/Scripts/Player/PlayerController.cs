@@ -7,14 +7,7 @@ using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField]
-    private float maxSpeed;
-
-    [SerializeField]
-    private float rotationSpeed;
-
-    [SerializeField]
-    private float speedChangeRate;
+    [SerializeField] private PlayerData playerData;
 
     [SerializeField]
     private Camera camera;
@@ -31,10 +24,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private bool _controllerLocked = false;
 
-    [FormerlySerializedAs("sprintActualSpeed")]
-    [Header("SprintSetting")] 
-    [SerializeField] private float sprintMovementSpeed;
-    [SerializeField] private float sprintAnimSpeedMultiplier;
+    
     private bool _canSprint;
     private float _tempMaxSpeed;
 
@@ -52,8 +42,7 @@ public class PlayerController : MonoBehaviour
         Vector3 moveVec = transform.forward + Vector3.down * 30f;
         _charController.Move(moveVec);
         
-        // probably needs change
-        _tempMaxSpeed = maxSpeed;
+        _tempMaxSpeed = playerData.MaxSpeed;
         _canSprint = false;
     }
 
@@ -62,7 +51,7 @@ public class PlayerController : MonoBehaviour
         if (_controllerLocked)
             return;
 
-        float targetSpeed = _movementVector == Vector3.zero ? 0 : maxSpeed;
+        float targetSpeed = _movementVector == Vector3.zero ? 0 : _tempMaxSpeed;
         
         if(moveAnim != null)
             moveAnim.SetBool("IsMoving", _movementVector != Vector3.zero);
@@ -76,7 +65,7 @@ public class PlayerController : MonoBehaviour
         // accelerate or decelerate to target speed
         if (_currentSpeed < targetSpeed - speedOffset || _currentSpeed > targetSpeed + speedOffset)
         {
-            _currentSpeed = Mathf.Lerp(_currentSpeed, targetSpeed, Time.deltaTime * speedChangeRate);
+            _currentSpeed = Mathf.Lerp(_currentSpeed, targetSpeed, Time.deltaTime * playerData.SpeedChangeRate);
         }
         else
         {
@@ -89,18 +78,18 @@ public class PlayerController : MonoBehaviour
         if (targetSpeed != 0)
         {
             float _angle = Mathf.Atan2(_movementVector.x, _movementVector.z) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.AngleAxis(_angle + camera.transform.eulerAngles.y, Vector3.up), Time.deltaTime * rotationSpeed);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.AngleAxis(_angle + camera.transform.eulerAngles.y, Vector3.up), Time.deltaTime * playerData.RotationSpeed);
         }
         
         //Sprint
         if (StaminaManager.Instance.currentStamina != 0&& _canSprint )
         {
-            maxSpeed = sprintMovementSpeed;
-            moveAnim.SetFloat("Speed",sprintAnimSpeedMultiplier);
+            _tempMaxSpeed = playerData.SprintMaxSpeed;
+            moveAnim.SetFloat("Speed",playerData.SprintAnimSpeedMultiplier);
         }
         else
         {
-            maxSpeed = _tempMaxSpeed;
+            _tempMaxSpeed = playerData.MaxSpeed;
             moveAnim.SetFloat("Speed",1);
         }
     }
@@ -147,12 +136,6 @@ public class PlayerController : MonoBehaviour
 
         enabled = false;
         _dead = true;
-    }
-
-    public void Trapped()
-    {
-        _tempMaxSpeed= 0;
-        sprintMovementSpeed = 0;
     }
 
     public void ToggleControllerLocked()
