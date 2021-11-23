@@ -27,7 +27,7 @@ public class Door : MonoBehaviour,IInteractable
             foreach (var anim in childrenAnimators)
             {
                 anim.SetTrigger("open");
-                anim.SetFloat("Speed",openningSpeed);
+                anim.SetFloat("speed",openningSpeed);
             }
             //Destroy(this.gameObject);
             // this.GetComponent<MeshRenderer>().enabled = false;
