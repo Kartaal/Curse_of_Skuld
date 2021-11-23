@@ -15,7 +15,7 @@ public class Trap : MonoBehaviour
         {
             if (canStuck)
             {
-                playerController.Trapped();
+                playerController.ToggleControllerLocked();
             }
             GetComponentInChildren<Spike>().Move();
         }
