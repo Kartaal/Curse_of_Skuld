@@ -9,11 +9,9 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private PlayerData playerData;
 
-    [SerializeField]
-    private Camera camera;
+    private Camera _camera;
 
-    [SerializeField]
-    private Animator moveAnim;
+    private Animator _moveAnim;
 
     private Vector3 _movementVector;
 
@@ -39,8 +37,10 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         _charController = GetComponent<CharacterController>();
+        _moveAnim = GetComponentInChildren<Animator>();
         Vector3 moveVec = transform.forward + Vector3.down * 30f;
         _charController.Move(moveVec);
+        _camera = Camera.main;
         
         _tempMaxSpeed = playerData.MaxSpeed;
         _canSprint = false;
@@ -53,10 +53,10 @@ public class PlayerController : MonoBehaviour
 
         float targetSpeed = _movementVector == Vector3.zero ? 0 : _tempMaxSpeed;
         
-        if(moveAnim != null)
-            moveAnim.SetBool("IsMoving", _movementVector != Vector3.zero);
+        if(_moveAnim != null)
+            _moveAnim.SetBool("IsMoving", _movementVector != Vector3.zero);
 
-        Vector3 moveVec = camera.transform.TransformDirection(_movementVector);
+        Vector3 moveVec = _camera.transform.TransformDirection(_movementVector);
         moveVec.y = 0;
         moveVec.Normalize();
 
@@ -78,19 +78,19 @@ public class PlayerController : MonoBehaviour
         if (targetSpeed != 0)
         {
             float _angle = Mathf.Atan2(_movementVector.x, _movementVector.z) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.AngleAxis(_angle + camera.transform.eulerAngles.y, Vector3.up), Time.deltaTime * playerData.RotationSpeed);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.AngleAxis(_angle + _camera.transform.eulerAngles.y, Vector3.up), Time.deltaTime * playerData.RotationSpeed);
         }
         
         //Sprint
         if (StaminaManager.Instance.currentStamina != 0&& _canSprint )
         {
             _tempMaxSpeed = playerData.SprintMaxSpeed;
-            moveAnim.SetFloat("Speed",playerData.SprintAnimSpeedMultiplier);
+            _moveAnim.SetFloat("Speed",playerData.SprintAnimSpeedMultiplier);
         }
         else
         {
             _tempMaxSpeed = playerData.MaxSpeed;
-            moveAnim.SetFloat("Speed",1);
+            _moveAnim.SetFloat("Speed",1);
         }
     }
 
@@ -141,6 +141,7 @@ public class PlayerController : MonoBehaviour
     public void ToggleControllerLocked()
     {
         _controllerLocked = !_controllerLocked;
+        _moveAnim.SetBool("IsMoving", false);
     }
 
     public void MoveTo(Vector3 position, Vector3 lookAt)

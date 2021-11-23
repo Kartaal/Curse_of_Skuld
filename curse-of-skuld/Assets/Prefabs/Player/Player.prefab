@@ -746,14 +746,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3347418b45a319446b12a6e84aa5db43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 3
-  rotationSpeed: 10
-  speedChangeRate: 2
+  playerData: {fileID: 11400000, guid: e65f0a9f7628a5d4082020e7a7c33432, type: 2}
   camera: {fileID: 330585545}
   moveAnim: {fileID: 5560677465743547296}
   _controllerLocked: 0
-  sprintMovementSpeed: 4
-  sprintAnimSpeedMultiplier: 2
 --- !u!143 &3464457539789371683
 CharacterController:
   m_ObjectHideFlags: 0
