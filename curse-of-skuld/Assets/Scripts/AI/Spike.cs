@@ -11,6 +11,7 @@ public class Spike : MonoBehaviour
     private float _time=0f;
     private float _destroyTime = 4f;
     private bool _shouldMove = false;
+    private Animator _animator;
     private void OnTriggerEnter(Collider other)
     {
         var playercController = other.GetComponent<PlayerController>();
@@ -19,27 +20,54 @@ public class Spike : MonoBehaviour
             playercController.Die();
         }
     }
+    
+    private void Start()
+    {
+        _animator = GetComponent<Animator>();
+        _animator.SetFloat("Speed",speed);
+    }
 
     private void Update()
     {
 
         if (_shouldMove)
         {
-            _time += Time.deltaTime;
-            this.transform.position = new Vector3(transform.position.x, transform.position.y - speed * Time.deltaTime,
-                transform.position.z);
-            if (_time > _destroyTime)
-            {
-                print("destroyed");
-                Destroy(this.gameObject);
+            //animation in untiy 
+            
+            _animator.SetBool("Attack",true);
+            
+            
+            
+            //animation in code
+            
+            
+            // _time += Time.deltaTime;
+            // this.transform.position = new Vector3(transform.position.x, transform.position.y - speed * Time.deltaTime,
+            //     transform.position.z);
+            // if (_time > _destroyTime)
+            // {
+            //     print("destroyed");
+            //     Destroy(this.gameObject);
+            //     
+            // }
                 
-            }
-                
+        }
+
+        if (!_shouldMove)
+        {
+            
+            _animator.SetBool("Attack", false);
         }
     }       
 
+    //these two might be merged later 
     public void Move()
     {
         _shouldMove = true;
+    }
+
+    public void Stop()
+    {
+        _shouldMove = false;
     }
 }

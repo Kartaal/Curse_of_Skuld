@@ -142,7 +142,7 @@ public class PlayerController : MonoBehaviour
         var childRenderers = gameObject.GetComponentsInChildren<MeshRenderer>();
         foreach (var mesh in childRenderers)
         {
-            mesh.enabled = !mesh.enabled;
+            mesh.enabled = false;
         }
 
         enabled = false;

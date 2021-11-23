@@ -8,6 +8,6 @@ public class Restart : MonoBehaviour
     // Start is called before the first frame update
     public void RestartScene()
     {
-        SceneManager.LoadScene("Scene_Mahmoud");
+        SceneManager.LoadScene("MVP_Scene");
     }
 }

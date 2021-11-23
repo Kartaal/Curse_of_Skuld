@@ -5,25 +5,24 @@ using UnityEngine;
 
 public class Trap : MonoBehaviour
 {
+    
     [SerializeField]
-    private float _deathDelay;
-
+    private bool canStuck;
     private void OnTriggerEnter(Collider other)
     {
-        var playercController = other.GetComponent<PlayerController>();
-        if (playercController!=null)
+        var playerController = other.GetComponent<PlayerController>();
+        if (playerController!=null)
         {
-            playercController.Trapped();
-            //StartCoroutine(MoveSpike(other));
+            if (canStuck)
+            {
+                playerController.Trapped();
+            }
             GetComponentInChildren<Spike>().Move();
         }
     }
 
-    IEnumerator MoveSpike(Collider other)
+    private void OnTriggerExit(Collider other)
     {
-        yield return new WaitForSeconds(_deathDelay);
-        print("You Died");
-        
-        
+        GetComponentInChildren<Spike>().Stop();
     }
 }
