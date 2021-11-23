@@ -1,0 +1,45 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Spike : MonoBehaviour
+{
+    [SerializeField]
+    private float speed;
+
+    private float _time=0f;
+    private float _destroyTime = 4f;
+    private bool _shouldMove = false;
+    private void OnTriggerEnter(Collider other)
+    {
+        var playercController = other.GetComponent<PlayerController>();
+        if (playercController!=null)
+        {
+            playercController.Die();
+        }
+    }
+
+    private void Update()
+    {
+
+        if (_shouldMove)
+        {
+            _time += Time.deltaTime;
+            this.transform.position = new Vector3(transform.position.x, transform.position.y - speed * Time.deltaTime,
+                transform.position.z);
+            if (_time > _destroyTime)
+            {
+                print("destroyed");
+                Destroy(this.gameObject);
+                
+            }
+                
+        }
+    }       
+
+    public void Move()
+    {
+        _shouldMove = true;
+    }
+}
