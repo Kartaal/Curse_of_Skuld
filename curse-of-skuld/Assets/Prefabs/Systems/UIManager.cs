@@ -65,8 +65,4 @@ public class UIManager : MonoBehaviour
         _noticeText.text = "";
     }
 
-    public void OnInteract()
-    {
-        this.ClearNote();
-    }
 }

@@ -14,11 +14,18 @@ public class Key : MonoBehaviour, IInteractable
         UIManager.Instance.ClearScreen();
         UIManager.Instance.DisplayAndClearTextAfterDelay(textToDisplayAfterInteraction,4f);
         door.GetComponent<Door>().CanOpen();
-        Destroy(this.gameObject);
+        gameObject.SetActive(false);
+        StartCoroutine(DestroyAfterDelay(1.0f));
     }
 
     public void DisplayName()
     {
         UIManager.Instance.DisplayTextOnScreen(objectName);
+    }
+
+    private IEnumerator DestroyAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        Destroy(this.gameObject);
     }
 }
