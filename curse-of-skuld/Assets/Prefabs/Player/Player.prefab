@@ -539,7 +539,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.449827, y: 1}
+    m_SensorSize: {x: 1.7341772, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1191,7 +1191,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5557006889791965493}
   - component: {fileID: 5560677465743547296}
-  - component: {fileID: 710513372715455786}
+  - component: {fileID: 5345109171876129690}
   m_Layer: 3
   m_Name: Skuld_temp_seperate_pieces
   m_TagString: Untagged
@@ -1236,7 +1236,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &710513372715455786
+--- !u!114 &5345109171876129690
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1245,16 +1245,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 5068138368295146383}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a0dfb4c4689b0944aa9d25e8ef6568e, type: 3}
+  m_Script: {fileID: 11500000, guid: b89ea355cbf684946a03f292caf27d77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footSteps:
-    Guid:
-      Data1: -893411614
-      Data2: 1164803726
-      Data3: -557931624
-      Data4: 29977312
-    Path: event:/Character/Footsteps/FS_Boots
 --- !u!1 &5281698175595038866
 GameObject:
   m_ObjectHideFlags: 3
@@ -1324,7 +1317,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7787971, y: 1}
+    m_SensorSize: {x: 1.7341772, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1529,7 +1522,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7787971, y: 1}
+    m_SensorSize: {x: 1.7341772, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1607,7 +1600,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7787971, y: 1}
+    m_SensorSize: {x: 1.7341772, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
