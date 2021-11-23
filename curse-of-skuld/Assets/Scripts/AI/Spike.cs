@@ -7,9 +7,7 @@ public class Spike : MonoBehaviour
 {
     [SerializeField]
     private float speed;
-
-    private float _time=0f;
-    private float _destroyTime = 4f;
+    
     private bool _shouldMove = false;
     private Animator _animator;
     private void OnTriggerEnter(Collider other)
