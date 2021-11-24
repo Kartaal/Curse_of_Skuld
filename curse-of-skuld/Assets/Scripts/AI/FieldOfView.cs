@@ -51,10 +51,16 @@ public class FieldOfView : MonoBehaviour
             {
                 if (!Physics.Raycast(_enemy.transform.position, playerDir, viewData.ViewRadius, playerMask))
                 {
-                    _enemy.PlayerSpotted(player.position);
-                    _playerVisualization = player;
                     _hitCount++;
                 }
+            }
+
+            if (_hitCount > 0)
+            {
+                EnemyVisionData visionData = new EnemyVisionData(player.position, _hitCount/_numberVisionTargets);
+                _playerVisualization = player;
+                _enemy.PlayerSpotted(visionData);
+
             }
         }
     }

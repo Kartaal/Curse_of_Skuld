@@ -18,13 +18,17 @@ public class Enemy : MonoBehaviour
     }
     [SerializeField] private EnemyData enemyData;
     [SerializeField] private bool loopPatrol;
-    [SerializeField] private Transform [] patrolTargets;
+    [SerializeField] private Transform[] patrolTargets;
+    [SerializeField] private Transform[] patrolStops;
     [SerializeField] private Animator anim;
    
     private int _arrayDir;
     private int _curr;
 
     private bool _searching;
+
+    private float _timeSincePlayerLastVisible;
+    private bool _playerVisible;
     
     private Transform _playerTransform;
     private Vector3 _lastKnownLocation;
@@ -39,16 +43,20 @@ public class Enemy : MonoBehaviour
         _state = State.Patrol;
         _agent = GetComponent<NavMeshAgent>();
         _agent.speed = enemyData.MoveSpeed;
-        _agent.autoBraking = false;
+        _agent.autoBraking = true;
         _curr = 0;
         _arrayDir = 1;
         _playerTransform = FindObjectOfType<PlayerController>().gameObject.transform;
+        _playerVisible = false;
+        _timeSincePlayerLastVisible = 1000;
     }
 
     private void Update()
     {
 
         anim.SetBool("IsChasing", _state == State.Chase);
+
+        _timeSincePlayerLastVisible += Time.deltaTime;
 
         switch (_state)
         {
@@ -110,7 +118,13 @@ public class Enemy : MonoBehaviour
                 _curr += _arrayDir;
             }
         }
-        
+    }
+
+    private IEnumerator BecomeSuspicious(float visibilityPercentage)
+    {
+        _agent.ResetPath();
+        yield return new WaitForSeconds(enemyData.MinTimeToChase + enemyData.VariableTimeToChase * (1-visibilityPercentage));
+        _state = _timeSincePlayerLastVisible < enemyData.MaxTimeSincePlayerLastVisible ? State.Chase : State.Patrol;
     }
 
     private void Chase()
@@ -164,9 +178,15 @@ public class Enemy : MonoBehaviour
     }
     public NavMeshAgent Agent => _agent;
 
-    public void PlayerSpotted(Vector3 playerPos)
+    public void PlayerSpotted(EnemyVisionData visionData)
     {
-        _state = State.Chase;
-        _lastKnownLocation = playerPos;
+        if (_state != State.Suspicious && _state != State.Chase)
+        {
+            _state = State.Suspicious;
+            StartCoroutine(BecomeSuspicious(visionData.VisibilityPercentage));
+        }
+        
+        _timeSincePlayerLastVisible = 0;
+        _lastKnownLocation = visionData.LastKnownPosition ;
     }
 }
