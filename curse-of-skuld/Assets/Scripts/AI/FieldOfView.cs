@@ -13,13 +13,18 @@ public class FieldOfView : MonoBehaviour
 
     private Enemy _enemy;
     private Transform _playerVisualization;
+
+    private Transform[] _playerLimbs;
     private int _hitCount;
+    private int _numberVisionTargets;
     NavMeshHit _hit;
 
     private void Awake()
     {
         _enemy = GetComponent<Enemy>();
         _hitCount = 0;
+        _playerLimbs = SystemManager.Instance.playerGameObject.GetComponent<PlayerController>().VisionTargetsAI;
+        _numberVisionTargets = _playerLimbs.Length;
     }
 
     private void Update()
@@ -42,15 +47,14 @@ public class FieldOfView : MonoBehaviour
         {
             _hitCount = 0;
             var playerDir = player.position - transform.position;
-            if (!Physics.Raycast(_enemy.transform.position, playerDir, viewData.ViewRadius, playerMask))
+            for(int i = 0; i < _numberVisionTargets; i++)
             {
-                _enemy.PlayerSpotted(player.position);
-                _playerVisualization = player;
-                _hitCount++;
-            }
-            if (!_enemy.Agent.Raycast(player.position, out _hit))
-            {
-                
+                if (!Physics.Raycast(_enemy.transform.position, playerDir, viewData.ViewRadius, playerMask))
+                {
+                    _enemy.PlayerSpotted(player.position);
+                    _playerVisualization = player;
+                    _hitCount++;
+                }
             }
         }
     }
