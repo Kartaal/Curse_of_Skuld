@@ -9,6 +9,7 @@ using UnityEngine.Serialization;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private PlayerData playerData;
+    
 
     private Camera _camera;
 
@@ -22,6 +23,8 @@ public class PlayerController : MonoBehaviour
     // private GameObject _collisionDetector;
 
     [SerializeField] private bool _controllerLocked = false;
+
+    [SerializeField] private Transform[] visionTargetsAI;
 
     
     private bool _canSprint;
@@ -159,6 +162,8 @@ public class PlayerController : MonoBehaviour
         this.transform.LookAt(lookAt);
         _charController.enabled = true;
     }
+
+    public Transform[] VisionTargetsAI => visionTargetsAI;
 
     public bool Dead => _dead;
 }
