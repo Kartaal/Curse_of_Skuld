@@ -23,6 +23,12 @@ public class FieldOfView : MonoBehaviour
     {
         _enemy = GetComponent<Enemy>();
         _hitCount = 0;
+        
+        
+    }
+
+    private void Start()
+    {
         _playerLimbs = SystemManager.Instance.playerGameObject.GetComponent<PlayerController>().VisionTargetsAI;
         _numberVisionTargets = _playerLimbs.Length;
     }

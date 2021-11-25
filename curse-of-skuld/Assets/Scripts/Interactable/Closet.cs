@@ -35,11 +35,11 @@ public class Closet : MonoBehaviour, IInteractable
         if (_isPlayerInside)
         {
             UIManager.Instance.DisplayAndClearTextAfterDelay(textToDisplayAfterInteraction, 2f);
-            player.GetComponentInChildren<CharacterController>().detectCollisions = false;
+            player.GetComponentInChildren<CharacterController>().enabled = false;
         }
         else
         {
-            player.GetComponentInChildren<CharacterController>().detectCollisions = true;
+            player.GetComponentInChildren<CharacterController>().enabled = true;
             player.GetComponentInChildren<PlayerController>().MoveTo(this.transform.position - this.transform.forward, this.transform.position - this.transform.forward * 20);
         }
         
