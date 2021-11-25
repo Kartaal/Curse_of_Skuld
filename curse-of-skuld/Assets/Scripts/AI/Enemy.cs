@@ -24,7 +24,7 @@ public class Enemy : MonoBehaviour
    
     private int _arrayDir;
     private int _curr;
-    private int _prevCurr;
+    private bool _waitRoutineRunning;
 
     private bool _searching;
     private bool _waiting;
@@ -46,7 +46,7 @@ public class Enemy : MonoBehaviour
         _agent = GetComponent<NavMeshAgent>();
         _agent.speed = enemyData.MoveSpeed;
         _agent.autoBraking = true;
-        _prevCurr = 0;
+        _waitRoutineRunning = false;
         _curr = 0;
         _arrayDir = 1;
         _playerTransform = FindObjectOfType<PlayerController>().gameObject.transform;
@@ -98,18 +98,19 @@ public class Enemy : MonoBehaviour
 
     private void Patrol()
     {
-        if (_waiting && _agent.remainingDistance < 0.5f)
+        if (_waiting && !_waitRoutineRunning && _agent.remainingDistance <0.5f)
         {
             StartCoroutine(WaitAtPatrolPoint());
         }
         
         if(!_agent.pathPending && _agent.remainingDistance < 0.5f && !_waiting)
         {
-            
-            Debug.Log("Target " + _curr);
             _agent.destination = patrolTargets[_curr].position;
-
-            _prevCurr = _curr;
+            if (patrolStops.Contains(patrolTargets[_curr]))
+            {
+                _waiting = true;
+            }
+            
             if (loopPatrol)
             {
                 _curr = (_curr + _arrayDir) % patrolTargets.Length;
@@ -127,19 +128,15 @@ public class Enemy : MonoBehaviour
 
                 _curr += _arrayDir;
             }
-            /*if (patrolStops.Contains(patrolTargets[_curr]))
-            {
-                Debug.Log("COntained");
-                _waiting = true;
-            }*/
         }
     }
 
     private IEnumerator WaitAtPatrolPoint()
     {
         _agent.ResetPath();
+        _waitRoutineRunning = true;
         yield return new WaitForSeconds(enemyData.PatrolPointWaitTime);
-        _agent.destination = patrolStops[_prevCurr].position;
+        _waitRoutineRunning = false;
         _waiting = false;
     }
 
