@@ -14,22 +14,22 @@ public class Enemy : MonoBehaviour
         Suspicious,
         Chase,
         Search
-        
     }
+    
     [SerializeField] private EnemyData enemyData;
     [SerializeField] private bool loopPatrol;
     [SerializeField] private Transform[] patrolTargets;
-    [SerializeField] private Transform[] patrolStops;
+    [SerializeField] private List<Transform> patrolStops;
     [SerializeField] private Animator anim;
    
     private int _arrayDir;
     private int _curr;
 
     private bool _searching;
+    private bool _waiting;
 
     private float _timeSincePlayerLastVisible;
-    private bool _playerVisible;
-    
+
     private Transform _playerTransform;
     private Vector3 _lastKnownLocation;
 
@@ -40,6 +40,7 @@ public class Enemy : MonoBehaviour
     void Awake()
     {
         _searching = false;
+        _waiting = false;
         _state = State.Patrol;
         _agent = GetComponent<NavMeshAgent>();
         _agent.speed = enemyData.MoveSpeed;
@@ -47,13 +48,17 @@ public class Enemy : MonoBehaviour
         _curr = 0;
         _arrayDir = 1;
         _playerTransform = FindObjectOfType<PlayerController>().gameObject.transform;
-        _playerVisible = false;
         _timeSincePlayerLastVisible = 1000;
+    }
+
+    private void Start()
+    {
+        if (patrolStops == null)
+            patrolStops = new List<Transform>();
     }
 
     private void Update()
     {
-
         anim.SetBool("IsChasing", _state == State.Chase);
 
         _timeSincePlayerLastVisible += Time.deltaTime;
@@ -91,13 +96,15 @@ public class Enemy : MonoBehaviour
 
     private void Patrol()
     {
-        if(!_agent.pathPending && _agent.remainingDistance < 0.5f)
+        if (_waiting && _agent.remainingDistance < 0.5f)
         {
-            if (_agent.speed != enemyData.MoveSpeed)
-            {
-                _agent.speed = enemyData.MoveSpeed;
-            }
-
+            StartCoroutine(WaitAtPatrolPoint());
+        }
+        
+        if(!_agent.pathPending && _agent.remainingDistance < 0.5f && !_waiting)
+        {
+            
+            Debug.Log("Target " + _curr);
             _agent.destination = patrolTargets[_curr].position;
 
             if (loopPatrol)
@@ -117,7 +124,18 @@ public class Enemy : MonoBehaviour
 
                 _curr += _arrayDir;
             }
+            if (patrolStops.Contains(patrolTargets[_curr]))
+            {
+                Debug.Log("COntained");
+                _waiting = true;
+            }
         }
+    }
+
+    private IEnumerator WaitAtPatrolPoint()
+    {
+        yield return new WaitForSeconds(enemyData.PatrolPointWaitTime);
+        _waiting = false;
     }
 
     private IEnumerator BecomeSuspicious(float visibilityPercentage)
@@ -150,6 +168,7 @@ public class Enemy : MonoBehaviour
     private IEnumerator ResumePatrol()
     {
         yield return new WaitForSeconds(1f);
+        _agent.speed = enemyData.MoveSpeed;
         _state = State.Patrol;
     }
 
