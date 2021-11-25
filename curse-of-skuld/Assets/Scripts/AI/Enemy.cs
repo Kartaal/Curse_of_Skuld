@@ -14,18 +14,23 @@ public class Enemy : MonoBehaviour
         Suspicious,
         Chase,
         Search
-        
     }
+    
     [SerializeField] private EnemyData enemyData;
     [SerializeField] private bool loopPatrol;
-    [SerializeField] private Transform [] patrolTargets;
+    [SerializeField] private Transform[] patrolTargets;
+    [SerializeField] private List<Transform> patrolStops;
     [SerializeField] private Animator anim;
    
     private int _arrayDir;
     private int _curr;
+    private bool _waitRoutineRunning;
 
     private bool _searching;
-    
+    private bool _waiting;
+
+    private float _timeSincePlayerLastVisible;
+
     private Transform _playerTransform;
     private Vector3 _lastKnownLocation;
 
@@ -36,19 +41,29 @@ public class Enemy : MonoBehaviour
     void Awake()
     {
         _searching = false;
+        _waiting = false;
         _state = State.Patrol;
         _agent = GetComponent<NavMeshAgent>();
         _agent.speed = enemyData.MoveSpeed;
-        _agent.autoBraking = false;
+        _agent.autoBraking = true;
+        _waitRoutineRunning = false;
         _curr = 0;
         _arrayDir = 1;
         _playerTransform = FindObjectOfType<PlayerController>().gameObject.transform;
+        _timeSincePlayerLastVisible = 1000;
+    }
+
+    private void Start()
+    {
+        if (patrolStops == null)
+            patrolStops = new List<Transform>();
     }
 
     private void Update()
     {
-
         anim.SetBool("IsChasing", _state == State.Chase);
+
+        _timeSincePlayerLastVisible += Time.deltaTime;
 
         switch (_state)
         {
@@ -83,15 +98,19 @@ public class Enemy : MonoBehaviour
 
     private void Patrol()
     {
-        if(!_agent.pathPending && _agent.remainingDistance < 0.5f)
+        if (_waiting && !_waitRoutineRunning && _agent.remainingDistance <0.5f)
         {
-            if (_agent.speed != enemyData.MoveSpeed)
-            {
-                _agent.speed = enemyData.MoveSpeed;
-            }
-
+            StartCoroutine(WaitAtPatrolPoint());
+        }
+        
+        if(!_agent.pathPending && _agent.remainingDistance < 0.5f && !_waiting)
+        {
             _agent.destination = patrolTargets[_curr].position;
-
+            if (patrolStops.Contains(patrolTargets[_curr]))
+            {
+                _waiting = true;
+            }
+            
             if (loopPatrol)
             {
                 _curr = (_curr + _arrayDir) % patrolTargets.Length;
@@ -110,7 +129,22 @@ public class Enemy : MonoBehaviour
                 _curr += _arrayDir;
             }
         }
-        
+    }
+
+    private IEnumerator WaitAtPatrolPoint()
+    {
+        _agent.ResetPath();
+        _waitRoutineRunning = true;
+        yield return new WaitForSeconds(enemyData.PatrolPointWaitTime);
+        _waitRoutineRunning = false;
+        _waiting = false;
+    }
+
+    private IEnumerator BecomeSuspicious(float visibilityPercentage)
+    {
+        _agent.ResetPath();
+        yield return new WaitForSeconds(enemyData.MinTimeToChase + enemyData.VariableTimeToChase * (1-visibilityPercentage));
+        _state = _timeSincePlayerLastVisible < enemyData.MaxTimeSincePlayerLastVisible ? State.Chase : State.Patrol;
     }
 
     private void Chase()
@@ -136,6 +170,7 @@ public class Enemy : MonoBehaviour
     private IEnumerator ResumePatrol()
     {
         yield return new WaitForSeconds(1f);
+        _agent.speed = enemyData.MoveSpeed;
         _state = State.Patrol;
     }
 
@@ -164,9 +199,15 @@ public class Enemy : MonoBehaviour
     }
     public NavMeshAgent Agent => _agent;
 
-    public void PlayerSpotted(Vector3 playerPos)
+    public void PlayerSpotted(EnemyVisionData visionData)
     {
-        _state = State.Chase;
-        _lastKnownLocation = playerPos;
+        if (_state != State.Suspicious && _state != State.Chase)
+        {
+            _state = State.Suspicious;
+            StartCoroutine(BecomeSuspicious(visionData.VisibilityPercentage));
+        }
+        
+        _timeSincePlayerLastVisible = 0;
+        _lastKnownLocation = visionData.LastKnownPosition ;
     }
 }
