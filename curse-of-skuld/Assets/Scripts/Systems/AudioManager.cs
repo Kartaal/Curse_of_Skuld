@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,10 +10,10 @@ public class AudioManager : MonoBehaviour
 
     public EventReference footSteps;
 
-    /* Commented out for now to avoid warnings in editor
-    private FMOD.Studio.Bus Master;
-    private float MasterVolume = 1.0f;
-    */
+    // These fields are taken from https://scottgamesounds.com/wp-content/uploads/2018/12/C.AudioSettings.txt
+    FMOD.Studio.Bus Master;
+    float MasterVolume = 1f;
+    
 
     private void Awake()
     {
@@ -25,6 +26,18 @@ public class AudioManager : MonoBehaviour
             Destroy(gameObject);
         }
         
-        //Master = FMODUnity.RuntimeManager.GetBus("bus:/")
+        // This initialisation is taken from https://scottgamesounds.com/wp-content/uploads/2018/12/C.AudioSettings.txt
+        Master = FMODUnity.RuntimeManager.GetBus ("bus:/");
+    }
+    
+    // Functions after this line are taken from https://scottgamesounds.com/wp-content/uploads/2018/12/C.AudioSettings.txt
+    void Update () 
+    {
+        Master.setVolume (MasterVolume);
+    }
+
+    public void MasterVolumeLevel (float newMasterVolume)
+    {
+        MasterVolume = newMasterVolume;
     }
 }
