@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     private enum State
     {
         Patrol,
+        Suspicious,
         Chase,
         Search
         
@@ -53,6 +54,9 @@ public class Enemy : MonoBehaviour
         {
             case State.Patrol:
                 Patrol();
+                break;
+                
+            case State.Suspicious:
                 break;
             
             case State.Chase:

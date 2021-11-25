@@ -8,6 +8,7 @@ public class Door : MonoBehaviour,IInteractable
 {
     // Start is called before the first frame update
     private bool _canOpen = false;
+    [SerializeField] private float openningSpeed;
     [SerializeField] private string objectName;
     [SerializeField] private string textToDisplayAfterInteraction;
     [SerializeField] private string textToDisplayIfCannotInteract;
@@ -22,7 +23,13 @@ public class Door : MonoBehaviour,IInteractable
         {
             UIManager.Instance.ClearScreen();
             UIManager.Instance.DisplayAndClearTextAfterDelay(textToDisplayAfterInteraction,4f);
-            Destroy(this.gameObject);
+            var childrenAnimators = GetComponentsInChildren<Animator>();
+            foreach (var anim in childrenAnimators)
+            {
+                anim.SetTrigger("open");
+                anim.SetFloat("speed",openningSpeed);
+            }
+            //Destroy(this.gameObject);
             // this.GetComponent<MeshRenderer>().enabled = false;
         }
         else
