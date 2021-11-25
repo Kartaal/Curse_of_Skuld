@@ -15,7 +15,8 @@ public class Key : MonoBehaviour, IInteractable
         UIManager.Instance.DisplayAndClearTextAfterDelay(textToDisplayAfterInteraction,4f);
         door.GetComponent<Door>().CanOpen();
         gameObject.SetActive(false);
-        StartCoroutine(DestroyAfterDelay(1.0f));
+        //why destroy? also has a bug 
+        // StartCoroutine(DestroyAfterDelay(1.0f));
     }
 
     public void DisplayName()
