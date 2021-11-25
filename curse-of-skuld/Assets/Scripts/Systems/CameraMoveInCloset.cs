@@ -13,7 +13,7 @@ public class CameraMoveInCloset : MonoBehaviour
     [SerializeField]
     private float minYAngle;
     [SerializeField]
-    private float maxXAnagle;
+    private float maxXAngle;
     [SerializeField]
     private float minXAngle;
     [SerializeField]
@@ -21,18 +21,27 @@ public class CameraMoveInCloset : MonoBehaviour
 
     private float _y = 0;
     private float _x = 0;
+
+    private Vector2 _mouseMovement;
     void FixedUpdate () {
-        
-        _y += speed * Input.GetAxis ("Mouse X");
-        _x -= speed * Input.GetAxis ("Mouse Y");
+        print("in here");
+        _y += speed * _mouseMovement.x;
+        _x -= speed * _mouseMovement.y;
+        print("x: " + _x + " y:" + _y);
         // float y = 5 * -Input.GetAxis ("Mouse Y");
         // _y = Mathf.Repeat(_y, 360);
         _y = Mathf.Clamp(_y, minYAngle, maxYAngle);
-        _x = Mathf.Clamp(_x, minXAngle, maxYAngle);
+        _x = Mathf.Clamp(_x, minXAngle, maxXAngle);
         
         //this.transform.Rotate (0, x, 0);
         transform.rotation=Quaternion.Euler(_x,_y,0);
         
      
+    }
+
+    public void OnLook(InputValue input)
+    {
+        _mouseMovement = input.Get<Vector2>();
+        print("in movement");
     }
 }
