@@ -46,7 +46,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerGameObject: {fileID: 0}
-  UItext: {fileID: 0}
 --- !u!114 &1699369532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,7 +61,7 @@ MonoBehaviour:
   staminaBar: {fileID: 0}
   maxStamina: 1
   currentStamina: 0
-  increasingStaminaTime: 0.01
-  increaseingStaminaAmount: 0.01
+  increasingStaminaTime: 0.002
+  increaseingStaminaAmount: 0.002
   decreasingStaminaTime: 0.01
   decreasingStaminaAmount: 0.01
