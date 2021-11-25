@@ -16,7 +16,8 @@ public class EnemyListening : MonoBehaviour
         var player = other.GetComponent<PlayerController>();
         if (player != null)
         {
-            _enemy.PlayerHeard(SystemManager.Instance.playerGameObject.transform.position);
+            if(!player.Dead)
+                _enemy.PlayerHeard(SystemManager.Instance.playerGameObject.transform.position);
         }
     }
 }
