@@ -212,11 +212,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 330585546, guid: f06bdaac39c419648b3c81cb4f7f8f60, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -68.6
       objectReference: {fileID: 0}
     - target: {fileID: 330585546, guid: f06bdaac39c419648b3c81cb4f7f8f60, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 2.8
       objectReference: {fileID: 0}
     - target: {fileID: 330585546, guid: f06bdaac39c419648b3c81cb4f7f8f60, type: 3}
       propertyPath: m_LocalPosition.z
@@ -246,7 +246,7 @@ PrefabInstance:
     - target: {fileID: 782649475371016476, guid: f06bdaac39c419648b3c81cb4f7f8f60,
         type: 3}
       propertyPath: m_Lens.m_SensorSize.x
-      value: 1.7156277
+      value: 2.0044131
       objectReference: {fileID: 0}
     - target: {fileID: 3464457539566479784, guid: f06bdaac39c419648b3c81cb4f7f8f60,
         type: 3}
@@ -311,7 +311,7 @@ PrefabInstance:
     - target: {fileID: 3464457539739387191, guid: f06bdaac39c419648b3c81cb4f7f8f60,
         type: 3}
       propertyPath: m_Lens.m_SensorSize.x
-      value: 1.7156277
+      value: 2.0044131
       objectReference: {fileID: 0}
     - target: {fileID: 4685674617208410535, guid: f06bdaac39c419648b3c81cb4f7f8f60,
         type: 3}
@@ -321,12 +321,12 @@ PrefabInstance:
     - target: {fileID: 5181945582716876670, guid: f06bdaac39c419648b3c81cb4f7f8f60,
         type: 3}
       propertyPath: m_Lens.m_SensorSize.x
-      value: 1.7156277
+      value: 2.0044131
       objectReference: {fileID: 0}
     - target: {fileID: 5560448048635074328, guid: f06bdaac39c419648b3c81cb4f7f8f60,
         type: 3}
       propertyPath: m_Lens.m_SensorSize.x
-      value: 1.7156277
+      value: 2.0044131
       objectReference: {fileID: 0}
     - target: {fileID: 6301263739801244096, guid: f06bdaac39c419648b3c81cb4f7f8f60,
         type: 3}
@@ -414,6 +414,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4626284530958341923, guid: c137d67aeb55f2c4cb5d052515c64a7d,
+        type: 3}
+      propertyPath: masterVolumeNumber
+      value: 
+      objectReference: {fileID: 5446100473775325980}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c137d67aeb55f2c4cb5d052515c64a7d, type: 3}
 --- !u!4 &3470267854424956682 stripped
@@ -547,10 +552,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6579493876794478894}
     m_Modifications:
+    - target: {fileID: 4608434802035042846, guid: 4355a0ab1bdf64d46923de99a27ffe9d,
+        type: 3}
+      propertyPath: m_Name
+      value: StaminaSlider
+      objectReference: {fileID: 0}
     - target: {fileID: 4608434802035042847, guid: 4355a0ab1bdf64d46923de99a27ffe9d,
         type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4608434802035042847, guid: 4355a0ab1bdf64d46923de99a27ffe9d,
         type: 3}
@@ -836,3 +846,15 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4285905943252899346}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5446100473775325980 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8137713404617168142, guid: 4355a0ab1bdf64d46923de99a27ffe9d,
+    type: 3}
+  m_PrefabInstance: {fileID: 4285905943252899346}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

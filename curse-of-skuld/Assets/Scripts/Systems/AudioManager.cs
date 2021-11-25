@@ -3,17 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using FMODUnity;
+using TMPro;
 
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance = null;
+    [SerializeField] private TextMeshProUGUI masterVolumeNumber;
 
     public EventReference footSteps;
-
-    // These fields are taken from https://scottgamesounds.com/wp-content/uploads/2018/12/C.AudioSettings.txt
-    FMOD.Studio.Bus Master;
-    float MasterVolume = 1f;
-    
 
     private void Awake()
     {
@@ -25,20 +22,12 @@ public class AudioManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        
-        // This initialisation is taken from https://scottgamesounds.com/wp-content/uploads/2018/12/C.AudioSettings.txt
-        Master = FMODUnity.RuntimeManager.GetBus ("bus:/");
-    }
-    
-    // Functions after this line are taken from https://scottgamesounds.com/wp-content/uploads/2018/12/C.AudioSettings.txt
-    void Update () 
-    {
-        Master.setVolume (MasterVolume);
     }
 
-    public void MasterVolumeLevel (float newMasterVolume)
+    public void MasterVolumeLevel(float newMasterVolume)
     {
-        print("Volume now: " +MasterVolume);
-        MasterVolume = newMasterVolume;
+        RuntimeManager.GetBus("bus:/").setVolume((newMasterVolume));
+        int volNum = (int) (newMasterVolume * 100);
+        masterVolumeNumber.text = volNum + "%";
     }
 }
