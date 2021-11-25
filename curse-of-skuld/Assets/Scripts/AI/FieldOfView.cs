@@ -12,7 +12,7 @@ public class FieldOfView : MonoBehaviour
     [SerializeField] private LayerMask playerMask;
 
     private Enemy _enemy;
-    private Transform _playerVisualization;
+    private List<Transform> _playerVisualization;
 
     private Transform[] _playerLimbs;
     private int _hitCount;
@@ -23,8 +23,7 @@ public class FieldOfView : MonoBehaviour
     {
         _enemy = GetComponent<Enemy>();
         _hitCount = 0;
-        
-        
+        _playerVisualization = new List<Transform>();
     }
 
     private void Start()
@@ -36,12 +35,11 @@ public class FieldOfView : MonoBehaviour
     private void Update()
     {
         PlayerVisible();
-        
     }
 
     private void PlayerVisible()
     {
-        _playerVisualization = null;
+        _playerVisualization.Clear();
         Collider[] playerCollider = new Collider[1];
         int numColliders = Physics.OverlapSphereNonAlloc(transform.position, viewData.ViewRadius, playerCollider, playerMask); 
         if (numColliders == 0)
@@ -52,15 +50,21 @@ public class FieldOfView : MonoBehaviour
         if (Vector3.Angle(transform.forward, dirToTarget) < ViewAngle / 2)
         {
             _hitCount = 0;
-            var playerDir = player.position - transform.position;
             for(int i = 0; i < _numberVisionTargets; i++)
             {
+                var playerDir = _playerLimbs[i].position - transform.position;
                 if (!Physics.Raycast(_enemy.transform.position, playerDir, viewData.ViewRadius, playerMask))
                 {
-                    _enemy.PlayerSpotted(player.position);
-                    _playerVisualization = player;
                     _hitCount++;
+                    _playerVisualization.Add(_playerLimbs[i]);
                 }
+            }
+
+            if (_hitCount > 0)
+            {
+                EnemyVisionData visionData = new EnemyVisionData(player.position, _hitCount/_numberVisionTargets);
+                _enemy.PlayerSpotted(visionData);
+
             }
         }
     }
@@ -74,5 +78,5 @@ public class FieldOfView : MonoBehaviour
 
     public float ViewRadius => viewData.ViewRadius;
     public float ViewAngle => viewData.ViewAngle;
-    public Transform PlayerVisualization => _playerVisualization;
+    public List<Transform> PlayerVisualization => _playerVisualization;
 }

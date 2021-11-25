@@ -24,7 +24,11 @@ public class FieldOfViewEditor : Editor
         
         Handles.color = Color.red;
         if(fov.PlayerVisualization != null)
-            Handles.DrawLine(pos, fov.PlayerVisualization.position);
-
+        {
+            for (int i = 0; i < fov.PlayerVisualization.Count; i++)
+            {
+                Handles.DrawLine(pos, fov.PlayerVisualization[i].position);
+            }
+        }
     }
 }
