@@ -197,7 +197,6 @@ public class Enemy : MonoBehaviour
         _searching = false;
         _state = State.Patrol;
     }
-    public NavMeshAgent Agent => _agent;
 
     public void PlayerSpotted(EnemyVisionData visionData)
     {
@@ -208,6 +207,17 @@ public class Enemy : MonoBehaviour
         }
         
         _timeSincePlayerLastVisible = 0;
-        _lastKnownLocation = visionData.LastKnownPosition ;
+        _lastKnownLocation = visionData.LastKnownPosition;
+    }
+
+    public void PlayerHeard(Vector3 playerPosition)
+    {
+        if(_state != State.Suspicious && _state != State.Chase)
+        {
+            _agent.ResetPath();
+            _state = State.Chase;
+        }
+        _timeSincePlayerLastVisible = 0;
+        _lastKnownLocation = playerPosition;
     }
 }
