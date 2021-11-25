@@ -4,22 +4,27 @@ using UnityEngine;
 using FMODUnity;
 
 public class AudioManager : MonoBehaviour
-
-   
 {
-    public static AudioManager instance = null;
+    public static AudioManager Instance = null;
 
     public EventReference footSteps;
 
+    /* Commented out for now to avoid warnings in editor
+    private FMOD.Studio.Bus Master;
+    private float MasterVolume = 1.0f;
+    */
+
     private void Awake()
     {
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
         }
-        else if (instance != this)
+        else if (Instance != this)
         {
             Destroy(gameObject);
         }
+        
+        //Master = FMODUnity.RuntimeManager.GetBus("bus:/")
     }
 }

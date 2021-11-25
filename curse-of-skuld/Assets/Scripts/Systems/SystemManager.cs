@@ -38,6 +38,21 @@ public class SystemManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
+    public void ToggleMenuControls()
+    {
+        Cursor.visible = !Cursor.visible;
+        if (Cursor.lockState == CursorLockMode.Locked)
+        {
+            Cursor.lockState = CursorLockMode.Confined;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        
+        // Might want to pause game time so world state doesn't change while menu is open
+    }
+
     public void ResetScene()
     {
         SceneManager.LoadScene(_currentScene.name);

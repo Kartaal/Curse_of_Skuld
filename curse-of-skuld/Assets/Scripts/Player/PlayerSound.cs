@@ -19,7 +19,7 @@ public class PlayerSound : MonoBehaviour
 
     public void PlayFootSound()
     {
-        var instance = RuntimeManager.CreateInstance(AudioManager.instance.footSteps);
+        var instance = RuntimeManager.CreateInstance(AudioManager.Instance.footSteps);
         instance.setParameterByName("Material", 0);
         instance.start();
         instance.release();

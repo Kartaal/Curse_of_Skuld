@@ -24,15 +24,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Debug",
-                    "type": "Button",
-                    "id": "06ed6d9c-164e-4e69-9c8c-4171aaeefd94",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Look",
                     "type": "PassThrough",
                     "id": "d8c70489-0017-4eec-818f-0c8834aa84d9",
@@ -129,17 +120,6 @@
                 },
                 {
                     "name": "",
-                    "id": "352e038e-8620-48c3-9707-03cc7e728c22",
-                    "path": "<Keyboard>/r",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Debug",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "0adf38a2-8801-4bd7-9ca7-3118aaba786c",
                     "path": "<Mouse>/delta",
                     "interactions": "",
@@ -168,6 +148,34 @@
                     "processors": "",
                     "groups": "",
                     "action": "StopSprint",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "UIManager",
+            "id": "167e6eaa-0425-4489-ba6b-5626b3ae8036",
+            "actions": [
+                {
+                    "name": "OpenEscapeMenu",
+                    "type": "Button",
+                    "id": "ef43c656-d2ac-425e-ab79-825654c0d6d3",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "8a55fa90-964a-4842-98f4-c5403fcafa97",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenEscapeMenu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
