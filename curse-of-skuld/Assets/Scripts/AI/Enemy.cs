@@ -62,6 +62,7 @@ public class Enemy : MonoBehaviour
     private void Update()
     {
         anim.SetBool("IsChasing", _state == State.Chase);
+        anim.SetBool("IsSuspicious", _state == State.Suspicious);
 
         _timeSincePlayerLastVisible += Time.deltaTime;
 
