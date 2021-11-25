@@ -30,11 +30,12 @@ public class CameraMoveInCloset : MonoBehaviour
         
         // float y = 5 * -Input.GetAxis ("Mouse Y");
         // _y = Mathf.Repeat(_y, 360);
-        _y = Mathf.Clamp(_y, minYAngle, maxYAngle);
+
+        _y = Mathf.Clamp(_y, 180 + minYAngle, 180 + maxYAngle);
         _x = Mathf.Clamp(_x, minXAngle, maxXAngle);
         
         //this.transform.Rotate (0, x, 0);
-        transform.rotation=Quaternion.Euler(-_x,_y,0);
+        transform.localRotation=Quaternion.Euler(-_x,_y,0);
         
      
     }
