@@ -36,11 +36,11 @@ public class SystemManager : MonoBehaviour
         _currentScene = SceneManager.GetActiveScene();
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        Time.timeScale = 1f;
     }
 
-    public void ToggleMenuControls()
+    public void ToggleCursorLock()
     {
-        Cursor.visible = !Cursor.visible;
         if (Cursor.lockState == CursorLockMode.Locked)
         {
             Cursor.lockState = CursorLockMode.Confined;
