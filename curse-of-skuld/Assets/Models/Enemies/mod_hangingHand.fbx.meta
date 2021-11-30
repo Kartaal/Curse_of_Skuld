@@ -1,17 +1,17 @@
 fileFormatVersion: 2
-guid: ac825ba8eaabf5544a5c7c9ce0425397
+guid: 5c5a94f0d47ddfa4e91d942b7fc2f643
 ModelImporter:
   serializedVersion: 21202
   internalIDToNameTable:
   - first:
       74: 4781951162920444690
-    second: Patroling
+    second: HangIdle
   - first:
-      74: 7552057760070299348
-    second: Chasing
+      74: 4828028426687900610
+    second: Armature|Cube.002Action
   - first:
-      74: -1991754623619065089
-    second: Spotting
+      74: 4808877333930809548
+    second: HandAttacking
   externalObjects: {}
   materials:
     materialImportMode: 0
@@ -42,11 +42,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Patroling
+      name: HangIdle
       takeName: Armature|ArmatureAction
       internalID: 0
       firstFrame: 0
-      lastFrame: 24
+      lastFrame: 48
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -71,40 +71,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Chasing
+      name: HandAttacking
       takeName: Armature|ArmatureAction
       internalID: 0
-      firstFrame: 30
-      lastFrame: 46
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Spotting
-      takeName: Armature|ArmatureAction
-      internalID: 0
-      firstFrame: 70
-      lastFrame: 88
+      firstFrame: 50
+      lastFrame: 122
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
