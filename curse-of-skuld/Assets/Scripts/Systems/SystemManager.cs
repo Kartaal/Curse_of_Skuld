@@ -49,8 +49,6 @@ public class SystemManager : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.Locked;
         }
-        
-        // Might want to pause game time so world state doesn't change while menu is open
     }
 
     public void ResetScene()

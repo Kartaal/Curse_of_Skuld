@@ -37,6 +37,16 @@ public class UIManager : MonoBehaviour
     {
         SystemManager.Instance.ToggleMenuControls();
         _menu.SetActive(!_menu.activeSelf);
+        
+        // Pause game time while menu is open
+        if (Time.timeScale != 0)
+        {
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
     }
     
     public void ClearScreen()
