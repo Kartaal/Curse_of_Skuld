@@ -24,7 +24,6 @@ public class CameraMoveInCloset : MonoBehaviour
 
     private Vector2 _mouseMovement;
     void FixedUpdate () {
-        print("in here");
         _y += speed * _mouseMovement.x;
         _x += speed * _mouseMovement.y;
         
