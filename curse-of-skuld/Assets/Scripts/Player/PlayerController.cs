@@ -112,11 +112,6 @@ public class PlayerController : MonoBehaviour
         CollisionDetector.Instance.InteractionKeyPressed();
     }
 
-    public void OnDebug()
-    {
-        SystemManager.Instance.ResetScene();
-    }
-
     public void OnStartSprint()
     {
         StaminaManager.Instance.StartDecreaseStamina();

@@ -36,6 +36,20 @@ public class SystemManager : MonoBehaviour
         _currentScene = SceneManager.GetActiveScene();
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        AudioManager.Instance.StartPlayingAmbience();
+        Time.timeScale = 1f;
+    }
+
+    public void ToggleCursorLock()
+    {
+        if (Cursor.lockState == CursorLockMode.Locked)
+        {
+            Cursor.lockState = CursorLockMode.Confined;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
     }
 
     public void ResetScene()

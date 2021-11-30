@@ -1,3 +1,5 @@
+using FMOD.Studio;
+using FMODUnity;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -38,6 +40,11 @@ public class Enemy : MonoBehaviour
 
 
     private NavMeshAgent _agent;
+
+    private EventInstance _passiveMonsterSound;
+    private EventInstance _alertMonsterSound;
+
+
     void Awake()
     {
         _searching = false;
@@ -57,11 +64,19 @@ public class Enemy : MonoBehaviour
     {
         if (patrolStops == null)
             patrolStops = new List<Transform>();
+
+        _passiveMonsterSound = RuntimeManager.CreateInstance(AudioManager.Instance.monsterPassive);
+        _alertMonsterSound = RuntimeManager.CreateInstance(AudioManager.Instance.monsterAlert);
+
+        RuntimeManager.AttachInstanceToGameObject(_passiveMonsterSound, this.transform);
+        RuntimeManager.AttachInstanceToGameObject(_alertMonsterSound, this.transform);
+        _passiveMonsterSound.start();
     }
 
     private void Update()
     {
         anim.SetBool("IsChasing", _state == State.Chase);
+        anim.SetBool("IsSuspicious", _state == State.Suspicious);
 
         _timeSincePlayerLastVisible += Time.deltaTime;
 

@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a0dfb4c4689b0944aa9d25e8ef6568e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  masterVolumeNumber: {fileID: 0}
   footSteps:
     Guid:
       Data1: -893411614
@@ -51,3 +52,24 @@ MonoBehaviour:
       Data3: -557931624
       Data4: 29977312
     Path: event:/Character/Footsteps/FS_Boots
+  ambience:
+    Guid:
+      Data1: 1551633553
+      Data2: 1256706179
+      Data3: 947204541
+      Data4: -883440589
+    Path: event:/Ambiences/AMB_background
+  monsterPassive:
+    Guid:
+      Data1: 1397544842
+      Data2: 1097888036
+      Data3: -2054047571
+      Data4: 76949807
+    Path: event:/FX/FX_MonsterPassive
+  monsterAlert:
+    Guid:
+      Data1: -1836884455
+      Data2: 1234118319
+      Data3: -1153909874
+      Data4: 298163580
+    Path: event:/FX/FX_MonsterAlert

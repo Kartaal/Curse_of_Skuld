@@ -17,6 +17,6 @@ MonoBehaviour:
   killDistance: 2
   searchDuration: 5
   minTimeToChase: 1
-  variableTimeToChase: 2
+  variableTimeToChase: 0
   patrolPointWaitTime: 2
   maxTimeSincePlayerLastVisible: 0.5
