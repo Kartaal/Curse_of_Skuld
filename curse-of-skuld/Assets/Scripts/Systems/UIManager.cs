@@ -33,10 +33,36 @@ public class UIManager : MonoBehaviour
         _menu.SetActive(false);
     }
 
+    // Hacky solution to keep cursor visible while menu is open
+    // opening the menu sets timescale to 0, closing sets it to 1
+    private void Update()
+    {
+        if (Time.timeScale == 0)
+        {
+            Cursor.visible = true;
+        }
+        else
+        {
+            Cursor.visible = false;
+        }
+    }
+
+    // Toggle menu and pause/unpause the game
     public void OnOpenEscapeMenu()
     {
-        SystemManager.Instance.ToggleMenuControls();
+        // Toggle cursor lock so menu can be clicked
+        SystemManager.Instance.ToggleCursorLock();
         _menu.SetActive(!_menu.activeSelf);
+        
+        // Pause game time while menu is open
+        if (Time.timeScale != 0f)
+        {
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            Time.timeScale = 1f;
+        }
     }
     
     public void ClearScreen()

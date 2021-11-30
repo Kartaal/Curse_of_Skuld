@@ -37,11 +37,11 @@ public class SystemManager : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         AudioManager.Instance.StartPlayingAmbience();
+        Time.timeScale = 1f;
     }
 
-    public void ToggleMenuControls()
+    public void ToggleCursorLock()
     {
-        Cursor.visible = !Cursor.visible;
         if (Cursor.lockState == CursorLockMode.Locked)
         {
             Cursor.lockState = CursorLockMode.Confined;
@@ -50,8 +50,6 @@ public class SystemManager : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.Locked;
         }
-        
-        // Might want to pause game time so world state doesn't change while menu is open
     }
 
     public void ResetScene()

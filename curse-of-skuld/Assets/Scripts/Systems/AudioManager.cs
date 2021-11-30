@@ -41,7 +41,7 @@ public class AudioManager : MonoBehaviour
 
     public void MasterVolumeLevel(float newMasterVolume)
     {
-        RuntimeManager.GetBus("bus:/").setVolume((newMasterVolume));
+        RuntimeManager.GetBus("bus:/").setVolume(newMasterVolume);
         int volNum = (int) (newMasterVolume * 100);
         masterVolumeNumber.text = volNum + "%";
     }
