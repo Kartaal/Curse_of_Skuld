@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
     
     private bool _canSprint;
     private float _tempMaxSpeed;
-
+    private bool _shiftPressed;
     private bool _dead;
     
     
@@ -104,6 +104,10 @@ public class PlayerController : MonoBehaviour
         Vector2 inputVec = input.Get<Vector2>();
 
         _movementVector = new Vector3(inputVec.x, 0, inputVec.y);
+        // if (_canSprint)
+        // {
+        //     StaminaManager.Instance.StartDecreaseStamina();
+        // }
     }
 
     //It is important the method is named this way for the input system to find it.
@@ -114,8 +118,11 @@ public class PlayerController : MonoBehaviour
 
     public void OnStartSprint()
     {
-        StaminaManager.Instance.StartDecreaseStamina();
-        _canSprint = true;
+        if (_movementVector.magnitude != 0)
+        {
+            StaminaManager.Instance.StartDecreaseStamina();
+            _canSprint = true;
+        }
     }
 
     public void OnStopSprint()
