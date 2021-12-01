@@ -1,3 +1,4 @@
+using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -24,6 +25,9 @@ public class Door : MonoBehaviour,IInteractable
             UIManager.Instance.ClearScreen();
             UIManager.Instance.DisplayAndClearTextAfterDelay(textToDisplayAfterInteraction,4f);
             var childrenAnimators = GetComponentsInChildren<Animator>();
+
+            RuntimeManager.PlayOneShot(AudioManager.Instance.doorOpen);
+
             foreach (var anim in childrenAnimators)
             {
                 anim.SetTrigger("open");
