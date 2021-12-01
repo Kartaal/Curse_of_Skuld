@@ -25,8 +25,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool _controllerLocked = false;
 
     [SerializeField] private Transform[] visionTargetsAI;
-
-    
+    [Header("Uncheck this if you want player to start from position in editor")]
+    [SerializeField] private bool spawnFromSave;
     private bool _canSprint;
     private float _tempMaxSpeed;
     private bool _shiftPressed;
@@ -49,8 +49,12 @@ public class PlayerController : MonoBehaviour
         Vector3 moveVec = transform.forward + Vector3.down * 30f;
         _charController.Move(moveVec);
         //respawn only works after Move 
-        // transform.position = new Vector3(PlayerPrefs.GetFloat("PositionX"), PlayerPrefs.GetFloat("PositionY"),
-        //     PlayerPrefs.GetFloat("PositionZ"));
+        if (spawnFromSave)
+        {
+            transform.position = new Vector3(PlayerPrefs.GetFloat("PositionX"), PlayerPrefs.GetFloat("PositionY"),
+                PlayerPrefs.GetFloat("PositionZ"));
+        }
+
         // transform.position = new Vector3(20,20,20);
         _camera = Camera.main;
         
