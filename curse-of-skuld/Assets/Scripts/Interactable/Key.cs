@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,16 @@ public class Key : MonoBehaviour, IInteractable
 
     [SerializeField] private string objectName;
     [SerializeField] private string textToDisplayAfterInteraction;
+
+    public void Awake()
+    {
+        if (PlayerPrefs.GetInt(door.GetComponent<Door>().ObjectName) == 1)
+        {
+            this.gameObject.SetActive(false); 
+        }
+        
+    }
+
     public void Interact()
     {
         UIManager.Instance.ClearScreen();
