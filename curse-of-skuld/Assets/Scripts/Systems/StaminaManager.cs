@@ -38,6 +38,7 @@ public class StaminaManager : MonoBehaviour
 
     private Vignette _vignette;
     private bool _punishmentState;
+    private bool _canIncrease;
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -58,6 +59,7 @@ public class StaminaManager : MonoBehaviour
         postProcessing.profile.TryGet<Vignette>(out _vignette);
         _vignette.intensity.value = 1-maxVignette;
         _punishmentState = false;
+        _canIncrease = true;
     }
 
     public void Update()
@@ -69,21 +71,27 @@ public class StaminaManager : MonoBehaviour
 
     public void StartDecreaseStamina()
     {
+        _canIncrease = false;
         if(_increaseStaminaCoroutine !=null)
             StopCoroutine(_increaseStaminaCoroutine);
-       if(!_punishmentState)
+        if (!_punishmentState)
+        {
+            if(_increaseStaminaCoroutine !=null)
+                StopCoroutine(IncreaseStaminaOverTime(0));
             _decreaseStaminaCoroutine = StartCoroutine(DecreaseStaminaOverTime(decreasingStaminaAmount));
+        }
     }
 
     public void StopDecreasingStamina()
     {
+        _canIncrease = true;
         if(_decreaseStaminaCoroutine!=null)
             StopCoroutine(_decreaseStaminaCoroutine);
         if (currentStamina>0 )
         {       
             // print("ss");
             // StopCoroutine(_punishmentCoolDown);
-            if(_increaseStaminaCoroutine==null)
+           //if(_increaseStaminaCoroutine==null)
                 _increaseStaminaCoroutine = StartCoroutine(IncreaseStaminaOverTime(increaseingStaminaAmount));
         }  else
         {
@@ -109,9 +117,10 @@ public class StaminaManager : MonoBehaviour
     }
     private IEnumerator IncreaseStaminaOverTime(float amount)
     {
-        while (currentStamina + amount <= maxStamina)
+        while (currentStamina + amount <= maxStamina &&_canIncrease)
         {
             currentStamina += amount;
+            print("increasing");
             // _vignette.intensity.value =math.lerp(_vignette.intensity.value,minVignette,increasingStaminaTime);
             _vignette.intensity.value = 1-((maxVignette - minVignette) * currentStamina + minVignette);
             staminaBar.value = currentStamina;
