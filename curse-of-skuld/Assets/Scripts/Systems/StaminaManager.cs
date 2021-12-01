@@ -120,7 +120,7 @@ public class StaminaManager : MonoBehaviour
         while (currentStamina + amount <= maxStamina &&_canIncrease)
         {
             currentStamina += amount;
-            print("increasing");
+            // print("increasing");
             // _vignette.intensity.value =math.lerp(_vignette.intensity.value,minVignette,increasingStaminaTime);
             _vignette.intensity.value = 1-((maxVignette - minVignette) * currentStamina + minVignette);
             staminaBar.value = currentStamina;

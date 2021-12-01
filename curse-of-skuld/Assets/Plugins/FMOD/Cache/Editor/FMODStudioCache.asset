@@ -340,12 +340,38 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: 1051422272272746748}
-  - {fileID: -5471936545835220030}
+  - {fileID: -5664236062997626926}
+  - {fileID: -420961904754338890}
   MinDistance: 1
   MaxDistance: 20
   Length: 0
 --- !u!114 &-5788404473747433186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/FS_Boots/WalkRun
+  m_EditorClassIdentifier: 
+  Name: WalkRun
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - walking
+  - running
+  Exists: 1
+--- !u!114 &-5664236062997626926
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -555,6 +581,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 536
+--- !u!114 &-2107243033648443908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/AMB_background/AmbienceParameters
+  m_EditorClassIdentifier: 
+  Name: AmbienceParameters
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Type: 1
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &-1820851422142942675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -609,6 +659,33 @@ MonoBehaviour:
   - Grass
   - Wood
   Exists: 0
+--- !u!114 &-420961904754338890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/FS_Boots/Material
+  m_EditorClassIdentifier: 
+  Name: Material
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Stone
+  - Grass
+  - Wood
+  Exists: 1
 --- !u!114 &-347120214726356802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -663,7 +740,7 @@ MonoBehaviour:
   - {fileID: 5266968356672985723}
   StringsBanks:
   - {fileID: 8086459269326969905}
-  cacheTime: 637739010993177635
+  cacheTime: 637739808114983373
   cacheVersion: 9
 --- !u!114 &142429623956426973
 MonoBehaviour:
@@ -689,7 +766,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: -2539722869742634124}
+  - {fileID: -2107243033648443908}
   MinDistance: 1
   MaxDistance: 20
   Length: 48000
@@ -1149,7 +1226,7 @@ MonoBehaviour:
   Path: FMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637739010993127379
+  lastModified: 637739808114973372
   FileSizes: []
   Exists: 1
 --- !u!114 &5599870266110885857
@@ -1372,7 +1449,7 @@ MonoBehaviour:
   Path: FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637739010993177635
+  lastModified: 637739808114983373
   FileSizes:
   - Name: 
     Value: 1300
