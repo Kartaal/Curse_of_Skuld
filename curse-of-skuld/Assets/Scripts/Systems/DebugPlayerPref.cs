@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DebugPlayerPref : MonoBehaviour
 {
@@ -17,11 +18,16 @@ public class DebugPlayerPref : MonoBehaviour
     private float value;
     [SerializeField] 
     private bool changeKey;
+    
+    private Scene _currentScene;
     void Start()
     {
-        
+        _currentScene = SceneManager.GetActiveScene();
     }
-
+    void OnDebugRestart()
+    {
+        SceneManager.LoadScene(_currentScene.name);
+    }
     // Update is called once per frame
     void Update()
     {

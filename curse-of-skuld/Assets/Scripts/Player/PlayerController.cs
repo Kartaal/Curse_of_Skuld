@@ -40,10 +40,18 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        //respwan
+        
+        
         _charController = GetComponent<CharacterController>();
+        
         _moveAnim = GetComponentInChildren<Animator>();
         Vector3 moveVec = transform.forward + Vector3.down * 30f;
         _charController.Move(moveVec);
+        //respawn only works after Move 
+        // transform.position = new Vector3(PlayerPrefs.GetFloat("PositionX"), PlayerPrefs.GetFloat("PositionY"),
+        //     PlayerPrefs.GetFloat("PositionZ"));
+        // transform.position = new Vector3(20,20,20);
         _camera = Camera.main;
         
         _tempMaxSpeed = playerData.MaxSpeed;
