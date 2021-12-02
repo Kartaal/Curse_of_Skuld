@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -16,6 +17,12 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _noteContainer;
     private TextMeshProUGUI _noteText;
     [SerializeField] private GameObject _menu;
+
+    [SerializeField] private CinemachineFreeLook playerCamera;
+    private float cameraXSpeed;
+    private float cameraYSpeed;
+    // Have this be accessible from outside if anyone needs to query if the menu is open
+    public bool menuOpen = false;
     
     private void Awake()
     {
@@ -31,6 +38,9 @@ public class UIManager : MonoBehaviour
         // Yay child object setup!
         _noteText = _noteContainer.GetComponentInChildren<TextMeshProUGUI>();
         _menu.SetActive(false);
+
+        cameraXSpeed = playerCamera.m_XAxis.m_MaxSpeed;
+        cameraYSpeed = playerCamera.m_YAxis.m_MaxSpeed;
     }
 
     // Hacky solution to keep cursor visible while menu is open
@@ -50,10 +60,23 @@ public class UIManager : MonoBehaviour
     // Toggle menu and pause/unpause the game
     public void OnOpenEscapeMenu()
     {
+        menuOpen = !menuOpen;
         // Toggle cursor lock so menu can be clicked
         SystemManager.Instance.ToggleCursorLock();
         _menu.SetActive(!_menu.activeSelf);
         
+        // Set camera movement speed to 0 (mimic locking)
+        if (menuOpen)
+        {
+            playerCamera.m_XAxis.m_MaxSpeed = 0f;
+            playerCamera.m_YAxis.m_MaxSpeed = 0f;
+        }
+        else
+        {   
+            playerCamera.m_XAxis.m_MaxSpeed = cameraXSpeed;
+            playerCamera.m_YAxis.m_MaxSpeed = cameraYSpeed;
+        }
+
         // Pause game time while menu is open
         if (Time.timeScale != 0f)
         {
