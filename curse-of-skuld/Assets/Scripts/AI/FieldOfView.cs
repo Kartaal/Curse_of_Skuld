@@ -62,7 +62,7 @@ public class FieldOfView : MonoBehaviour
 
             if (_hitCount > 0)
             {
-                EnemyVisionData visionData = new EnemyVisionData(player.position, _hitCount/_numberVisionTargets);
+                EnemyVisionData visionData = new EnemyVisionData(player.position);
                 _enemy.PlayerSpotted(visionData);
 
             }
