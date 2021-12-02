@@ -19,6 +19,12 @@ public class AudioManager : MonoBehaviour
 
     public EventReference monsterAlert;
 
+    public EventReference doorOpen;
+
+    public EventReference closetCreak;
+
+    public EventReference keyPickup;
+
     private EventInstance _ambienceInstance;
 
     private void Awake()

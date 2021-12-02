@@ -73,3 +73,24 @@ MonoBehaviour:
       Data3: -1153909874
       Data4: 298163580
     Path: event:/FX/FX_MonsterAlert
+  doorOpen:
+    Guid:
+      Data1: 1594496762
+      Data2: 1148642587
+      Data3: -1969706574
+      Data4: 845541115
+    Path: event:/FX/FX_Door
+  closetCreak:
+    Guid:
+      Data1: -705072134
+      Data2: 1085428205
+      Data3: -414742383
+      Data4: 1112390752
+    Path: event:/FX/FX_DoorCloset
+  keyPickup:
+    Guid:
+      Data1: 696204270
+      Data2: 1303018451
+      Data3: -2038536522
+      Data4: -1643541997
+    Path: event:/FX/FX_Key
