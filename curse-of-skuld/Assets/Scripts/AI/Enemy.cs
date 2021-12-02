@@ -237,10 +237,16 @@ public class Enemy : MonoBehaviour
             _state = State.Suspicious;
             StartCoroutine(BecomeSuspicious());
         }
-        
+
         _timeSincePlayerLastVisible = 0;
         _lastKnownLocation = visionData.LastKnownPosition;
-        transform.LookAt(_lastKnownLocation);
+        
+        if (_state != State.Chase)
+        {
+            _agent.updateRotation = false;
+            transform.LookAt(_lastKnownLocation);
+            _agent.updateRotation = true;
+        }
     }
 
     public void PlayerHeard(Vector3 playerPosition)
@@ -252,7 +258,13 @@ public class Enemy : MonoBehaviour
         }
         _timeSincePlayerLastVisible = 0;
         _lastKnownLocation = playerPosition;
-        transform.LookAt(_lastKnownLocation);
+        
+        if (_state != State.Chase)
+        {
+            _agent.updateRotation = false;
+            transform.LookAt(_lastKnownLocation);
+            _agent.updateRotation = true;
+        }
     }
 
     private void PlaySoundInstanceIfNotAlreadyRunning(EventInstance instance)
