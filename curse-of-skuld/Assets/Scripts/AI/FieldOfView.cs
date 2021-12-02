@@ -28,7 +28,7 @@ public class FieldOfView : MonoBehaviour
 
     private void Start()
     {
-        _playerLimbs = SystemManager.Instance.playerGameObject.GetComponent<PlayerController>().VisionTargetsAI;
+        _playerLimbs = SystemManager.Instance.playerGameObject.GetComponentInChildren<PlayerController>().VisionTargetsAI;
         _numberVisionTargets = _playerLimbs.Length;
     }
 
