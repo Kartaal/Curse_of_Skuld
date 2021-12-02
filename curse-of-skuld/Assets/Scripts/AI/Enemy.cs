@@ -68,6 +68,12 @@ public class Enemy : MonoBehaviour
         _passiveMonsterSound.start();
     }
 
+    private void OnDestroy()
+    {
+        _passiveMonsterSound.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        _alertMonsterSound.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+    }
+
     private void Update()
     {
         anim.SetBool("IsChasing", _state == State.Chase);
@@ -103,6 +109,17 @@ public class Enemy : MonoBehaviour
                     StartCoroutine(StartSearch());
                 Search();
                 break;
+        }
+
+        if (_state == State.Chase)
+        {
+            this.PlaySoundInstanceIfNotAlreadyRunning(_alertMonsterSound);
+            this.StopSoundInstanceIfNotAlreadyStopped(_passiveMonsterSound);
+        } 
+        else
+        {
+            this.PlaySoundInstanceIfNotAlreadyRunning(_passiveMonsterSound);
+            this.StopSoundInstanceIfNotAlreadyStopped(_alertMonsterSound);
         }
     }
 
@@ -236,5 +253,28 @@ public class Enemy : MonoBehaviour
         _timeSincePlayerLastVisible = 0;
         _lastKnownLocation = playerPosition;
         transform.LookAt(_lastKnownLocation);
+    }
+
+    private void PlaySoundInstanceIfNotAlreadyRunning(EventInstance instance)
+    {
+        PLAYBACK_STATE state;
+        instance.getPlaybackState(out state);
+        
+        if (state != PLAYBACK_STATE.PLAYING)
+        {
+            instance.start();
+        }
+        
+    }
+
+    private void StopSoundInstanceIfNotAlreadyStopped(EventInstance instance)
+    {
+        PLAYBACK_STATE state;
+        instance.getPlaybackState(out state);
+
+        if (state != PLAYBACK_STATE.STOPPED)
+        {
+            instance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        }
     }
 }
