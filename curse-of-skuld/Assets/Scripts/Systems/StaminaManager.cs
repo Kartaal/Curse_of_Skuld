@@ -1,7 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 public class StaminaManager : MonoBehaviour
@@ -17,15 +20,25 @@ public class StaminaManager : MonoBehaviour
 
     private Coroutine _increaseStaminaCoroutine= null;
     private Coroutine _decreaseStaminaCoroutine = null;
-   
+    private Coroutine _punishmentCoolDown = null;
     
     [Range(0,1)] 
     public float maxStamina=1;
+
+    public float DebugVignette;
     public float currentStamina;
+    public Volume postProcessing;
     [SerializeField] private float increasingStaminaTime;
     [SerializeField] private float increaseingStaminaAmount;
     [SerializeField] private float decreasingStaminaTime;
     [SerializeField] private float decreasingStaminaAmount;
+    [SerializeField] private float punishmentCoolDownTime;
+    [SerializeField] private float maxVignette;
+    [SerializeField] private float minVignette;
+
+    private Vignette _vignette;
+    private bool _punishmentState;
+    private bool _canIncrease;
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -43,25 +56,49 @@ public class StaminaManager : MonoBehaviour
         if(staminaBar!=null)
         staminaBar.value = maxStamina;
         currentStamina = maxStamina;
+        postProcessing.profile.TryGet<Vignette>(out _vignette);
+        _vignette.intensity.value = 1-maxVignette;
+        _punishmentState = false;
+        _canIncrease = true;
     }
 
-    // public void Update()
-    // {
-    //     print(currentStamina);
-    // }
+    public void Update()
+    {
+        //for debuging purposes only 
+        DebugVignette = _vignette.intensity.value;
+      //  print(_punishmentState);
+    }
 
     public void StartDecreaseStamina()
     {
+        _canIncrease = false;
         if(_increaseStaminaCoroutine !=null)
             StopCoroutine(_increaseStaminaCoroutine);
-        _decreaseStaminaCoroutine = StartCoroutine(DecreaseStaminaOverTime(decreasingStaminaAmount));
+        if (!_punishmentState)
+        {
+            // if(_increaseStaminaCoroutine !=null)
+            //     StopCoroutine(IncreaseStaminaOverTime(0));
+            _decreaseStaminaCoroutine = StartCoroutine(DecreaseStaminaOverTime(decreasingStaminaAmount));
+        }
     }
 
     public void StopDecreasingStamina()
     {
+        _canIncrease = true;
         if(_decreaseStaminaCoroutine!=null)
             StopCoroutine(_decreaseStaminaCoroutine);
-        _increaseStaminaCoroutine = StartCoroutine(IncreaseStaminaOverTime(increaseingStaminaAmount));
+        if (currentStamina>0 )
+        {       
+            // print("ss");
+            // StopCoroutine(_punishmentCoolDown);
+           //if(_increaseStaminaCoroutine==null)
+                _increaseStaminaCoroutine = StartCoroutine(IncreaseStaminaOverTime(increaseingStaminaAmount));
+        }  else
+        {
+            _punishmentState = true;
+            if(_punishmentCoolDown==null)
+                _punishmentCoolDown = StartCoroutine(PunishmentCoolDown(punishmentCoolDownTime));
+        } 
     }
 
     private IEnumerator DecreaseStaminaOverTime(float amount)
@@ -69,6 +106,8 @@ public class StaminaManager : MonoBehaviour
         while (currentStamina - amount >= 0)
         {
             currentStamina -= amount;
+            // _vignette.intensity.value =math.lerp(_vignette.intensity.value,maxVignette,decreasingStaminaTime);
+            _vignette.intensity.value =1-((maxVignette - minVignette) * currentStamina + minVignette);
             staminaBar.value = currentStamina;
             yield return new WaitForSeconds(decreasingStaminaTime);
         }
@@ -78,14 +117,26 @@ public class StaminaManager : MonoBehaviour
     }
     private IEnumerator IncreaseStaminaOverTime(float amount)
     {
-        while (currentStamina + amount <= maxStamina)
+        while (currentStamina + amount <= maxStamina &&_canIncrease)
         {
             currentStamina += amount;
+            // print("increasing");
+            // _vignette.intensity.value =math.lerp(_vignette.intensity.value,minVignette,increasingStaminaTime);
+            _vignette.intensity.value = 1-((maxVignette - minVignette) * currentStamina + minVignette);
             staminaBar.value = currentStamina;
             yield return new WaitForSeconds(increasingStaminaTime);
         }
 
         currentStamina = maxStamina;
         _increaseStaminaCoroutine = null;
+    }
+
+    private IEnumerator PunishmentCoolDown(float waitingTime)
+    {
+        //print("cooolDown");
+        yield return new WaitForSeconds(waitingTime); 
+        _increaseStaminaCoroutine = StartCoroutine(IncreaseStaminaOverTime(increaseingStaminaAmount));
+        _punishmentState = false;
+        _punishmentCoolDown = null;
     }
 }
