@@ -19,8 +19,7 @@ public class Enemy : MonoBehaviour
     
     [SerializeField] private EnemyData enemyData;
     [SerializeField] private bool loopPatrol;
-    [SerializeField] private Transform[] patrolTargets;
-    [SerializeField] private List<Transform> patrolStops;
+    [SerializeField] private PatrolWaypoint[] patrolTargets;
     [SerializeField] private Animator anim;
    
     private int _arrayDir;
@@ -61,9 +60,6 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
-        if (patrolStops == null)
-            patrolStops = new List<Transform>();
-
         _passiveMonsterSound = RuntimeManager.CreateInstance(AudioManager.Instance.monsterPassive);
         _alertMonsterSound = RuntimeManager.CreateInstance(AudioManager.Instance.monsterAlert);
 
@@ -119,8 +115,8 @@ public class Enemy : MonoBehaviour
         
         if(!_agent.pathPending && _agent.remainingDistance < 0.5f && !_waiting)
         {
-            _agent.destination = patrolTargets[_curr].position;
-            if (patrolStops.Contains(patrolTargets[_curr]))
+            _agent.destination = patrolTargets[_curr].PatrolPoint.position;
+            if (patrolTargets[_curr].WaitTime >= 0)
             {
                 _waiting = true;
             }
@@ -149,7 +145,10 @@ public class Enemy : MonoBehaviour
     {
         _agent.ResetPath();
         _waitRoutineRunning = true;
+        _agent.updateRotation = false;
+        transform.LookAt(patrolTargets[_curr].ViewDir);
         yield return new WaitForSeconds(enemyData.PatrolPointWaitTime);
+        _agent.updateRotation = true;
         _waitRoutineRunning = false;
         _waiting = false;
     }
@@ -157,7 +156,9 @@ public class Enemy : MonoBehaviour
     private IEnumerator BecomeSuspicious()
     {
         _agent.ResetPath();
+        _agent.updateRotation = false;
         yield return new WaitForSeconds(enemyData.MinTimeToChase);
+        _agent.updateRotation = true;
         _state = _timeSincePlayerLastVisible < enemyData.MaxTimeSincePlayerLastVisible ? State.Chase : State.Patrol;
     }
 
