@@ -11,7 +11,6 @@ public class EnemyData : ScriptableObject
     [SerializeField] private float killDistance;
     [SerializeField] private float searchDuration;
     [SerializeField] private float minTimeToChase;
-    [SerializeField] private float variableTimeToChase;
     [SerializeField] private float patrolPointWaitTime;
     [SerializeField] private float maxTimeSincePlayerLastVisible;
 
@@ -24,8 +23,6 @@ public class EnemyData : ScriptableObject
     public float SearchDuration => searchDuration;
 
     public float MinTimeToChase => minTimeToChase;
-
-    public float VariableTimeToChase => variableTimeToChase;
 
     public float PatrolPointWaitTime => patrolPointWaitTime;
 

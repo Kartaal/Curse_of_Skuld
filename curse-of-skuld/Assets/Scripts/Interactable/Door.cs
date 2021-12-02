@@ -1,4 +1,5 @@
 using FMODUnity;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -11,11 +12,28 @@ public class Door : MonoBehaviour,IInteractable
     private bool _canOpen = false;
     [SerializeField] private float openningSpeed;
     [SerializeField] private string objectName;
+    public string ObjectName
+    {
+        get { return objectName; }
+    }
     [SerializeField] private string textToDisplayAfterInteraction;
     [SerializeField] private string textToDisplayIfCannotInteract;
     public void CanOpen()
     {
         _canOpen = true;
+    }
+
+    public void Awake()
+    {
+        if (PlayerPrefs.GetInt(objectName) == 1)
+        {
+            var childrenAnimators = GetComponentsInChildren<Animator>();
+            foreach (var anim in childrenAnimators)
+            {
+                anim.SetTrigger("open");
+                anim.SetFloat("speed",openningSpeed);
+            }
+        }
     }
 
     public void Interact()
@@ -35,6 +53,7 @@ public class Door : MonoBehaviour,IInteractable
             }
             //Destroy(this.gameObject);
             // this.GetComponent<MeshRenderer>().enabled = false;
+            PlayerPrefs.SetInt(objectName,1);
         }
         else
         {
@@ -47,6 +66,6 @@ public class Door : MonoBehaviour,IInteractable
     {
         UIManager.Instance.DisplayTextOnScreen(objectName);
     }
-
+    
     
 }
