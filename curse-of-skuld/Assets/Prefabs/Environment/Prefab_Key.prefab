@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   door: {fileID: 0}
-  objectName: Key
+  objectName: Key (E)
   textToDisplayAfterInteraction: Picked up key
 --- !u!1001 &2817675935878334107
 PrefabInstance:

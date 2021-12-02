@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4758906024929354122}
   - component: {fileID: 3487106515260759553}
-  - component: {fileID: 1847499942}
   - component: {fileID: 7396744250545041842}
   m_Layer: 0
   m_Name: SingleDoorWithKey
@@ -28,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 3319725029548870795}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 2}
-  m_LocalScale: {x: 1.1, y: 1.1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1981050694189485548}
@@ -51,27 +50,7 @@ MonoBehaviour:
   openningSpeed: 0.2
   objectName: Door
   textToDisplayAfterInteraction: 'Opened the door '
-  textToDisplayIfCannotInteract: You need Key
---- !u!95 &1847499942
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3319725029548870795}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c92eadfa46faf7e4dbc619c3439dc38f, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  textToDisplayIfCannotInteract: You need key
 --- !u!65 &7396744250545041842
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -83,8 +62,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 3.191694, z: 2.4409666}
-  m_Center: {x: 0, y: 1.430562, z: 0.7204833}
+  m_Size: {x: 2, y: 3, z: 1}
+  m_Center: {x: -0.84, y: 1.45, z: -0.02}
 --- !u!1 &4327637901717199375
 GameObject:
   m_ObjectHideFlags: 0
@@ -97,6 +76,7 @@ GameObject:
   - component: {fileID: 3976319803135431452}
   - component: {fileID: 1001475382306513911}
   - component: {fileID: 3471955126319887686}
+  - component: {fileID: 18494887826858684}
   m_Layer: 0
   m_Name: Door_Single
   m_TagString: Untagged
@@ -111,14 +91,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4327637901717199375}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4758906024929354122}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3976319803135431452
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -183,6 +163,26 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -7250910376441019101, guid: b0c49fcb0b42e2d449e2f6857c9ee963, type: 3}
+--- !u!95 &18494887826858684
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4327637901717199375}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c92eadfa46faf7e4dbc619c3439dc38f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &6083958249768061314
 PrefabInstance:
   m_ObjectHideFlags: 0
