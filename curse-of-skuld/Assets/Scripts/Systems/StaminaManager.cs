@@ -76,8 +76,8 @@ public class StaminaManager : MonoBehaviour
             StopCoroutine(_increaseStaminaCoroutine);
         if (!_punishmentState)
         {
-            if(_increaseStaminaCoroutine !=null)
-                StopCoroutine(IncreaseStaminaOverTime(0));
+            // if(_increaseStaminaCoroutine !=null)
+            //     StopCoroutine(IncreaseStaminaOverTime(0));
             _decreaseStaminaCoroutine = StartCoroutine(DecreaseStaminaOverTime(decreasingStaminaAmount));
         }
     }
