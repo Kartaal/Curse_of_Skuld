@@ -1059,7 +1059,7 @@ MonoBehaviour:
   - Stone
   - Grass
   - Wood
-  Exists: 1
+  Exists: 0
 --- !u!114 &3605173100147771305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1085,7 +1085,7 @@ MonoBehaviour:
   Labels:
   - walking
   - running
-  Exists: 1
+  Exists: 0
 --- !u!114 &3702260848228244771
 MonoBehaviour:
   m_ObjectHideFlags: 0

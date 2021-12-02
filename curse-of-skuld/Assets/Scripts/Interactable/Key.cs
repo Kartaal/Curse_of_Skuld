@@ -26,7 +26,7 @@ public class Key : MonoBehaviour, IInteractable
         UIManager.Instance.ClearScreen();
         UIManager.Instance.DisplayAndClearTextAfterDelay(textToDisplayAfterInteraction,4f);
         door.GetComponent<Door>().CanOpen();
-        RuntimeManager.PlayOneShot(AudioManager.Instance.keyPickup);
+        RuntimeManager.PlayOneShotAttached(AudioManager.Instance.keyPickup.Guid, this.gameObject);
         gameObject.SetActive(false);
 
         //why destroy? also has a bug 

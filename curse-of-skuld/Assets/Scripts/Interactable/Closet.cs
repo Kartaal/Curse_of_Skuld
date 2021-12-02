@@ -33,7 +33,7 @@ public class Closet : MonoBehaviour, IInteractable
         UIManager.Instance.ClearScreen();
         _isPlayerInside = !_isPlayerInside;
 
-        RuntimeManager.PlayOneShot(AudioManager.Instance.closetCreak);
+        RuntimeManager.PlayOneShotAttached(AudioManager.Instance.closetCreak.Guid, this.gameObject);
 
 
         if (_isPlayerInside)
