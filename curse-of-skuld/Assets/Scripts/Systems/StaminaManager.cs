@@ -49,6 +49,8 @@ public class StaminaManager : MonoBehaviour
         {
             _instance = this;
         }
+        postProcessing.profile.TryGet<Vignette>(out _vignette);
+        _vignette.intensity.value = 0.2f;
     }
 
     public void Start()
@@ -56,10 +58,11 @@ public class StaminaManager : MonoBehaviour
         if(staminaBar!=null)
         staminaBar.value = maxStamina;
         currentStamina = maxStamina;
-        postProcessing.profile.TryGet<Vignette>(out _vignette);
-        _vignette.intensity.value = 1-maxVignette;
+        
         _punishmentState = false;
         _canIncrease = true;
+        //change the initilazation in the awake too 
+        _vignette.intensity.value = 0.2f;
     }
 
     public void Update()
@@ -76,8 +79,8 @@ public class StaminaManager : MonoBehaviour
             StopCoroutine(_increaseStaminaCoroutine);
         if (!_punishmentState)
         {
-            if(_increaseStaminaCoroutine !=null)
-                StopCoroutine(IncreaseStaminaOverTime(0));
+            // if(_increaseStaminaCoroutine !=null)
+            //     StopCoroutine(IncreaseStaminaOverTime(0));
             _decreaseStaminaCoroutine = StartCoroutine(DecreaseStaminaOverTime(decreasingStaminaAmount));
         }
     }
