@@ -258,13 +258,6 @@ public class Enemy : MonoBehaviour
         }
         _timeSincePlayerLastVisible = 0;
         _lastKnownLocation = playerPosition;
-        
-        if (_state != State.Chase)
-        {
-            _agent.updateRotation = false;
-            transform.LookAt(_lastKnownLocation);
-            _agent.updateRotation = true;
-        }
     }
 
     private void PlaySoundInstanceIfNotAlreadyRunning(EventInstance instance)

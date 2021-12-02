@@ -5634,7 +5634,12 @@ PrefabInstance:
     - target: {fileID: 3487106515260759553, guid: 525e5713765925a4db68582590c1fb71,
         type: 3}
       propertyPath: objectName
-      value: SecondFloor Door
+      value: Second Floor Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 3487106515260759553, guid: 525e5713765925a4db68582590c1fb71,
+        type: 3}
+      propertyPath: textToDisplayIfCannotInteract
+      value: You need key
       objectReference: {fileID: 0}
     - target: {fileID: 4758906024929354122, guid: 525e5713765925a4db68582590c1fb71,
         type: 3}
@@ -5706,6 +5711,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1584973526}
     m_Modifications:
+    - target: {fileID: 7288758086249650418, guid: ed64492585f1c1444a0f84f374a94c98,
+        type: 3}
+      propertyPath: objectName
+      value: 'Main Building '
+      objectReference: {fileID: 0}
+    - target: {fileID: 7288758086249650418, guid: ed64492585f1c1444a0f84f374a94c98,
+        type: 3}
+      propertyPath: textToDisplayIfCannotInteract
+      value: You need key
+      objectReference: {fileID: 0}
     - target: {fileID: 7288758086249650428, guid: ed64492585f1c1444a0f84f374a94c98,
         type: 3}
       propertyPath: m_Name
@@ -36433,7 +36448,12 @@ PrefabInstance:
     - target: {fileID: 3487106515260759553, guid: 525e5713765925a4db68582590c1fb71,
         type: 3}
       propertyPath: objectName
-      value: ThirdFloor Door
+      value: Third Floor Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 3487106515260759553, guid: 525e5713765925a4db68582590c1fb71,
+        type: 3}
+      propertyPath: textToDisplayIfCannotInteract
+      value: You need key
       objectReference: {fileID: 0}
     - target: {fileID: 4758906024929354122, guid: 525e5713765925a4db68582590c1fb71,
         type: 3}
@@ -36535,6 +36555,11 @@ PrefabInstance:
       propertyPath: objectName
       value: Barracks Door
       objectReference: {fileID: 0}
+    - target: {fileID: 3487106515260759553, guid: 525e5713765925a4db68582590c1fb71,
+        type: 3}
+      propertyPath: textToDisplayIfCannotInteract
+      value: You need key
+      objectReference: {fileID: 0}
     - target: {fileID: 4758906024929354122, guid: 525e5713765925a4db68582590c1fb71,
         type: 3}
       propertyPath: m_RootOrder
@@ -36628,7 +36653,12 @@ PrefabInstance:
     - target: {fileID: 3487106515260759553, guid: 525e5713765925a4db68582590c1fb71,
         type: 3}
       propertyPath: objectName
-      value: FirstFloor Door
+      value: First Floor Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 3487106515260759553, guid: 525e5713765925a4db68582590c1fb71,
+        type: 3}
+      propertyPath: textToDisplayIfCannotInteract
+      value: You need key
       objectReference: {fileID: 0}
     - target: {fileID: 4758906024929354122, guid: 525e5713765925a4db68582590c1fb71,
         type: 3}
