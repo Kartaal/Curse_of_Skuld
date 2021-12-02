@@ -25,6 +25,10 @@ public class AudioManager : MonoBehaviour
 
     public EventReference keyPickup;
 
+    public EventReference whispers;
+
+    public EventReference panting;
+
     private EventInstance _ambienceInstance;
 
     private void Awake()
@@ -68,5 +72,20 @@ public class AudioManager : MonoBehaviour
     {
         _ambienceInstance.setParameterByName("AmbienceParameters", 2);
         _ambienceInstance.release();
+    }
+
+    public void PlayRandomWhispersInBackground(int minSecondsBetween, int maxSecondsBetween)
+    {
+        StartCoroutine(PlayWhisperSound(minSecondsBetween, maxSecondsBetween));
+    }
+
+    private IEnumerator PlayWhisperSound(int minSecondsBetween, int maxSecondsBetween)
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(UnityEngine.Random.Range(minSecondsBetween, maxSecondsBetween));
+            RuntimeManager.PlayOneShot(whispers);
+            yield return new WaitForSeconds(10);
+        }
     }
 }

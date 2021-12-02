@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{17838321-90f4-4f60-89d9-bb903c35cf8b}">
+		<property name="assetPath">
+			<value>Characters/P_pantingShort.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.32460317460317462</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{dbf35ea9-e9ed-4555-8cb8-256a5931934b}</destination>
+		</relationship>
+	</object>
+</objects>
