@@ -56,7 +56,7 @@ public class StaminaManager : MonoBehaviour
     public void Start()
     {
         if(staminaBar!=null)
-        staminaBar.value = maxStamina;
+        staminaBar.value = 1-maxStamina;
         currentStamina = maxStamina;
         
         _punishmentState = false;
@@ -111,7 +111,7 @@ public class StaminaManager : MonoBehaviour
             currentStamina -= amount;
             // _vignette.intensity.value =math.lerp(_vignette.intensity.value,maxVignette,decreasingStaminaTime);
             _vignette.intensity.value =1-((maxVignette - minVignette) * currentStamina + minVignette);
-            staminaBar.value = currentStamina;
+            staminaBar.value = 1-currentStamina;
             yield return new WaitForSeconds(decreasingStaminaTime);
         }
 
@@ -126,7 +126,7 @@ public class StaminaManager : MonoBehaviour
             // print("increasing");
             // _vignette.intensity.value =math.lerp(_vignette.intensity.value,minVignette,increasingStaminaTime);
             _vignette.intensity.value = 1-((maxVignette - minVignette) * currentStamina + minVignette);
-            staminaBar.value = currentStamina;
+            staminaBar.value = 1-currentStamina;
             yield return new WaitForSeconds(increasingStaminaTime);
         }
 
