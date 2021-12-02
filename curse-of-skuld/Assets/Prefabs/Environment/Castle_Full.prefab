@@ -1647,7 +1647,7 @@ GameObject:
   - component: {fileID: 7221018954155731862}
   m_Layer: 0
   m_Name: Floor_Tile
-  m_TagString: Untagged
+  m_TagString: GroundStone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -1745,7 +1745,7 @@ GameObject:
   - component: {fileID: 836050621900005412}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: GroundStone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -2930,7 +2930,7 @@ GameObject:
   - component: {fileID: 3627057109926110046}
   m_Layer: 0
   m_Name: Floor_Stone.006
-  m_TagString: Untagged
+  m_TagString: GroundStone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -3162,7 +3162,7 @@ GameObject:
   - component: {fileID: 7548561633705551751}
   m_Layer: 0
   m_Name: Pillar_Wood.017
-  m_TagString: Untagged
+  m_TagString: GroundWood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -3260,7 +3260,7 @@ GameObject:
   - component: {fileID: 8607029668867038696}
   m_Layer: 0
   m_Name: Floor_Wood_Normal.018
-  m_TagString: Untagged
+  m_TagString: GroundWood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -3358,7 +3358,7 @@ GameObject:
   - component: {fileID: 8829267020912494475}
   m_Layer: 0
   m_Name: Floor_Wood_Normal.047
-  m_TagString: Untagged
+  m_TagString: GroundWood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -3556,7 +3556,7 @@ GameObject:
   - component: {fileID: 4931088248524386017}
   m_Layer: 0
   m_Name: WoodenFloor
-  m_TagString: Untagged
+  m_TagString: GroundWood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -3753,7 +3753,7 @@ GameObject:
   - component: {fileID: 9093582401806608399}
   m_Layer: 0
   m_Name: Wall_Door_Floor.006
-  m_TagString: Untagged
+  m_TagString: GroundWood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -3951,7 +3951,7 @@ GameObject:
   - component: {fileID: 7748301188172009090}
   m_Layer: 0
   m_Name: Floor_Wood_Normal.085
-  m_TagString: Untagged
+  m_TagString: GroundWood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -4049,7 +4049,7 @@ GameObject:
   - component: {fileID: 6419579902263422205}
   m_Layer: 0
   m_Name: Floor_Stone.005
-  m_TagString: Untagged
+  m_TagString: GroundStone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -4543,7 +4543,7 @@ GameObject:
   - component: {fileID: 7582171496546439004}
   m_Layer: 0
   m_Name: Floor_Wood_Normal.041
-  m_TagString: Untagged
+  m_TagString: GroundWood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -4641,7 +4641,7 @@ GameObject:
   - component: {fileID: 6905495604677704656}
   m_Layer: 0
   m_Name: Pillar_Wood.011
-  m_TagString: Untagged
+  m_TagString: GroundWood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -4739,7 +4739,7 @@ GameObject:
   - component: {fileID: 7067949209276537842}
   m_Layer: 0
   m_Name: Floor_Stone.004
-  m_TagString: Untagged
+  m_TagString: GroundStone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -5233,7 +5233,7 @@ GameObject:
   - component: {fileID: 9174718186222250010}
   m_Layer: 0
   m_Name: Stairs_Wood.009
-  m_TagString: Untagged
+  m_TagString: GroundWood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -5687,7 +5687,7 @@ PrefabInstance:
     - target: {fileID: 2492422604627592243, guid: 8d16874ed5ed3164b8ea7c22f944a37e,
         type: 3}
       propertyPath: m_Lens.m_SensorSize.x
-      value: 1.8229275
+      value: 1.7436548
       objectReference: {fileID: 0}
     - target: {fileID: 6179244733294549609, guid: 8d16874ed5ed3164b8ea7c22f944a37e,
         type: 3}
