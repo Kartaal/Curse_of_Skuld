@@ -155,10 +155,10 @@ public class Enemy : MonoBehaviour
         _waiting = false;
     }
 
-    private IEnumerator BecomeSuspicious(float visibilityPercentage)
+    private IEnumerator BecomeSuspicious()
     {
         _agent.ResetPath();
-        yield return new WaitForSeconds(enemyData.MinTimeToChase + enemyData.VariableTimeToChase * (1-visibilityPercentage));
+        yield return new WaitForSeconds(enemyData.MinTimeToChase);
         _state = _timeSincePlayerLastVisible < enemyData.MaxTimeSincePlayerLastVisible ? State.Chase : State.Patrol;
     }
 
@@ -218,11 +218,12 @@ public class Enemy : MonoBehaviour
         if (_state != State.Suspicious && _state != State.Chase)
         {
             _state = State.Suspicious;
-            StartCoroutine(BecomeSuspicious(visionData.VisibilityPercentage));
+            StartCoroutine(BecomeSuspicious());
         }
         
         _timeSincePlayerLastVisible = 0;
         _lastKnownLocation = visionData.LastKnownPosition;
+        transform.LookAt(_lastKnownLocation);
     }
 
     public void PlayerHeard(Vector3 playerPosition)
@@ -234,5 +235,6 @@ public class Enemy : MonoBehaviour
         }
         _timeSincePlayerLastVisible = 0;
         _lastKnownLocation = playerPosition;
+        transform.LookAt(_lastKnownLocation);
     }
 }

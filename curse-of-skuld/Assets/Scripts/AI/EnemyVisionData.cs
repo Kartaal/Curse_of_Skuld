@@ -5,14 +5,11 @@ using UnityEngine;
 public struct EnemyVisionData
 {
     private Vector3 _lastKnownPosition;
-    private float _visibilityPercentage;
 
-    public EnemyVisionData(Vector3 lastKnownPosition, float visibilityPercentage)
+    public EnemyVisionData(Vector3 lastKnownPosition)
     {
         this._lastKnownPosition = lastKnownPosition;
-        this._visibilityPercentage = visibilityPercentage;
     }
 
     public Vector3 LastKnownPosition => _lastKnownPosition;
-    public float VisibilityPercentage => _visibilityPercentage;
 }
