@@ -116,7 +116,7 @@ public class Enemy : MonoBehaviour
         if(!_agent.pathPending && _agent.remainingDistance < 0.5f && !_waiting)
         {
             _agent.destination = patrolTargets[_curr].PatrolPoint.position;
-            if (patrolTargets[_curr].WaitTime >= 0)
+            if (patrolTargets[_curr].WaitTime > 0)
             {
                 _waiting = true;
             }
