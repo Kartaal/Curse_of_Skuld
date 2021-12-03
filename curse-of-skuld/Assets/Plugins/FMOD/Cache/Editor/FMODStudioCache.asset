@@ -132,7 +132,7 @@ MonoBehaviour:
   Labels:
   - walking
   - running
-  Exists: 1
+  Exists: 0
 --- !u!114 &-8318987804952981989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -339,7 +339,7 @@ MonoBehaviour:
   Type: 1
   IsGlobal: 0
   Labels: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &-5914536917832965140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -390,8 +390,8 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: -8402716672601166531}
-  - {fileID: -5070822478749968355}
+  - {fileID: 5106771665357316221}
+  - {fileID: -2319936999901818922}
   MinDistance: 1
   MaxDistance: 20
   Length: 0
@@ -579,7 +579,7 @@ MonoBehaviour:
   - Stone
   - Grass
   - Wood
-  Exists: 1
+  Exists: 0
 --- !u!114 &-2539722869742634124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -605,6 +605,33 @@ MonoBehaviour:
   Labels: []
   Exists: 1
 --- !u!114 &-2329932718213790488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/FS_Boots/Material
+  m_EditorClassIdentifier: 
+  Name: Material
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Stone
+  - Grass
+  - Wood
+  Exists: 1
+--- !u!114 &-2319936999901818922
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -817,7 +844,7 @@ MonoBehaviour:
   - {fileID: 5266968356672985723}
   StringsBanks:
   - {fileID: 8086459269326969905}
-  cacheTime: 637740581605562163
+  cacheTime: 637741367520000000
   cacheVersion: 9
 --- !u!114 &142429623956426973
 MonoBehaviour:
@@ -843,7 +870,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: -6322930719631741993}
+  - {fileID: 3632995919094822553}
   MinDistance: 1
   MaxDistance: 20
   Length: 48000
@@ -1163,6 +1190,30 @@ MonoBehaviour:
   - walking
   - running
   Exists: 0
+--- !u!114 &3632995919094822553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/AMB_background/AmbienceParameters
+  m_EditorClassIdentifier: 
+  Name: AmbienceParameters
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Type: 1
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &3702260848228244771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1261,6 +1312,32 @@ MonoBehaviour:
   - walking
   - running
   Exists: 1
+--- !u!114 &5106771665357316221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/FS_Boots/WalkRun
+  m_EditorClassIdentifier: 
+  Name: WalkRun
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - walking
+  - running
+  Exists: 1
 --- !u!114 &5261952364754078449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1303,7 +1380,7 @@ MonoBehaviour:
   Path: FMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637740581605562163
+  lastModified: 637741367520000000
   FileSizes: []
   Exists: 1
 --- !u!114 &5599870266110885857
@@ -1526,7 +1603,7 @@ MonoBehaviour:
   Path: FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637739808114983373
+  lastModified: 637740393520000000
   FileSizes:
   - Name: 
     Value: 1300
