@@ -12,12 +12,10 @@ public class MainMenuManager : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene(1);
-        Debug.Log("Start");
     }
 
     public void ToggleControls()
     {
-        Debug.Log("");
         controlsParent.SetActive(!controlsParent.activeSelf);
     }
 
