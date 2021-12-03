@@ -656,7 +656,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6473588bd4ac794ba15393b7a220356, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectName: Closet(E)
+  objectName: Closet (E)
   textToDisplayAfterInteraction: Hidden In Closet
   closetCamera: {fileID: 1536367675}
   closetCanvas: {fileID: 374817202}
