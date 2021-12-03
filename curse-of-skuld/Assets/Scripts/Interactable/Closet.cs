@@ -1,4 +1,5 @@
 using Cinemachine;
+using FMODUnity;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -31,7 +32,10 @@ public class Closet : MonoBehaviour, IInteractable
     {
         UIManager.Instance.ClearScreen();
         _isPlayerInside = !_isPlayerInside;
-        
+
+        RuntimeManager.PlayOneShotAttached(AudioManager.Instance.closetCreak.Guid, this.gameObject);
+
+
         if (_isPlayerInside)
         {
             UIManager.Instance.DisplayAndClearTextAfterDelay(textToDisplayAfterInteraction, 2f);

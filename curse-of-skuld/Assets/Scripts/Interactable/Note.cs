@@ -13,7 +13,7 @@ public class Note : MonoBehaviour, IInteractable
     private void Awake()
     {
         // Ensure note UI isn't displayed, bad because of finding by name...
-        GameObject.Find("NoteUIContainer").SetActive(false);
+        // GameObject.Find("NoteUIContainer").SetActive(false);
     }
 
     public void Interact()

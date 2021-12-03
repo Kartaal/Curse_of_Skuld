@@ -1,3 +1,4 @@
+using FMODUnity;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -25,7 +26,9 @@ public class Key : MonoBehaviour, IInteractable
         UIManager.Instance.ClearScreen();
         UIManager.Instance.DisplayAndClearTextAfterDelay(textToDisplayAfterInteraction,4f);
         door.GetComponent<Door>().CanOpen();
+        RuntimeManager.PlayOneShotAttached(AudioManager.Instance.keyPickup.Guid, this.gameObject);
         gameObject.SetActive(false);
+
         //why destroy? also has a bug 
         // StartCoroutine(DestroyAfterDelay(1.0f));
     }

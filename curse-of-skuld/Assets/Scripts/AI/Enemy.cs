@@ -19,8 +19,7 @@ public class Enemy : MonoBehaviour
     
     [SerializeField] private EnemyData enemyData;
     [SerializeField] private bool loopPatrol;
-    [SerializeField] private Transform[] patrolTargets;
-    [SerializeField] private List<Transform> patrolStops;
+    [SerializeField] private PatrolWaypoint[] patrolTargets;
     [SerializeField] private Animator anim;
    
     private int _arrayDir;
@@ -61,15 +60,18 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
-        if (patrolStops == null)
-            patrolStops = new List<Transform>();
-
         _passiveMonsterSound = RuntimeManager.CreateInstance(AudioManager.Instance.monsterPassive);
         _alertMonsterSound = RuntimeManager.CreateInstance(AudioManager.Instance.monsterAlert);
 
         RuntimeManager.AttachInstanceToGameObject(_passiveMonsterSound, this.transform);
         RuntimeManager.AttachInstanceToGameObject(_alertMonsterSound, this.transform);
         _passiveMonsterSound.start();
+    }
+
+    private void OnDestroy()
+    {
+        _passiveMonsterSound.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        _alertMonsterSound.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
     }
 
     private void Update()
@@ -108,6 +110,17 @@ public class Enemy : MonoBehaviour
                 Search();
                 break;
         }
+
+        if (_state == State.Chase)
+        {
+            this.PlaySoundInstanceIfNotAlreadyRunning(_alertMonsterSound);
+            this.StopSoundInstanceIfNotAlreadyStopped(_passiveMonsterSound);
+        } 
+        else
+        {
+            this.PlaySoundInstanceIfNotAlreadyRunning(_passiveMonsterSound);
+            this.StopSoundInstanceIfNotAlreadyStopped(_alertMonsterSound);
+        }
     }
 
     private void Patrol()
@@ -119,8 +132,8 @@ public class Enemy : MonoBehaviour
         
         if(!_agent.pathPending && _agent.remainingDistance < 0.5f && !_waiting)
         {
-            _agent.destination = patrolTargets[_curr].position;
-            if (patrolStops.Contains(patrolTargets[_curr]))
+            _agent.destination = patrolTargets[_curr].PatrolPoint.position;
+            if (patrolTargets[_curr].WaitTime > 0)
             {
                 _waiting = true;
             }
@@ -149,7 +162,10 @@ public class Enemy : MonoBehaviour
     {
         _agent.ResetPath();
         _waitRoutineRunning = true;
+        _agent.updateRotation = false;
+        transform.LookAt(patrolTargets[_curr].ViewDir);
         yield return new WaitForSeconds(enemyData.PatrolPointWaitTime);
+        _agent.updateRotation = true;
         _waitRoutineRunning = false;
         _waiting = false;
     }
@@ -157,7 +173,9 @@ public class Enemy : MonoBehaviour
     private IEnumerator BecomeSuspicious()
     {
         _agent.ResetPath();
+        _agent.updateRotation = false;
         yield return new WaitForSeconds(enemyData.MinTimeToChase);
+        _agent.updateRotation = true;
         _state = _timeSincePlayerLastVisible < enemyData.MaxTimeSincePlayerLastVisible ? State.Chase : State.Patrol;
     }
 
@@ -219,10 +237,16 @@ public class Enemy : MonoBehaviour
             _state = State.Suspicious;
             StartCoroutine(BecomeSuspicious());
         }
-        
+
         _timeSincePlayerLastVisible = 0;
         _lastKnownLocation = visionData.LastKnownPosition;
-        transform.LookAt(_lastKnownLocation);
+        
+        if (_state != State.Chase)
+        {
+            _agent.updateRotation = false;
+            transform.LookAt(_lastKnownLocation);
+            _agent.updateRotation = true;
+        }
     }
 
     public void PlayerHeard(Vector3 playerPosition)
@@ -234,6 +258,28 @@ public class Enemy : MonoBehaviour
         }
         _timeSincePlayerLastVisible = 0;
         _lastKnownLocation = playerPosition;
-        transform.LookAt(_lastKnownLocation);
+    }
+
+    private void PlaySoundInstanceIfNotAlreadyRunning(EventInstance instance)
+    {
+        PLAYBACK_STATE state;
+        instance.getPlaybackState(out state);
+        
+        if (state != PLAYBACK_STATE.PLAYING)
+        {
+            instance.start();
+        }
+        
+    }
+
+    private void StopSoundInstanceIfNotAlreadyStopped(EventInstance instance)
+    {
+        PLAYBACK_STATE state;
+        instance.getPlaybackState(out state);
+
+        if (state != PLAYBACK_STATE.STOPPED)
+        {
+            instance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        }
     }
 }
