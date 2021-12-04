@@ -53,7 +53,9 @@ public class FieldOfView : MonoBehaviour
             for(int i = 0; i < _numberVisionTargets; i++)
             {
                 var playerDir = _playerLimbs[i].position - transform.position;
-                if (!Physics.Raycast(_enemy.transform.position, playerDir, viewData.ViewRadius, playerMask))
+                NavMeshHit hit;
+
+                if (!_enemy.Agent.Raycast(_playerLimbs[i].position, out hit))
                 {
                     _hitCount++;
                     _playerVisualization.Add(_playerLimbs[i]);

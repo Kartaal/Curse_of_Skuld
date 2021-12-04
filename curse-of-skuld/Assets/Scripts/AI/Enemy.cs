@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private bool loopPatrol;
     [SerializeField] private PatrolWaypoint[] patrolTargets;
     [SerializeField] private Animator anim;
-   
+
     private int _arrayDir;
     private int _curr;
     private bool _waitRoutineRunning;
@@ -73,6 +73,7 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
+        DrawPath();
         anim.SetBool("IsChasing", _state == State.Chase);
         anim.SetBool("IsSuspicious", _state == State.Suspicious);
 
@@ -183,6 +184,7 @@ public class Enemy : MonoBehaviour
         NavMeshHit hit;
         if (!_agent.Raycast(_playerTransform.position, out hit))
         {
+            Debug.DrawLine(transform.position, hit.position, Color.yellow);
             if (hit.distance < enemyData.KillDistance)
             {
                 KillPlayer();
@@ -246,16 +248,8 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void PlayerHeard(Vector3 playerPosition)
-    {
-        if(_state != State.Suspicious && _state != State.Chase)
-        {
-            _agent.ResetPath();
-            _state = State.Chase;
-        }
-        _timeSincePlayerLastVisible = 0;
-        _lastKnownLocation = playerPosition;
-    }
+
+    public NavMeshAgent Agent => _agent;
 
     private void PlaySoundInstanceIfNotAlreadyRunning(EventInstance instance)
     {
@@ -277,6 +271,15 @@ public class Enemy : MonoBehaviour
         if (state != PLAYBACK_STATE.STOPPED)
         {
             instance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        }
+    }
+
+    private void DrawPath()
+    {
+        var pathPoints = _agent.path.corners;
+        for (int i = 0; i < pathPoints.Length-1; i++)
+        {
+            Debug.DrawLine(pathPoints[i], pathPoints[i+1], Color.cyan);
         }
     }
 }
