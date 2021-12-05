@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewRadius: 10
   viewAngle: 60
+  chaseViewRadius: 12
+  chaseViewAngle: 75
