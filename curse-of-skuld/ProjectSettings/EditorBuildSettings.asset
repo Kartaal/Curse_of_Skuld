@@ -9,21 +9,24 @@ EditorBuildSettings:
     path: Assets/Scenes/ChristineScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
+    path: Assets/Scenes/SindreSceneTesting/Sindre_Scene.unity
+    guid: 5e4839a68aba56b4f8121eb8e3c1b0e3
+  - enabled: 0
     path: Assets/Scenes/Prototype_Scene.unity
     guid: ac41ad8b362f96b47bcf74e2e36c9847
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Scene_Mahmoud.unity
     guid: cab9ed774463b52408068df31cb26b78
   - enabled: 1
     path: Assets/Scenes/Scene_Win.unity
     guid: 32cdf2c66d16a76409de2e595e3c8b15
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MVP_Scene.unity
     guid: e0c76448218d51d438384275779eeffc
   - enabled: 1
     path: Assets/Scenes/Scene_Lose.unity
     guid: 70376bc807dea784b9d1d818d48d4519
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/AB_Testing.unity
     guid: 14866da06b764a943b64900a66c312ec
   m_configObjects: {}
