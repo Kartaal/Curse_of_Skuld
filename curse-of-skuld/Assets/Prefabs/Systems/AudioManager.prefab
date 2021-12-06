@@ -94,3 +94,10 @@ MonoBehaviour:
       Data3: -2038536522
       Data4: -1643541997
     Path: event:/FX/FX_Key
+  whispers:
+    Guid:
+      Data1: 754702292
+      Data2: 1115398819
+      Data3: 780968065
+      Data4: 229833274
+    Path: event:/FX/FX_Whispers

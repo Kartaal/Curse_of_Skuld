@@ -25,6 +25,8 @@ public class AudioManager : MonoBehaviour
 
     public EventReference keyPickup;
 
+    public EventReference whispers;
+
     private EventInstance _ambienceInstance;
 
     private void Awake()
