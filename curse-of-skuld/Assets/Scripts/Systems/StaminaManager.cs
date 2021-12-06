@@ -1,3 +1,5 @@
+using FMODUnity;
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -134,6 +136,7 @@ public class StaminaManager : MonoBehaviour
     private IEnumerator PunishmentCoolDown(float waitingTime)
     {
         //print("cooolDown");
+        RuntimeManager.PlayOneShot(AudioManager.Instance.panting, SystemManager.Instance.playerGameObject.transform.position);
         yield return new WaitForSeconds(waitingTime); 
         _increaseStaminaCoroutine = StartCoroutine(IncreaseStaminaOverTime(increaseingStaminaAmount));
         _punishmentState = false;

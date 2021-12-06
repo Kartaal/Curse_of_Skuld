@@ -96,8 +96,15 @@ MonoBehaviour:
     Path: event:/FX/FX_Key
   whispers:
     Guid:
-      Data1: 754702292
-      Data2: 1115398819
-      Data3: 780968065
-      Data4: 229833274
-    Path: event:/FX/FX_Whispers
+      Data1: 1849719130
+      Data2: 1227843648
+      Data3: -685024846
+      Data4: -1788971823
+    Path: event:/FX/FX_Whisper
+  panting:
+    Guid:
+      Data1: -394633014
+      Data2: 1202843858
+      Data3: -1420008047
+      Data4: -1365898656
+    Path: event:/Character/FX_Pant
