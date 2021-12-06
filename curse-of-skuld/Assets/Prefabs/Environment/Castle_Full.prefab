@@ -412,7 +412,7 @@ GameObject:
   - component: {fileID: 4597581085143598952}
   - component: {fileID: 2293533678157959215}
   - component: {fileID: 4597581085143598953}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_Plain.170
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -511,7 +511,7 @@ GameObject:
   - component: {fileID: 6003809579547306569}
   - component: {fileID: 4607343281476186654}
   - component: {fileID: 8021912766495398872}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_Plain.292
   m_TagString: GroundStone
   m_Icon: {fileID: 0}
@@ -656,7 +656,7 @@ GameObject:
   - component: {fileID: 3323409921676766800}
   - component: {fileID: 5800486638259322839}
   - component: {fileID: 5800486638259322836}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_Plain.122
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1954,7 +1954,7 @@ GameObject:
   - component: {fileID: 4574723863055695954}
   - component: {fileID: 8398307937419637405}
   - component: {fileID: 8398307937419637378}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Pillar_Wood.005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2052,7 +2052,7 @@ GameObject:
   - component: {fileID: 6217471226537958356}
   - component: {fileID: 2588971874466193492}
   - component: {fileID: 7221018954155731862}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Floor_Tile
   m_TagString: GroundStone
   m_Icon: {fileID: 0}
@@ -2347,7 +2347,7 @@ GameObject:
   - component: {fileID: 2994237525114128361}
   - component: {fileID: 6744565568573122868}
   - component: {fileID: 6744565568573122869}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Walls_FO
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2446,7 +2446,7 @@ GameObject:
   - component: {fileID: 484743633561906160}
   - component: {fileID: 1622087976591869268}
   - component: {fileID: 2410025495902421859}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_Roof_Left.011
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2643,7 +2643,7 @@ GameObject:
   - component: {fileID: 6948183898460820690}
   - component: {fileID: 1550525754062517859}
   - component: {fileID: 6948183898460820691}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Pillar_Wood.014
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2741,7 +2741,7 @@ GameObject:
   - component: {fileID: 2405724500517208821}
   - component: {fileID: 5954011702834825857}
   - component: {fileID: 5954011702834825862}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_Plain.261
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2840,7 +2840,7 @@ GameObject:
   - component: {fileID: 6073294061546028724}
   - component: {fileID: 1714599705730967334}
   - component: {fileID: 6073294061546028725}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_Plain.293
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2939,7 +2939,7 @@ GameObject:
   - component: {fileID: 1908805802020364769}
   - component: {fileID: 2332665954135515338}
   - component: {fileID: 2332665954135515339}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_Plain.183
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3038,7 +3038,7 @@ GameObject:
   - component: {fileID: 6107946797706033187}
   - component: {fileID: 5156132350820866004}
   - component: {fileID: 6107946797706033184}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_Plain.095
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3236,7 +3236,7 @@ GameObject:
   - component: {fileID: 8266216426444625400}
   - component: {fileID: 8776424783721258517}
   - component: {fileID: 8266216426444625401}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_Plain.151
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3335,7 +3335,7 @@ GameObject:
   - component: {fileID: 3627057109926110041}
   - component: {fileID: 2473106115713319514}
   - component: {fileID: 3627057109926110046}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Floor_Stone.006
   m_TagString: GroundStone
   m_Icon: {fileID: 0}
@@ -3567,7 +3567,7 @@ GameObject:
   - component: {fileID: 5475327875210944558}
   - component: {fileID: 7548561633705551750}
   - component: {fileID: 7548561633705551751}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Pillar_Wood.017
   m_TagString: GroundWood
   m_Icon: {fileID: 0}
@@ -3665,7 +3665,7 @@ GameObject:
   - component: {fileID: 6333109799159929766}
   - component: {fileID: 4466643234425104991}
   - component: {fileID: 8607029668867038696}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Floor_Wood_Normal.018
   m_TagString: GroundWood
   m_Icon: {fileID: 0}
@@ -3763,7 +3763,7 @@ GameObject:
   - component: {fileID: 794543879156200931}
   - component: {fileID: 449792063235591619}
   - component: {fileID: 8829267020912494475}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Floor_Wood_Normal.047
   m_TagString: GroundWood
   m_Icon: {fileID: 0}
@@ -3861,7 +3861,7 @@ GameObject:
   - component: {fileID: 5997126215449055725}
   - component: {fileID: 3465293711471057981}
   - component: {fileID: 5997126215449055634}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_Plain.148
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3961,7 +3961,7 @@ GameObject:
   - component: {fileID: 5596821235436253739}
   - component: {fileID: 4559893791939998262}
   - component: {fileID: 4931088248524386017}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: WoodenFloor
   m_TagString: GroundWood
   m_Icon: {fileID: 0}
@@ -4059,7 +4059,7 @@ GameObject:
   - component: {fileID: 3334955299496189987}
   - component: {fileID: 5501700983706326326}
   - component: {fileID: 8661249486744523479}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_Plain.064
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4158,7 +4158,7 @@ GameObject:
   - component: {fileID: 4384768572113428985}
   - component: {fileID: 9093582401806608398}
   - component: {fileID: 9093582401806608399}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_Door_Floor.006
   m_TagString: GroundWood
   m_Icon: {fileID: 0}
@@ -4257,7 +4257,7 @@ GameObject:
   - component: {fileID: 4010064247248296041}
   - component: {fileID: 5083431902690550732}
   - component: {fileID: 5083431902690550733}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_Plain.277
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4356,7 +4356,7 @@ GameObject:
   - component: {fileID: 1615025945276990879}
   - component: {fileID: 7748301188172009117}
   - component: {fileID: 7748301188172009090}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Floor_Wood_Normal.085
   m_TagString: GroundWood
   m_Icon: {fileID: 0}
@@ -4454,7 +4454,7 @@ GameObject:
   - component: {fileID: 5551987048861522574}
   - component: {fileID: 1197519803729676361}
   - component: {fileID: 6419579902263422205}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Floor_Stone.005
   m_TagString: GroundStone
   m_Icon: {fileID: 0}
@@ -4552,7 +4552,7 @@ GameObject:
   - component: {fileID: 906757786156132954}
   - component: {fileID: 7944523170940356121}
   - component: {fileID: 7006959690788884943}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Plane.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4651,7 +4651,7 @@ GameObject:
   - component: {fileID: 2510931932850211456}
   - component: {fileID: 6018452515652259871}
   - component: {fileID: 6018452515652259868}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_Corner_Outer_Small.008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4750,7 +4750,7 @@ GameObject:
   - component: {fileID: 351167879769019741}
   - component: {fileID: 7841968027711751633}
   - component: {fileID: 7841968027711751638}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_Plain.045
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4849,7 +4849,7 @@ GameObject:
   - component: {fileID: 7782699826281711378}
   - component: {fileID: 757356303792199042}
   - component: {fileID: 9164589030353772124}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_Plain.073
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4948,7 +4948,7 @@ GameObject:
   - component: {fileID: 1650634747031599792}
   - component: {fileID: 1808036346770710026}
   - component: {fileID: 7582171496546439004}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Floor_Wood_Normal.041
   m_TagString: GroundWood
   m_Icon: {fileID: 0}
@@ -5143,7 +5143,7 @@ GameObject:
   - component: {fileID: 1084807316069882336}
   - component: {fileID: 1551055846861209607}
   - component: {fileID: 6905495604677704656}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Pillar_Wood.011
   m_TagString: GroundWood
   m_Icon: {fileID: 0}
@@ -5241,7 +5241,7 @@ GameObject:
   - component: {fileID: 6828642168136323509}
   - component: {fileID: 4556715692139625430}
   - component: {fileID: 7067949209276537842}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Floor_Stone.004
   m_TagString: GroundStone
   m_Icon: {fileID: 0}
@@ -5438,7 +5438,7 @@ GameObject:
   - component: {fileID: 2495487679438434646}
   - component: {fileID: 3983803119289864247}
   - component: {fileID: 7210736454149418873}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_Plain.266
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5537,7 +5537,7 @@ GameObject:
   - component: {fileID: 4369371632185519522}
   - component: {fileID: 1040105970943793779}
   - component: {fileID: 7672904837893396207}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Walls_FG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5931,7 +5931,7 @@ GameObject:
   - component: {fileID: 4878508074954217936}
   - component: {fileID: 6870322928185533087}
   - component: {fileID: 9174718186222250010}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Stairs_Wood.009
   m_TagString: GroundWood
   m_Icon: {fileID: 0}
@@ -6124,6 +6124,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prefab_BasicEnemyContainer (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3099129017147693333, guid: 61e42a964e04be845a2dc803507306ff,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3099129017326282679, guid: 61e42a964e04be845a2dc803507306ff,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6243,6 +6248,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Prefab_BasicEnemyContainer (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099129017147693333, guid: 61e42a964e04be845a2dc803507306ff,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3099129017326282679, guid: 61e42a964e04be845a2dc803507306ff,
         type: 3}
@@ -6459,6 +6469,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prefab_BasicEnemyContainer (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3099129017147693333, guid: 61e42a964e04be845a2dc803507306ff,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3099129017326282679, guid: 61e42a964e04be845a2dc803507306ff,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6497,7 +6512,7 @@ PrefabInstance:
     - target: {fileID: 2492422604627592243, guid: 8d16874ed5ed3164b8ea7c22f944a37e,
         type: 3}
       propertyPath: m_Lens.m_SensorSize.x
-      value: 1.7766991
+      value: 1.7436548
       objectReference: {fileID: 0}
     - target: {fileID: 6179244733294549609, guid: 8d16874ed5ed3164b8ea7c22f944a37e,
         type: 3}
@@ -6797,6 +6812,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Prefab_BasicEnemyContainer (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099129017147693333, guid: 61e42a964e04be845a2dc803507306ff,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3099129017326282679, guid: 61e42a964e04be845a2dc803507306ff,
         type: 3}

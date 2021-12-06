@@ -65,6 +65,15 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
+        if (CheckIfPlayerInHearingRange())
+        {
+            this.IncreaseVolumeOnSounds();
+        }
+        else
+        {
+            this.LowerVolumeOnSounds();
+        }
+
         DrawPath();
         anim.SetBool("IsChasing", _state == EnemyState.Chase);
         anim.SetBool("IsSuspicious", _state == EnemyState.Suspicious);
@@ -236,10 +245,38 @@ public class Enemy : MonoBehaviour
 
     public EnemyState State => _state;
 
+    private bool CheckIfPlayerInHearingRange()
+    {
+        var vectorToPlayerCamera = SystemManager.Instance.playerGameObject.GetComponentInChildren<Camera>().transform.position - this.transform.position;
+
+        //avoid costly root function
+        if (vectorToPlayerCamera.sqrMagnitude <= 13*13)
+        {
+            RaycastHit hit;
+            int layerMask = 1 << 8;
+            return !Physics.Raycast(transform.position, vectorToPlayerCamera, out hit, 20, layerMask);
+        }
+
+        return false;
+    }
+
+    private void LowerVolumeOnSounds()
+    {
+        _alertMonsterSound.setVolume(0.3f);
+        _passiveMonsterSound.setVolume(0.3f);
+    }
+
+    private void IncreaseVolumeOnSounds()
+    {
+        _alertMonsterSound.setVolume(1f);
+        _passiveMonsterSound.setVolume(1f);
+    }
+
     private void PlaySoundInstanceIfNotAlreadyRunning(EventInstance instance)
     {
         PLAYBACK_STATE state;
         instance.getPlaybackState(out state);
+        instance.setVolume(0.2f);
         
         if (state != PLAYBACK_STATE.PLAYING)
         {
