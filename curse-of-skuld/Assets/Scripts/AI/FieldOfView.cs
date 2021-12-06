@@ -19,11 +19,16 @@ public class FieldOfView : MonoBehaviour
     private int _numberVisionTargets;
     NavMeshHit _hit;
 
+    private float _currViewAngle;
+    private float _currViewRadius;
+
     private void Awake()
     {
         _enemy = GetComponent<Enemy>();
         _hitCount = 0;
         _playerVisualization = new List<Transform>();
+        _currViewAngle = viewData.ViewAngle;
+        _currViewRadius = viewData.ViewRadius;
     }
 
     private void Start()
@@ -39,6 +44,17 @@ public class FieldOfView : MonoBehaviour
 
     private void PlayerVisible()
     {
+        if (_enemy.State == EnemyState.Suspicious || _enemy.State == EnemyState.Chase)
+        {
+            _currViewAngle = viewData.ChaseViewAngle;
+            _currViewRadius = viewData.ChaseViewRadius;
+        }
+        else
+        {
+            _currViewAngle = viewData.ViewAngle;
+            _currViewRadius = viewData.ViewRadius;
+        }
+        
         _playerVisualization.Clear();
         Collider[] playerCollider = new Collider[1];
         int numColliders = Physics.OverlapSphereNonAlloc(transform.position, viewData.ViewRadius, playerCollider, playerMask); 
@@ -53,7 +69,9 @@ public class FieldOfView : MonoBehaviour
             for(int i = 0; i < _numberVisionTargets; i++)
             {
                 var playerDir = _playerLimbs[i].position - transform.position;
-                if (!Physics.Raycast(_enemy.transform.position, playerDir, viewData.ViewRadius, playerMask))
+                NavMeshHit hit;
+
+                if (!_enemy.Agent.Raycast(_playerLimbs[i].position, out hit))
                 {
                     _hitCount++;
                     _playerVisualization.Add(_playerLimbs[i]);
@@ -76,7 +94,7 @@ public class FieldOfView : MonoBehaviour
         return new Vector3(Mathf.Sin(angle * Mathf.Deg2Rad), 0, Mathf.Cos(angle * Mathf.Deg2Rad));
     }
 
-    public float ViewRadius => viewData.ViewRadius;
-    public float ViewAngle => viewData.ViewAngle;
+    public float ViewRadius => _currViewRadius;
+    public float ViewAngle => _currViewAngle;
     public List<Transform> PlayerVisualization => _playerVisualization;
 }

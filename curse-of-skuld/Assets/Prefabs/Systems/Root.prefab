@@ -112,6 +112,8 @@ MonoBehaviour:
   _noticeText: {fileID: 8460295186986976001}
   _noteContainer: {fileID: 2915714634202600141}
   _menu: {fileID: 4691109491439057222}
+  playerCamera: {fileID: 4004646040553433908}
+  menuOpen: 0
 --- !u!114 &7656709664631864130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -292,7 +294,7 @@ PrefabInstance:
     - target: {fileID: 782649475371016476, guid: f06bdaac39c419648b3c81cb4f7f8f60,
         type: 3}
       propertyPath: m_Lens.m_SensorSize.x
-      value: 1.8229275
+      value: 2.0066226
       objectReference: {fileID: 0}
     - target: {fileID: 3464457539566479784, guid: f06bdaac39c419648b3c81cb4f7f8f60,
         type: 3}
@@ -382,7 +384,7 @@ PrefabInstance:
     - target: {fileID: 3464457539739387191, guid: f06bdaac39c419648b3c81cb4f7f8f60,
         type: 3}
       propertyPath: m_Lens.m_SensorSize.x
-      value: 1.8229275
+      value: 2.0066226
       objectReference: {fileID: 0}
     - target: {fileID: 3464457539789371682, guid: f06bdaac39c419648b3c81cb4f7f8f60,
         type: 3}
@@ -412,7 +414,7 @@ PrefabInstance:
     - target: {fileID: 5181945582716876670, guid: f06bdaac39c419648b3c81cb4f7f8f60,
         type: 3}
       propertyPath: m_Lens.m_SensorSize.x
-      value: 1.8229275
+      value: 2.0066226
       objectReference: {fileID: 0}
     - target: {fileID: 5560448048635074328, guid: f06bdaac39c419648b3c81cb4f7f8f60,
         type: 3}
@@ -422,7 +424,7 @@ PrefabInstance:
     - target: {fileID: 5560448048635074328, guid: f06bdaac39c419648b3c81cb4f7f8f60,
         type: 3}
       propertyPath: m_Lens.m_SensorSize.x
-      value: 1.8229275
+      value: 2.0066226
       objectReference: {fileID: 0}
     - target: {fileID: 6301263739801244096, guid: f06bdaac39c419648b3c81cb4f7f8f60,
         type: 3}
@@ -448,6 +450,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 542514008759709187}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4004646040553433908 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3464457539739387191, guid: f06bdaac39c419648b3c81cb4f7f8f60,
+    type: 3}
+  m_PrefabInstance: {fileID: 542514008759709187}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 319d2fe34a804e245819465c9505ea59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5381180983257331995 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5560448048635074328, guid: f06bdaac39c419648b3c81cb4f7f8f60,
