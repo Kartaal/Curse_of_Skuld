@@ -6,19 +6,11 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-    private enum State
-    {
-        Patrol,
-        Suspicious,
-        Chase,
-        Search
-    }
-    
     [SerializeField] private EnemyData enemyData;
     [SerializeField] private bool loopPatrol;
     [SerializeField] private PatrolWaypoint[] patrolTargets;
     [SerializeField] private Animator anim;
-   
+
     private int _arrayDir;
     private int _curr;
     private bool _waitRoutineRunning;
@@ -31,7 +23,7 @@ public class Enemy : MonoBehaviour
     private Transform _playerTransform;
     private Vector3 _lastKnownLocation;
 
-    private State _state;
+    private EnemyState _state;
 
 
     private NavMeshAgent _agent;
@@ -44,7 +36,7 @@ public class Enemy : MonoBehaviour
     {
         _searching = false;
         _waiting = false;
-        _state = State.Patrol;
+        _state = EnemyState.Patrol;
         _agent = GetComponent<NavMeshAgent>();
         _agent.speed = enemyData.MoveSpeed;
         _agent.autoBraking = true;
@@ -73,21 +65,22 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        anim.SetBool("IsChasing", _state == State.Chase);
-        anim.SetBool("IsSuspicious", _state == State.Suspicious);
+        DrawPath();
+        anim.SetBool("IsChasing", _state == EnemyState.Chase);
+        anim.SetBool("IsSuspicious", _state == EnemyState.Suspicious);
 
         _timeSincePlayerLastVisible += Time.deltaTime;
 
         switch (_state)
         {
-            case State.Patrol:
+            case EnemyState.Patrol:
                 Patrol();
                 break;
                 
-            case State.Suspicious:
+            case EnemyState.Suspicious:
                 break;
             
-            case State.Chase:
+            case EnemyState.Chase:
                 if (_playerTransform.GetComponent<PlayerController>().Dead)
                 {
                     StartCoroutine(ResumePatrol());
@@ -95,20 +88,20 @@ public class Enemy : MonoBehaviour
                 }
                 else if (_playerTransform.position != _lastKnownLocation)
                 {
-                    _state = State.Search;
+                    _state = EnemyState.Search;
                     break;
                 }
                 Chase();
                 break;
                 
-            case State.Search:
+            case EnemyState.Search:
                 if (!_searching)
                     StartCoroutine(StartSearch());
                 Search();
                 break;
         }
 
-        if (_state == State.Chase)
+        if (_state == EnemyState.Chase)
         {
             this.PlaySoundInstanceIfNotAlreadyRunning(_alertMonsterSound);
             this.StopSoundInstanceIfNotAlreadyStopped(_passiveMonsterSound);
@@ -170,10 +163,8 @@ public class Enemy : MonoBehaviour
     private IEnumerator BecomeSuspicious()
     {
         _agent.ResetPath();
-        _agent.updateRotation = false;
         yield return new WaitForSeconds(enemyData.MinTimeToChase);
-        _agent.updateRotation = true;
-        _state = _timeSincePlayerLastVisible < enemyData.MaxTimeSincePlayerLastVisible ? State.Chase : State.Patrol;
+        _state = _timeSincePlayerLastVisible < enemyData.MaxTimeSincePlayerLastVisible ? EnemyState.Chase : EnemyState.Patrol;
     }
 
     private void Chase()
@@ -183,6 +174,7 @@ public class Enemy : MonoBehaviour
         NavMeshHit hit;
         if (!_agent.Raycast(_playerTransform.position, out hit))
         {
+            Debug.DrawLine(transform.position, hit.position, Color.yellow);
             if (hit.distance < enemyData.KillDistance)
             {
                 KillPlayer();
@@ -200,7 +192,7 @@ public class Enemy : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         _agent.speed = enemyData.MoveSpeed;
-        _state = State.Patrol;
+        _state = EnemyState.Patrol;
     }
 
     private void Search()
@@ -224,38 +216,25 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(enemyData.SearchDuration);
         _agent.ResetPath();
         _searching = false;
-        _state = State.Patrol;
+        _state = EnemyState.Patrol;
     }
 
     public void PlayerSpotted(EnemyVisionData visionData)
     {
-        if (_state != State.Suspicious && _state != State.Chase)
+        if (_state != EnemyState.Suspicious && _state != EnemyState.Chase)
         {
-            _state = State.Suspicious;
+            _state = EnemyState.Suspicious;
             StartCoroutine(BecomeSuspicious());
         }
 
         _timeSincePlayerLastVisible = 0;
         _lastKnownLocation = visionData.LastKnownPosition;
-        
-        if (_state != State.Chase)
-        {
-            _agent.updateRotation = false;
-            transform.LookAt(_lastKnownLocation);
-            _agent.updateRotation = true;
-        }
     }
 
-    public void PlayerHeard(Vector3 playerPosition)
-    {
-        if(_state != State.Suspicious && _state != State.Chase)
-        {
-            _agent.ResetPath();
-            _state = State.Chase;
-        }
-        _timeSincePlayerLastVisible = 0;
-        _lastKnownLocation = playerPosition;
-    }
+
+    public NavMeshAgent Agent => _agent;
+
+    public EnemyState State => _state;
 
     private void PlaySoundInstanceIfNotAlreadyRunning(EventInstance instance)
     {
@@ -277,6 +256,15 @@ public class Enemy : MonoBehaviour
         if (state != PLAYBACK_STATE.STOPPED)
         {
             instance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        }
+    }
+
+    private void DrawPath()
+    {
+        var pathPoints = _agent.path.corners;
+        for (int i = 0; i < pathPoints.Length-1; i++)
+        {
+            Debug.DrawLine(pathPoints[i], pathPoints[i+1], Color.cyan);
         }
     }
 }
