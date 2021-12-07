@@ -133,38 +133,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 68415530357543264, guid: 6dcefe49a934b344192723f0db92c7d1,
         type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 68415530357543264, guid: 6dcefe49a934b344192723f0db92c7d1,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 68415530357543264, guid: 6dcefe49a934b344192723f0db92c7d1,
-        type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: -0.000000014622904
       objectReference: {fileID: 0}
     - target: {fileID: 68415530357543264, guid: 6dcefe49a934b344192723f0db92c7d1,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 68415530357543264, guid: 6dcefe49a934b344192723f0db92c7d1,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
+      value: 1e-45
       objectReference: {fileID: 0}
     - target: {fileID: 113711410492273365, guid: 6dcefe49a934b344192723f0db92c7d1,
         type: 3}
       propertyPath: m_FollowOffset.y
-      value: 1.895916
+      value: 2.678085
       objectReference: {fileID: 0}
     - target: {fileID: 113711410492273365, guid: 6dcefe49a934b344192723f0db92c7d1,
         type: 3}
       propertyPath: m_FollowOffset.z
-      value: -2.023581
+      value: -1.663268
       objectReference: {fileID: 0}
     - target: {fileID: 328458991302190440, guid: 6dcefe49a934b344192723f0db92c7d1,
         type: 3}
@@ -184,47 +169,27 @@ PrefabInstance:
     - target: {fileID: 542514008503090121, guid: 6dcefe49a934b344192723f0db92c7d1,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: -0.000000014622904
       objectReference: {fileID: 0}
     - target: {fileID: 542514008503090121, guid: 6dcefe49a934b344192723f0db92c7d1,
         type: 3}
       propertyPath: m_LocalRotation.y
       value: 1e-45
       objectReference: {fileID: 0}
-    - target: {fileID: 542514008503090121, guid: 6dcefe49a934b344192723f0db92c7d1,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
     - target: {fileID: 1715428808360209738, guid: 6dcefe49a934b344192723f0db92c7d1,
         type: 3}
       propertyPath: m_Name
       value: Root
       objectReference: {fileID: 0}
-    - target: {fileID: 2915714634202600141, guid: 6dcefe49a934b344192723f0db92c7d1,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3464909960688980755, guid: 6dcefe49a934b344192723f0db92c7d1,
         type: 3}
       propertyPath: m_FollowOffset.y
-      value: 1.895916
+      value: 2.678085
       objectReference: {fileID: 0}
     - target: {fileID: 3464909960688980755, guid: 6dcefe49a934b344192723f0db92c7d1,
         type: 3}
       propertyPath: m_FollowOffset.z
-      value: -2.023581
-      objectReference: {fileID: 0}
-    - target: {fileID: 4004646039582869419, guid: 6dcefe49a934b344192723f0db92c7d1,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 3.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4004646039582869419, guid: 6dcefe49a934b344192723f0db92c7d1,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -36.07
+      value: -1.663268
       objectReference: {fileID: 0}
     - target: {fileID: 4691109491428230646, guid: 6dcefe49a934b344192723f0db92c7d1,
         type: 3}
@@ -254,57 +219,37 @@ PrefabInstance:
     - target: {fileID: 5080545954886467492, guid: 6dcefe49a934b344192723f0db92c7d1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.6780851
       objectReference: {fileID: 0}
     - target: {fileID: 5080545954886467492, guid: 6dcefe49a934b344192723f0db92c7d1,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.33673286
       objectReference: {fileID: 0}
     - target: {fileID: 5080545954886467492, guid: 6dcefe49a934b344192723f0db92c7d1,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.98132646
       objectReference: {fileID: 0}
     - target: {fileID: 5080545954886467492, guid: 6dcefe49a934b344192723f0db92c7d1,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0.19234958
       objectReference: {fileID: 0}
     - target: {fileID: 5080545954886467492, guid: 6dcefe49a934b344192723f0db92c7d1,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 1.03901993e-22
       objectReference: {fileID: 0}
     - target: {fileID: 5080545954886467492, guid: 6dcefe49a934b344192723f0db92c7d1,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5833833193998696387, guid: 6dcefe49a934b344192723f0db92c7d1,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5833833193998696387, guid: 6dcefe49a934b344192723f0db92c7d1,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
+      value: -2.0365807e-23
       objectReference: {fileID: 0}
     - target: {fileID: 5833833193998696387, guid: 6dcefe49a934b344192723f0db92c7d1,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5833833193998696387, guid: 6dcefe49a934b344192723f0db92c7d1,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 1e-45
-      objectReference: {fileID: 0}
-    - target: {fileID: 5833833193998696387, guid: 6dcefe49a934b344192723f0db92c7d1,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
+      value: -0.000000014622904
       objectReference: {fileID: 0}
     - target: {fileID: 6579493876794478894, guid: 6dcefe49a934b344192723f0db92c7d1,
         type: 3}
@@ -364,12 +309,12 @@ PrefabInstance:
     - target: {fileID: 9090614168346953295, guid: 6dcefe49a934b344192723f0db92c7d1,
         type: 3}
       propertyPath: m_FollowOffset.y
-      value: 1.895916
+      value: 2.678085
       objectReference: {fileID: 0}
     - target: {fileID: 9090614168346953295, guid: 6dcefe49a934b344192723f0db92c7d1,
         type: 3}
       propertyPath: m_FollowOffset.z
-      value: -2.023581
+      value: -1.663268
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6dcefe49a934b344192723f0db92c7d1, type: 3}
@@ -623,16 +568,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 185094441492787458, guid: 9d5ff9635b5b72c4c88e5fea7d538d87,
-        type: 3}
-      propertyPath: m_Name
-      value: Lords Quarters
-      objectReference: {fileID: 0}
-    - target: {fileID: 190657877822132087, guid: 9d5ff9635b5b72c4c88e5fea7d538d87,
-        type: 3}
-      propertyPath: m_Name
-      value: 'Guard Office '
-      objectReference: {fileID: 0}
     - target: {fileID: 530112272576083564, guid: 9d5ff9635b5b72c4c88e5fea7d538d87,
         type: 3}
       propertyPath: m_Name
@@ -692,51 +627,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1326289916584585042, guid: 9d5ff9635b5b72c4c88e5fea7d538d87,
-        type: 3}
-      propertyPath: m_Name
-      value: 'East Hallway key '
-      objectReference: {fileID: 0}
-    - target: {fileID: 2704472938699761358, guid: 9d5ff9635b5b72c4c88e5fea7d538d87,
-        type: 3}
-      propertyPath: m_Name
-      value: War Room
-      objectReference: {fileID: 0}
-    - target: {fileID: 3319725029126931976, guid: 9d5ff9635b5b72c4c88e5fea7d538d87,
-        type: 3}
-      propertyPath: m_Name
-      value: Servent Quarters
-      objectReference: {fileID: 0}
-    - target: {fileID: 4883283894917362325, guid: 9d5ff9635b5b72c4c88e5fea7d538d87,
-        type: 3}
-      propertyPath: m_Name
-      value: East Hallway
-      objectReference: {fileID: 0}
-    - target: {fileID: 5982573776115358384, guid: 9d5ff9635b5b72c4c88e5fea7d538d87,
-        type: 3}
-      propertyPath: m_Name
-      value: Guard Office key
-      objectReference: {fileID: 0}
-    - target: {fileID: 5995015799864566981, guid: 9d5ff9635b5b72c4c88e5fea7d538d87,
-        type: 3}
-      propertyPath: m_Name
-      value: Lords Quarters key
-      objectReference: {fileID: 0}
-    - target: {fileID: 6598092988452021295, guid: 9d5ff9635b5b72c4c88e5fea7d538d87,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8370840122295366409, guid: 9d5ff9635b5b72c4c88e5fea7d538d87,
-        type: 3}
-      propertyPath: m_Name
-      value: War room key
-      objectReference: {fileID: 0}
-    - target: {fileID: 9201149952834540495, guid: 9d5ff9635b5b72c4c88e5fea7d538d87,
-        type: 3}
-      propertyPath: m_Name
-      value: Servent Quarters key
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d5ff9635b5b72c4c88e5fea7d538d87, type: 3}
