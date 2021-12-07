@@ -7215,7 +7215,7 @@ PrefabInstance:
     - target: {fileID: 3319725029548870795, guid: 525e5713765925a4db68582590c1fb71,
         type: 3}
       propertyPath: m_Name
-      value: SingleDoorWithKey (1)
+      value: Servent Quarters
       objectReference: {fileID: 0}
     - target: {fileID: 3487106515260759553, guid: 525e5713765925a4db68582590c1fb71,
         type: 3}
@@ -7281,6 +7281,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9201149953188059468, guid: 525e5713765925a4db68582590c1fb71,
+        type: 3}
+      propertyPath: m_Name
+      value: Servent Quarters key
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 525e5713765925a4db68582590c1fb71, type: 3}
@@ -7420,7 +7425,7 @@ PrefabInstance:
     - target: {fileID: 2492422604627592243, guid: 8d16874ed5ed3164b8ea7c22f944a37e,
         type: 3}
       propertyPath: m_Lens.m_SensorSize.x
-      value: 1.8925194
+      value: 1.7016395
       objectReference: {fileID: 0}
     - target: {fileID: 6179244733294549609, guid: 8d16874ed5ed3164b8ea7c22f944a37e,
         type: 3}
@@ -35892,7 +35897,7 @@ PrefabInstance:
     - target: {fileID: 3319725029548870795, guid: 525e5713765925a4db68582590c1fb71,
         type: 3}
       propertyPath: m_Name
-      value: SingleDoorWithKey
+      value: War Room
       objectReference: {fileID: 0}
     - target: {fileID: 3487106515260759553, guid: 525e5713765925a4db68582590c1fb71,
         type: 3}
@@ -35953,6 +35958,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9201149953188059468, guid: 525e5713765925a4db68582590c1fb71,
+        type: 3}
+      propertyPath: m_Name
+      value: War room key
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 525e5713765925a4db68582590c1fb71, type: 3}
@@ -40529,6 +40539,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1584973526}
     m_Modifications:
+    - target: {fileID: 3161389408146260472, guid: ed64492585f1c1444a0f84f374a94c98,
+        type: 3}
+      propertyPath: m_Name
+      value: Main Entrance key
+      objectReference: {fileID: 0}
     - target: {fileID: 4754783668673564412, guid: ed64492585f1c1444a0f84f374a94c98,
         type: 3}
       propertyPath: objectName
@@ -40552,7 +40567,7 @@ PrefabInstance:
     - target: {fileID: 7288758086249650428, guid: ed64492585f1c1444a0f84f374a94c98,
         type: 3}
       propertyPath: m_Name
-      value: DoubleDoorAndKey
+      value: Main Entrance
       objectReference: {fileID: 0}
     - target: {fileID: 7288758086249650429, guid: ed64492585f1c1444a0f84f374a94c98,
         type: 3}
@@ -40698,7 +40713,7 @@ PrefabInstance:
     - target: {fileID: 3319725029548870795, guid: 525e5713765925a4db68582590c1fb71,
         type: 3}
       propertyPath: m_Name
-      value: SingleDoorWithKey
+      value: Lords Quarters
       objectReference: {fileID: 0}
     - target: {fileID: 3487106515260759553, guid: 525e5713765925a4db68582590c1fb71,
         type: 3}
@@ -40780,6 +40795,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9201149953188059468, guid: 525e5713765925a4db68582590c1fb71,
+        type: 3}
+      propertyPath: m_Name
+      value: Lords Quarters key
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 525e5713765925a4db68582590c1fb71, type: 3}
 --- !u!4 &7964785172619533315 stripped
@@ -40818,7 +40838,7 @@ PrefabInstance:
     - target: {fileID: 3319725029548870795, guid: 525e5713765925a4db68582590c1fb71,
         type: 3}
       propertyPath: m_Name
-      value: SingleDoorWithKey
+      value: 'Guard Office '
       objectReference: {fileID: 0}
     - target: {fileID: 3487106515260759553, guid: 525e5713765925a4db68582590c1fb71,
         type: 3}
@@ -40894,6 +40914,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9201149953188059468, guid: 525e5713765925a4db68582590c1fb71,
+        type: 3}
+      propertyPath: m_Name
+      value: Guard Office key
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 525e5713765925a4db68582590c1fb71, type: 3}
@@ -40998,7 +41023,7 @@ PrefabInstance:
     - target: {fileID: 1554565703258871368, guid: 525e5713765925a4db68582590c1fb71,
         type: 3}
       propertyPath: objectName
-      value: Celler Key (E)
+      value: Celler key (E)
       objectReference: {fileID: 0}
     - target: {fileID: 3221488492494418290, guid: 525e5713765925a4db68582590c1fb71,
         type: 3}
@@ -41018,7 +41043,7 @@ PrefabInstance:
     - target: {fileID: 3319725029548870795, guid: 525e5713765925a4db68582590c1fb71,
         type: 3}
       propertyPath: m_Name
-      value: SingleDoorWithKey
+      value: Celler
       objectReference: {fileID: 0}
     - target: {fileID: 3487106515260759553, guid: 525e5713765925a4db68582590c1fb71,
         type: 3}
@@ -41090,6 +41115,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9201149953188059468, guid: 525e5713765925a4db68582590c1fb71,
+        type: 3}
+      propertyPath: m_Name
+      value: Celler key
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 525e5713765925a4db68582590c1fb71, type: 3}
 --- !u!4 &2449422128757713058 stripped
@@ -41105,6 +41135,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1584973526}
     m_Modifications:
+    - target: {fileID: 3161389408146260472, guid: ed64492585f1c1444a0f84f374a94c98,
+        type: 3}
+      propertyPath: m_Name
+      value: Inner Gate key
+      objectReference: {fileID: 0}
     - target: {fileID: 4754783668673564412, guid: ed64492585f1c1444a0f84f374a94c98,
         type: 3}
       propertyPath: objectName
@@ -41128,7 +41163,7 @@ PrefabInstance:
     - target: {fileID: 7288758086249650428, guid: ed64492585f1c1444a0f84f374a94c98,
         type: 3}
       propertyPath: m_Name
-      value: DoubleDoorAndKey (1)
+      value: Inner Gate
       objectReference: {fileID: 0}
     - target: {fileID: 7288758086249650429, guid: ed64492585f1c1444a0f84f374a94c98,
         type: 3}
@@ -41274,7 +41309,7 @@ PrefabInstance:
     - target: {fileID: 3319725029548870795, guid: 525e5713765925a4db68582590c1fb71,
         type: 3}
       propertyPath: m_Name
-      value: SingleDoorWithKey
+      value: East Hallway
       objectReference: {fileID: 0}
     - target: {fileID: 3487106515260759553, guid: 525e5713765925a4db68582590c1fb71,
         type: 3}
@@ -41345,6 +41380,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9201149953188059468, guid: 525e5713765925a4db68582590c1fb71,
+        type: 3}
+      propertyPath: m_Name
+      value: 'East Hallway key '
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 525e5713765925a4db68582590c1fb71, type: 3}
