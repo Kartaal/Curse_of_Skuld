@@ -28,7 +28,7 @@ public class Key : MonoBehaviour, IInteractable
         RuntimeManager.PlayOneShotAttached(AudioManager.Instance.keyPickup.Guid, this.gameObject);
         gameObject.SetActive(false);
         
-        UIManager.Instance.AddKeyToList(door.GetComponent<Door>().ObjectName, objectName);
+        UIManager.Instance.AddKeyToList(door.GetComponent<Door>().ObjectName, this.gameObject.name);
 
         //why destroy? also has a bug 
         // StartCoroutine(DestroyAfterDelay(1.0f));
