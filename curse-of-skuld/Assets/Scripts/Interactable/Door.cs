@@ -44,15 +44,12 @@ public class Door : MonoBehaviour,IInteractable
             UIManager.Instance.DisplayAndClearTextAfterDelay(textToDisplayAfterInteraction,4f);
             var childrenAnimators = GetComponentsInChildren<Animator>();
 
-            RuntimeManager.PlayOneShot(AudioManager.Instance.doorOpen);
-
             foreach (var anim in childrenAnimators)
             {
                 anim.SetTrigger("open");
                 anim.SetFloat("speed",openningSpeed);
             }
-            //Destroy(this.gameObject);
-            // this.GetComponent<MeshRenderer>().enabled = false;
+
             PlayerPrefs.SetInt(objectName,1);
         }
         else

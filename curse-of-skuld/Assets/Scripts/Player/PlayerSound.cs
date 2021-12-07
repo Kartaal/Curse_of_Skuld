@@ -21,13 +21,11 @@ public class PlayerSound : MonoBehaviour
         {
             if (hit.collider.tag == "GroundWood")
             {
-                print("setting to Wood");
                 _footSoundVariable = 2;
             }
 
             if (hit.collider.tag == "GroundStone")
             {
-                print("setting to Stone");
                 _footSoundVariable = 0;
             }
         }
@@ -39,6 +37,5 @@ public class PlayerSound : MonoBehaviour
         instance.setParameterByName("Material", _footSoundVariable);
         instance.start();
         instance.release();
-        //RuntimeManager.PlayOneShot(footSteps, transform.position);
     }
 }
