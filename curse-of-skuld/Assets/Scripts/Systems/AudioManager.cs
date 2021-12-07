@@ -29,6 +29,10 @@ public class AudioManager : MonoBehaviour
 
     public EventReference panting;
 
+    public EventReference doorLocked;
+
+    public EventReference doorUnlock;
+
     private EventInstance _ambienceInstance;
 
     private void Awake()

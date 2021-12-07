@@ -10,6 +10,7 @@ public class Door : MonoBehaviour,IInteractable
 {
     // Start is called before the first frame update
     private bool _canOpen = false;
+    private bool _isOpen = false;
     [SerializeField] private float openningSpeed;
     [SerializeField] private string objectName;
     public string ObjectName
@@ -33,12 +34,14 @@ public class Door : MonoBehaviour,IInteractable
                 anim.SetTrigger("open");
                 anim.SetFloat("speed",openningSpeed);
             }
+
+            _isOpen = true;
         }
     }
 
     public void Interact()
     {
-        if (_canOpen)
+        if (_canOpen && !_isOpen)
         {
             UIManager.Instance.ClearScreen();
             UIManager.Instance.DisplayAndClearTextAfterDelay(textToDisplayAfterInteraction,4f);
@@ -50,7 +53,10 @@ public class Door : MonoBehaviour,IInteractable
                 anim.SetFloat("speed",openningSpeed);
             }
 
+            RuntimeManager.PlayOneShotAttached(AudioManager.Instance.doorUnlock.Path, this.gameObject);
+
             PlayerPrefs.SetInt(objectName,1);
+            _isOpen = true;
             
             UIManager.Instance.RemoveKeyFromList(objectName);
         }
@@ -58,6 +64,11 @@ public class Door : MonoBehaviour,IInteractable
         {
             UIManager.Instance.ClearScreen();
             UIManager.Instance.DisplayAndClearTextAfterDelay(textToDisplayIfCannotInteract,4f);
+        }
+
+        if (!_canOpen && !_isOpen)
+        {
+            RuntimeManager.PlayOneShotAttached(AudioManager.Instance.doorLocked.Path, this.gameObject);
         }
     }
 
