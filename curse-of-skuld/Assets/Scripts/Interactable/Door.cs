@@ -54,6 +54,8 @@ public class Door : MonoBehaviour,IInteractable
             //Destroy(this.gameObject);
             // this.GetComponent<MeshRenderer>().enabled = false;
             PlayerPrefs.SetInt(objectName,1);
+            
+            UIManager.Instance.RemoveKeyFromList(objectName);
         }
         else
         {

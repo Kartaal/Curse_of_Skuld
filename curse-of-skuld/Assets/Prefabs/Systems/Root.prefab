@@ -109,11 +109,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2851396a40edb7943af22db3cf53243f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _noticeText: {fileID: 8460295186986976001}
-  _noteContainer: {fileID: 2915714634202600141}
-  _menu: {fileID: 4691109491439057222}
+  noticeText: {fileID: 8460295186986976001}
+  noteContainer: {fileID: 2915714634202600141}
+  menu: {fileID: 4691109491439057222}
   playerCamera: {fileID: 4004646040553433908}
   menuOpen: 0
+  keyListContainer: {fileID: 647590748431477115}
 --- !u!114 &7656709664631864130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1173,6 +1174,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &647590748431477115 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3712704307561594729, guid: 4355a0ab1bdf64d46923de99a27ffe9d,
+    type: 3}
+  m_PrefabInstance: {fileID: 4285905943252899346}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &328458991263529997 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4608434802035042847, guid: 4355a0ab1bdf64d46923de99a27ffe9d,

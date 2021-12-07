@@ -6,8 +6,7 @@ using UnityEngine;
 
 public class Key : MonoBehaviour, IInteractable
 {
-    [SerializeField]
-    private GameObject door;
+    [SerializeField] private GameObject door;
 
     [SerializeField] private string objectName;
     [SerializeField] private string textToDisplayAfterInteraction;
@@ -28,6 +27,8 @@ public class Key : MonoBehaviour, IInteractable
         door.GetComponent<Door>().CanOpen();
         RuntimeManager.PlayOneShotAttached(AudioManager.Instance.keyPickup.Guid, this.gameObject);
         gameObject.SetActive(false);
+        
+        UIManager.Instance.AddKeyToList(door.GetComponent<Door>().ObjectName, objectName);
 
         //why destroy? also has a bug 
         // StartCoroutine(DestroyAfterDelay(1.0f));

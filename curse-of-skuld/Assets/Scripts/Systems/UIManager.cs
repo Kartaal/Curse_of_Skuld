@@ -1,4 +1,6 @@
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using Cinemachine;
 using TMPro;
 using UnityEngine;
@@ -9,16 +11,20 @@ public class UIManager : MonoBehaviour
     private static UIManager _instance;
     public static UIManager Instance => _instance;
 
-    [SerializeField] private TextMeshProUGUI _noticeText;
-    [SerializeField] private GameObject _noteContainer;
+    [SerializeField] private TextMeshProUGUI noticeText;
+    [SerializeField] private GameObject noteContainer;
     private TextMeshProUGUI _noteText;
-    [SerializeField] private GameObject _menu;
+    [SerializeField] private GameObject menu;
 
     [SerializeField] private CinemachineFreeLook playerCamera;
-    private float cameraXSpeed;
-    private float cameraYSpeed;
+    private float _cameraXSpeed;
+    private float _cameraYSpeed;
     // Have this be accessible from outside if anyone needs to query if the menu is open
     public bool menuOpen = false;
+
+    [SerializeField] private GameObject keyListContainer;
+    private Dictionary<string,string> _heldKeys = new Dictionary<string, string>();
+    private TextMeshProUGUI _keyList;
     
     private void Awake()
     {
@@ -32,11 +38,14 @@ public class UIManager : MonoBehaviour
         }
         
         // Yay child object setup!
-        _noteText = _noteContainer.GetComponentInChildren<TextMeshProUGUI>();
-        _menu.SetActive(false);
+        _noteText = noteContainer.GetComponentInChildren<TextMeshProUGUI>();
+        menu.SetActive(false);
 
-        cameraXSpeed = playerCamera.m_XAxis.m_MaxSpeed;
-        cameraYSpeed = playerCamera.m_YAxis.m_MaxSpeed;
+        _cameraXSpeed = playerCamera.m_XAxis.m_MaxSpeed;
+        _cameraYSpeed = playerCamera.m_YAxis.m_MaxSpeed;
+
+        _keyList = keyListContainer.GetComponentInChildren<TextMeshProUGUI>();
+        keyListContainer.SetActive(false);
     }
 
     // Hacky solution to keep cursor visible while menu is open
@@ -59,7 +68,7 @@ public class UIManager : MonoBehaviour
         menuOpen = !menuOpen;
         // Toggle cursor lock so menu can be clicked
         SystemManager.Instance.ToggleCursorLock();
-        _menu.SetActive(!_menu.activeSelf);
+        menu.SetActive(!menu.activeSelf);
         
         // Set camera movement speed to 0 (mimic locking)
         if (menuOpen)
@@ -69,8 +78,8 @@ public class UIManager : MonoBehaviour
         }
         else
         {   
-            playerCamera.m_XAxis.m_MaxSpeed = cameraXSpeed;
-            playerCamera.m_YAxis.m_MaxSpeed = cameraYSpeed;
+            playerCamera.m_XAxis.m_MaxSpeed = _cameraXSpeed;
+            playerCamera.m_YAxis.m_MaxSpeed = _cameraYSpeed;
         }
 
         // Pause game time while menu is open
@@ -86,29 +95,29 @@ public class UIManager : MonoBehaviour
     
     public void ClearScreen()
     {
-        _noticeText.text = "";
+        noticeText.text = "";
     }
 
     public void ClearNote()
     {
         _noteText.text = "";
-        _noteContainer.SetActive(false);
+        noteContainer.SetActive(false);
     }
 
     public void DisplayTextOnScreen(string textToDisplay)
     {
-        _noticeText.text = textToDisplay;
+        noticeText.text = textToDisplay;
     }
     
     public void DisplayNoteOnScreen(string textToDisplay)
     {
         _noteText.text = textToDisplay;
-        _noteContainer.SetActive(true);
+        noteContainer.SetActive(true);
     }
 
     public void DisplayAndClearTextAfterDelay(string textToDisplay,float delay)
     {
-        _noticeText.text = textToDisplay;
+        noticeText.text = textToDisplay;
         StartCoroutine(ShortDelay(delay));
     }
 
@@ -116,7 +125,35 @@ public class UIManager : MonoBehaviour
     private IEnumerator ShortDelay(float delay)
     {
         yield return new WaitForSeconds(3f);
-        _noticeText.text = "";
+        noticeText.text = "";
     }
 
+    // id is the associated door object's object name, mimics the PlayerPref system
+    public void AddKeyToList(string id, string keyName)
+    {
+        _heldKeys.Add(id, keyName);
+
+        UpdateKeyListText();
+        if (_heldKeys.Count != 0)
+        {
+            keyListContainer.SetActive(true);
+        }
+    }
+
+    public void RemoveKeyFromList(string id)
+    {
+        _heldKeys.Remove(id);
+
+        UpdateKeyListText();
+        if (_heldKeys.Count == 0)
+        {
+            keyListContainer.SetActive(false);
+        }
+    }
+
+    private void UpdateKeyListText()
+    {
+        var keys = string.Join("\n", _heldKeys.Values);
+        _keyList.text = keys;
+    }
 }
