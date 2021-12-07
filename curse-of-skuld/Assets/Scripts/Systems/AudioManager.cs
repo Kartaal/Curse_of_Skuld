@@ -45,7 +45,6 @@ public class AudioManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        print("in destroy");
         this._ambienceInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
     }
 
@@ -84,7 +83,7 @@ public class AudioManager : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(UnityEngine.Random.Range(minSecondsBetween, maxSecondsBetween));
-            RuntimeManager.PlayOneShot(whispers);
+            RuntimeManager.PlayOneShotAttached(whispers.Path, Camera.main.gameObject);
             yield return new WaitForSeconds(10);
         }
     }

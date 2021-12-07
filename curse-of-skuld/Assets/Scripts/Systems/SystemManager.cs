@@ -31,6 +31,7 @@ public class SystemManager : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         AudioManager.Instance.StartPlayingAmbience();
+        AudioManager.Instance.PlayRandomWhispersInBackground(60, 180);
         Time.timeScale = 1f;
     }
 

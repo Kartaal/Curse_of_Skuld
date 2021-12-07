@@ -7420,7 +7420,7 @@ PrefabInstance:
     - target: {fileID: 2492422604627592243, guid: 8d16874ed5ed3164b8ea7c22f944a37e,
         type: 3}
       propertyPath: m_Lens.m_SensorSize.x
-      value: 1.775281
+      value: 2.1880999
       objectReference: {fileID: 0}
     - target: {fileID: 6179244733294549609, guid: 8d16874ed5ed3164b8ea7c22f944a37e,
         type: 3}
@@ -17741,10 +17741,44 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4313747773596668579, guid: 67b65724684b92647892ee080f54fa6d,
+        type: 3}
+      propertyPath: objectName
+      value: Tear stained note
+      objectReference: {fileID: 0}
+    - target: {fileID: 4313747773596668579, guid: 67b65724684b92647892ee080f54fa6d,
+        type: 3}
+      propertyPath: textToDisplayAfterInteraction
+      value: "{The note is covered in what seems to be old wet spots}\r\n\r\nI don\u2019t
+        understand what is happening, it was such a normal night but now all I hear
+        is screams and voices. I locked the door I\u2019m neither curious nor foolish
+        enough to go see what happened. Someone will come by eventually.\r\nIt\u2019s
+        been 2 days and not a word from anyone well actually I\u2019ve heard people
+        talking all day and all night the stone seems like it\u2019s whispering to
+        me but it must just be my boredom it has to be someone will be by soon. \r\nThey\u2019re
+        in the walls of the death the magic they\u2019re in the walls they\u2019re
+        in the walls they\u2019re in the walls they\u2019re in the walls they\u2019re
+        in the walls they\u2019re in the walls they\u2019re in the walls they\u2019re
+        in the walls they\u2019re in the walls they\u2019re in the walls they\u2019re
+        in the walls they\u2019re in the walls they\u2019re in the walls they\u2019re
+        in the walls they\u2019re in the walls they\u2019re in the walls they\u2019re
+        in the walls they\u2019re in the walls they\u2019re in the walls they\u2019re
+        in the walls they\u2019re in the walls they\u2019re in the walls they\u2019re
+        in the walls they\u2019re in the walls they\u2019re in the walls they\u2019re
+        in the walls they\u2019re in the walls they\u2019re in the walls they\u2019re
+        in the walls they\u2019re in the walls they\u2019re in the walls they\u2019re
+        in the walls they\u2019re in the walls they\u2019re in the walls they\u2019re
+        in the walls they\u2019re in the walls they\u2019re in the walls they\u2019re
+        in the walls they\u2019re in the walls they\u2019re in the walls they\u2019re
+        in the walls they\u2019re in the walls they\u2019re in the walls they\u2019re
+        in the walls they\u2019re in the walls they\u2019re in the walls they\u2019re
+        in the walls they\u2019re in the walls\r\n\r\n{The note continues, on the
+        back with the same statement repeating until the quill trails off.}\r\n"
+      objectReference: {fileID: 0}
     - target: {fileID: 4313747773596668580, guid: 67b65724684b92647892ee080f54fa6d,
         type: 3}
       propertyPath: m_Name
-      value: pre_note (3)
+      value: bednote
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67b65724684b92647892ee080f54fa6d, type: 3}
@@ -18226,10 +18260,28 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4313747773596668579, guid: 67b65724684b92647892ee080f54fa6d,
+        type: 3}
+      propertyPath: objectName
+      value: Moldy note
+      objectReference: {fileID: 0}
+    - target: {fileID: 4313747773596668579, guid: 67b65724684b92647892ee080f54fa6d,
+        type: 3}
+      propertyPath: textToDisplayAfterInteraction
+      value: "{The notes corners appear covered in a form of mold, you dare to pick
+        it up but remain careful of it}\r\n\r\nIt\u2019s been 3 days now we can\u2019t
+        eat anything. Everything I\u2019ve tried to eat rots in my mouth, water and
+        wine turns to ash as I try to quench this thirst. Some of the others even
+        went so far as to try Jeremiah\u2019s flesh, same result. The noises outside
+        the kitchen have ceased but the screaming just never ends.\r\nMother was
+        right about this job. I hope my little girl is going to be okay.\r\n\r\n{You
+        take a somber moment remembering all the lives your mistake ruined before
+        moving forward}\r\n"
+      objectReference: {fileID: 0}
     - target: {fileID: 4313747773596668580, guid: 67b65724684b92647892ee080f54fa6d,
         type: 3}
       propertyPath: m_Name
-      value: pre_note (2)
+      value: kitchennote
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67b65724684b92647892ee080f54fa6d, type: 3}
@@ -21721,10 +21773,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4313747773596668579, guid: 67b65724684b92647892ee080f54fa6d,
+        type: 3}
+      propertyPath: objectName
+      value: Hateful note
+      objectReference: {fileID: 0}
+    - target: {fileID: 4313747773596668579, guid: 67b65724684b92647892ee080f54fa6d,
+        type: 3}
+      propertyPath: textToDisplayAfterInteraction
+      value: "{You carefully pick up the note recognizing the handwriting from long
+        ago, this is a note from the lord of the castle}\r\n\r\nI knew I was wrong
+        to trust that woman and her magic, no more than an hour after I allow her
+        a chance to improve my poor son\u2019s health and I hear screams from the
+        guard house and she is nowhere to be found. Damn that woman, I\u2019ll see
+        her burn for this treachery if I survive this day.\r\nThe walls are closing
+        in, they\u2019re everywhere teeth like daggers screams like the worst nightmare,
+        the witch\u2019s horrors all around. This is her faults, hers. I could not
+        have stopped her. It\u2019s all her fault, her fault her fault her fault
+        her fault her fault her fault her fault her fault damn \r\n\r\n{The note
+        seems to have been torn at the bottom, the fresh guilt hanging over you as
+        you leave the note on the dusty floor.}\r\n"
+      objectReference: {fileID: 0}
     - target: {fileID: 4313747773596668580, guid: 67b65724684b92647892ee080f54fa6d,
         type: 3}
       propertyPath: m_Name
-      value: pre_note (6)
+      value: noblenote
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67b65724684b92647892ee080f54fa6d, type: 3}
@@ -22056,10 +22129,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4313747773596668579, guid: 67b65724684b92647892ee080f54fa6d,
+        type: 3}
+      propertyPath: objectName
+      value: Filthy note
+      objectReference: {fileID: 0}
+    - target: {fileID: 4313747773596668579, guid: 67b65724684b92647892ee080f54fa6d,
+        type: 3}
+      propertyPath: textToDisplayAfterInteraction
+      value: "{The old paper is caked in mud and old straw, it smells of horse and
+        growing fear}\r\n\r\nThis strange light started shining from the window of
+        the tower, nobody has said anything but I think I hear screams inside. The
+        horses are all freaking out but nothing seems to calm them, I\u2019m keeping
+        my distance and hiding out here. Strange things are happening in this courtyard
+        the ground seems to be getting dryer and I swear something in it is staring
+        at me.\r\n\r\n{The note ends, at least he avoided the worst of it.}\r\n"
+      objectReference: {fileID: 0}
     - target: {fileID: 4313747773596668580, guid: 67b65724684b92647892ee080f54fa6d,
         type: 3}
       propertyPath: m_Name
-      value: pre_note (5)
+      value: stablenote
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67b65724684b92647892ee080f54fa6d, type: 3}
@@ -25996,10 +26085,27 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4313747773596668579, guid: 67b65724684b92647892ee080f54fa6d,
+        type: 3}
+      propertyPath: objectName
+      value: Desperate note
+      objectReference: {fileID: 0}
+    - target: {fileID: 4313747773596668579, guid: 67b65724684b92647892ee080f54fa6d,
+        type: 3}
+      propertyPath: textToDisplayAfterInteraction
+      value: "{The notes writing is childlike growing more difficult to read as it
+        progresses.}\r\n\r\nI emptied the chamber pots just as he said and he still
+        got mad at me, then this weird light came from the tower and I\u2019ve been
+        so thirsty since, I tried everything one of the maids told me not to drink
+        the ink but I tried it anyway, it was gross and it didn\u2019t even help.
+        I just want to go home, I don\u2019t know where dad is so many are crying
+        I don\u2019t understand what\u2019s happening.\r\n\n{The note ends there,
+        your aging heart struck by the words of a lost child you journey on.}\r\n"
+      objectReference: {fileID: 0}
     - target: {fileID: 4313747773596668580, guid: 67b65724684b92647892ee080f54fa6d,
         type: 3}
       propertyPath: m_Name
-      value: pre_note (4)
+      value: servantnote
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67b65724684b92647892ee080f54fa6d, type: 3}
@@ -26311,10 +26417,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4313747773596668579, guid: 67b65724684b92647892ee080f54fa6d,
+        type: 3}
+      propertyPath: objectName
+      value: A page from Skuld's journal (e)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4313747773596668579, guid: 67b65724684b92647892ee080f54fa6d,
+        type: 3}
+      propertyPath: textToDisplayAfterInteraction
+      value: "{ A page from my own journal written my own hands shaking with age.
+        }\r\n\r\nThe year is 451 of the era of the cockatrice, this note may be the
+        final remnants I leave on this earth.\r\n\r\nI want to set things right.
+        I\u2019ve returned to this castle after 20 long years with the intent to
+        redeem myself for my actions as it was me who cursed this place.\r\nIt was
+        not my intention, it was an accident. As the guards turned into misshapen
+        monster\u2019s I fled, the knowledge of this place has haunted me since.\r\nI
+        need to get to my old workshop in the high tower, there I may be able to
+        lift the curse. Magic has left me, I only have the energy of my old body
+        left to attempt to clear this place of its curse. \r\n\r\nI can only hope
+        redemption finds me here if I make it.\r\n"
+      objectReference: {fileID: 0}
     - target: {fileID: 4313747773596668580, guid: 67b65724684b92647892ee080f54fa6d,
         type: 3}
       propertyPath: m_Name
-      value: pre_note
+      value: Skuldjournal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67b65724684b92647892ee080f54fa6d, type: 3}
@@ -30131,10 +30257,32 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4313747773596668579, guid: 67b65724684b92647892ee080f54fa6d,
+        type: 3}
+      propertyPath: objectName
+      value: Bloodied note
+      objectReference: {fileID: 0}
+    - target: {fileID: 4313747773596668579, guid: 67b65724684b92647892ee080f54fa6d,
+        type: 3}
+      propertyPath: textToDisplayAfterInteraction
+      value: "{the note appears to have spots of blood on it. However, as you pick
+        it up you cut your finger on something razor sharp in the blood - tiny, needle-like
+        growths seem to emit from the blood like mold.}\r\n\r\nMy mouth hasn\u2019t
+        stopped bleeding, some of the guys are talking about their helmets getting
+        tighter when they try to remove them. They feel as if they\u2019re trying
+        to pull their hairs out. I don\u2019t know what is happening to us, one moment
+        it was guard duty as usual, next there was a weird light from the old woman\u2019s
+        workshop and now this. The pain in my mouth is growing stronger, it\u2019s
+        as if I\u2019m getting new teeth, my hands feel weak, I can\u2019t hold my
+        spear any longer.\r\n\r\n{the note appears to trail off here as the stroke
+        of ink stops. It seems the guards were the first to be affected. There is
+        little doubt in your mind now as to the identities of the monsters roaming
+        these halls}\r\n"
+      objectReference: {fileID: 0}
     - target: {fileID: 4313747773596668580, guid: 67b65724684b92647892ee080f54fa6d,
         type: 3}
       propertyPath: m_Name
-      value: pre_note (1)
+      value: guardnote
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67b65724684b92647892ee080f54fa6d, type: 3}
