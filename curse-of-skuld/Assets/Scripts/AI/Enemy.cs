@@ -51,10 +51,10 @@ public class Enemy : MonoBehaviour
     {
         _passiveMonsterSound = RuntimeManager.CreateInstance(AudioManager.Instance.monsterPassive);
         _alertMonsterSound = RuntimeManager.CreateInstance(AudioManager.Instance.monsterAlert);
+        this.LowerVolumeOnSounds();
 
         RuntimeManager.AttachInstanceToGameObject(_passiveMonsterSound, this.transform);
         RuntimeManager.AttachInstanceToGameObject(_alertMonsterSound, this.transform);
-        _passiveMonsterSound.start();
     }
 
     private void OnDestroy()
@@ -247,14 +247,15 @@ public class Enemy : MonoBehaviour
 
     private bool CheckIfPlayerInHearingRange()
     {
-        var vectorToPlayerCamera = SystemManager.Instance.playerGameObject.GetComponentInChildren<Camera>().transform.position - this.transform.position;
+        var vectorToPlayerCamera = SystemManager.Instance.playerGameObject.GetComponentInChildren<Animator>().transform.position - this.transform.position;
 
         //avoid costly root function
-        if (vectorToPlayerCamera.sqrMagnitude <= 13*13)
+        var magnitude = vectorToPlayerCamera.magnitude;
+        if (magnitude <= 13)
         {
             RaycastHit hit;
             int layerMask = 1 << 8;
-            return !Physics.Raycast(transform.position, vectorToPlayerCamera, out hit, 20, layerMask);
+            return !Physics.Raycast(transform.position, vectorToPlayerCamera, out hit, magnitude, layerMask);
         }
 
         return false;
@@ -262,8 +263,8 @@ public class Enemy : MonoBehaviour
 
     private void LowerVolumeOnSounds()
     {
-        _alertMonsterSound.setVolume(0.3f);
-        _passiveMonsterSound.setVolume(0.3f);
+        _alertMonsterSound.setVolume(0.1f);
+        _passiveMonsterSound.setVolume(0.1f);
     }
 
     private void IncreaseVolumeOnSounds()
@@ -276,7 +277,6 @@ public class Enemy : MonoBehaviour
     {
         PLAYBACK_STATE state;
         instance.getPlaybackState(out state);
-        instance.setVolume(0.2f);
         
         if (state != PLAYBACK_STATE.PLAYING)
         {
