@@ -108,3 +108,17 @@ MonoBehaviour:
       Data3: -1420008047
       Data4: -1365898656
     Path: event:/Character/FX_Pant
+  doorLocked:
+    Guid:
+      Data1: 1955480091
+      Data2: 1245396653
+      Data3: 1834734231
+      Data4: -51170816
+    Path: event:/FX/FX_DoorLocked
+  doorUnlock:
+    Guid:
+      Data1: -662834083
+      Data2: 1263225306
+      Data3: -1673344378
+      Data4: 262535099
+    Path: event:/FX/FX_DoorUnlocked
