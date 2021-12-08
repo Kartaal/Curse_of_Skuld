@@ -51,4 +51,14 @@ public class SystemManager : MonoBehaviour
     {
         SceneManager.LoadScene(_currentScene.name);
     }
+
+    public void GoToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }

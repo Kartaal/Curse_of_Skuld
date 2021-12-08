@@ -29,19 +29,24 @@ public class TriggerCinematic : MonoBehaviour
             SystemManager.Instance.playerGameObject.GetComponentInChildren<Animator>().enabled = true;
             //SystemManager.Instance.playerGameObject.GetComponentInChildren<MeshRenderer>().enabled = enabled;
             Destroy(this);
+            PlayerPrefs.SetInt("CinematicShown",1);
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        cam.GetComponent<Camera>().enabled = true;
-       // volume.enabled = true;
-        SystemManager.Instance.playerGameObject.GetComponentInChildren<CharacterController>().enabled = false;
-        SystemManager.Instance.playerGameObject.GetComponentInChildren<PlayerController>().enabled = false;
-        SystemManager.Instance.playerGameObject.GetComponentInChildren<Animator>().enabled = false;
-     //   SystemManager.Instance.playerGameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
-        cam.GetComponent<CinemachineVirtualCamera>().Priority = 11;
-        cam.GetComponent<Animator>().SetTrigger("Play");
+      
+            cam.GetComponent<Camera>().enabled = true;
+            // volume.enabled = true;
+        if (PlayerPrefs.GetInt("CinematicShown") != 1)
+            {
+            SystemManager.Instance.playerGameObject.GetComponentInChildren<CharacterController>().enabled = false;
+            SystemManager.Instance.playerGameObject.GetComponentInChildren<PlayerController>().enabled = false;
+            SystemManager.Instance.playerGameObject.GetComponentInChildren<Animator>().enabled = false;
+            //   SystemManager.Instance.playerGameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
+            cam.GetComponent<CinemachineVirtualCamera>().Priority = 11;
+            cam.GetComponent<Animator>().SetTrigger("Play");
+        }
     }
 
  

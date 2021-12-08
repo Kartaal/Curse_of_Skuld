@@ -80,6 +80,30 @@ MonoBehaviour:
   - Grass
   - Wood
   Exists: 0
+--- !u!114 &-8877094917122097731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/AMB_background/AmbienceParameters
+  m_EditorClassIdentifier: 
+  Name: AmbienceParameters
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Type: 1
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &-8744472026265131788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,6 +131,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 11595
+--- !u!114 &-8482514271742662973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/FX/FX_DoorUnlocked
+  m_EditorClassIdentifier: 
+  Path: event:/FX/FX_DoorUnlocked
+  Guid:
+    Data1: -662834083
+    Data2: 1263225306
+    Data3: -1673344378
+    Data4: 262535099
+  Banks:
+  - {fileID: 5266968356672985723}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-8402716672601166531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,6 +290,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 536
+--- !u!114 &-7194202065082652077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/FX/FX_DoorLocked
+  m_EditorClassIdentifier: 
+  Path: event:/FX/FX_DoorLocked
+  Guid:
+    Data1: 1955480091
+    Data2: 1245396653
+    Data3: 1834734231
+    Data4: -51170816
+  Banks:
+  - {fileID: 5266968356672985723}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-6889310089354839094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -414,8 +492,8 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: 852785616452669908}
-  - {fileID: 448178719235428148}
+  - {fileID: 2443756761268633652}
+  - {fileID: 3766667085155501702}
   MinDistance: 1
   MaxDistance: 20
   Length: 0
@@ -944,13 +1022,16 @@ MonoBehaviour:
   - {fileID: 4347582285193973854}
   - {fileID: 8524537110862133045}
   - {fileID: -3745153038753488736}
+  - {fileID: -7194202065082652077}
+  - {fileID: 3842744999547132846}
+  - {fileID: -8482514271742662973}
   EditorParameters:
   - {fileID: -6800880276033449994}
   MasterBanks:
   - {fileID: 5266968356672985723}
   StringsBanks:
   - {fileID: 8086459269326969905}
-  cacheTime: 637744922720000000
+  cacheTime: 637745122484218806
   cacheVersion: 9
 --- !u!114 &142429623956426973
 MonoBehaviour:
@@ -976,7 +1057,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: -6511698265854713846}
+  - {fileID: -8877094917122097731}
   MinDistance: 1
   MaxDistance: 20
   Length: 48000
@@ -1270,6 +1351,32 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 536
+--- !u!114 &2443756761268633652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/FS_Boots/WalkRun
+  m_EditorClassIdentifier: 
+  Name: WalkRun
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - walking
+  - running
+  Exists: 1
 --- !u!114 &2724243551420252064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1391,6 +1498,60 @@ MonoBehaviour:
   lastModified: 637728363537107453
   FileSizes: []
   Exists: 1
+--- !u!114 &3766667085155501702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/FS_Boots/Material
+  m_EditorClassIdentifier: 
+  Name: Material
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Stone
+  - Grass
+  - Wood
+  Exists: 1
+--- !u!114 &3842744999547132846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Character/C_Panting
+  m_EditorClassIdentifier: 
+  Path: event:/Character/C_Panting
+  Guid:
+    Data1: -993970347
+    Data2: 1161597608
+    Data3: 2107283335
+    Data4: -1762086528
+  Banks:
+  - {fileID: 5266968356672985723}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &4347582285193973854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1539,7 +1700,7 @@ MonoBehaviour:
   Path: FMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637744922720000000
+  lastModified: 637745122484208797
   FileSizes: []
   Exists: 1
 --- !u!114 &5599870266110885857
@@ -1786,10 +1947,10 @@ MonoBehaviour:
   Path: FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637744922720000000
+  lastModified: 637745122484218806
   FileSizes:
   - Name: 
-    Value: 1388
+    Value: 1516
   Exists: 1
 --- !u!114 &8524537110862133045
 MonoBehaviour:

@@ -23,14 +23,6 @@ public class DebugPlayerPref : MonoBehaviour
     void Start()
     {
         _currentScene = SceneManager.GetActiveScene();
-    }
-    void OnDebugRestart()
-    {
-        SceneManager.LoadScene(_currentScene.name);
-    }
-    // Update is called once per frame
-    void Update()
-    {
         if (deleteAll)
         {
             PlayerPrefs.DeleteAll();
@@ -45,5 +37,14 @@ public class DebugPlayerPref : MonoBehaviour
         {
             PlayerPrefs.SetFloat(secondKey,value);
         }
+    }
+    void OnDebugRestart()
+    {
+        SceneManager.LoadScene(_currentScene.name);
+    }
+    // Update is called once per frame
+    void Update()
+    {
+      
     }
 }
