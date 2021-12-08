@@ -53,7 +53,7 @@ public class Door : MonoBehaviour,IInteractable
                 anim.SetFloat("speed",openningSpeed);
             }
 
-            RuntimeManager.PlayOneShotAttached(AudioManager.Instance.doorUnlock.Path, this.gameObject);
+            RuntimeManager.PlayOneShotAttached(AudioManager.Instance.doorUnlock.Guid, this.gameObject);
 
             PlayerPrefs.SetInt(objectName,1);
             _isOpen = true;
@@ -68,7 +68,7 @@ public class Door : MonoBehaviour,IInteractable
 
         if (!_canOpen && !_isOpen)
         {
-            RuntimeManager.PlayOneShotAttached(AudioManager.Instance.doorLocked.Path, this.gameObject);
+            RuntimeManager.PlayOneShotAttached(AudioManager.Instance.doorLocked.Guid, this.gameObject);
         }
     }
 

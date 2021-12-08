@@ -7,6 +7,6 @@ public class DoorSound : MonoBehaviour
 {
     public void PlayDoorSound()
     {
-        RuntimeManager.PlayOneShotAttached(AudioManager.Instance.doorOpen.Path, this.gameObject);
+        RuntimeManager.PlayOneShotAttached(AudioManager.Instance.doorOpen.Guid, this.gameObject);
     }
 }

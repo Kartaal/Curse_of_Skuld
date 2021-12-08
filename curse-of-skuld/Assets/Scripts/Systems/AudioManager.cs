@@ -87,7 +87,7 @@ public class AudioManager : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(UnityEngine.Random.Range(minSecondsBetween, maxSecondsBetween));
-            RuntimeManager.PlayOneShotAttached(whispers.Path, Camera.main.gameObject);
+            RuntimeManager.PlayOneShotAttached(whispers.Guid, Camera.main.gameObject);
             yield return new WaitForSeconds(10);
         }
     }
