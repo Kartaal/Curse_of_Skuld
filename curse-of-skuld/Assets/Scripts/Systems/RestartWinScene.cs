@@ -19,4 +19,9 @@ public class RestartWinScene : MonoBehaviour
     {
         SceneManager.LoadScene(newSceneName);
     }
+
+    public void GoToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
 }
