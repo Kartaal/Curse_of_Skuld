@@ -48,7 +48,7 @@ public class Closet : MonoBehaviour, IInteractable
         }
         
 
-        var childRenderers = player.gameObject.GetComponentsInChildren<MeshRenderer>();
+        var childRenderers = player.gameObject.GetComponentsInChildren<SkinnedMeshRenderer>();
         foreach (var mesh in childRenderers)
         {
             mesh.enabled = !mesh.enabled;
