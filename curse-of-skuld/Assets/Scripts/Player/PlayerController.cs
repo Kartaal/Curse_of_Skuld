@@ -64,14 +64,25 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        float tempAnimSpeed = 0;
+
+        if (_movementVector != Vector3.zero && !_controllerLocked)
+        {
+            tempAnimSpeed = _tempMaxSpeed != playerData.SprintMaxSpeed ? 1 : 2;
+        }
+
+        _moveAnim.SetFloat("MoveSpeed", tempAnimSpeed);
+
         if (_controllerLocked)
             return;
 
         float targetSpeed = _movementVector == Vector3.zero ? 0 : _tempMaxSpeed;
-        
+
+        /*
         if(_moveAnim != null)
             _moveAnim.SetBool("IsMoving", _movementVector != Vector3.zero);
-
+        */
+        
         Vector3 moveVec = _camera.transform.TransformDirection(_movementVector);
         moveVec.y = 0;
         moveVec.Normalize();
@@ -101,12 +112,14 @@ public class PlayerController : MonoBehaviour
         if (StaminaManager.Instance.currentStamina != 0&& _canSprint )
         {
             _tempMaxSpeed = playerData.SprintMaxSpeed;
-            _moveAnim.SetFloat("Speed",playerData.SprintAnimSpeedMultiplier);
+            //_moveAnim.SetFloat("Speed",playerData.SprintAnimSpeedMultiplier);
+            _moveAnim.SetFloat("MoveSpeed", 2);
         }
         else
         {
             _tempMaxSpeed = playerData.MaxSpeed;
-            _moveAnim.SetFloat("Speed",1);
+            //_moveAnim.SetFloat("MoveSpeed", 1);
+            //_moveAnim.SetFloat("Speed",1);
         }
     }
 
@@ -145,11 +158,14 @@ public class PlayerController : MonoBehaviour
     
     public void Die()
     {
+        /*
         var childRenderers = gameObject.GetComponentsInChildren<MeshRenderer>();
         foreach (var mesh in childRenderers)
         {
             mesh.enabled = false;
         }
+        */
+        _moveAnim.SetTrigger("Killed");
 
         enabled = false;
         _dead = true;
@@ -165,7 +181,8 @@ public class PlayerController : MonoBehaviour
     public void ToggleControllerLocked()
     {
         _controllerLocked = !_controllerLocked;
-        _moveAnim.SetBool("IsMoving", false);
+        //_moveAnim.SetBool("IsMoving", false);
+        
     }
 
     public void MoveTo(Vector3 position, Vector3 lookAt)
