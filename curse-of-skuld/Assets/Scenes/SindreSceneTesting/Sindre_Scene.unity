@@ -206,6 +206,16 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -36.42
       objectReference: {fileID: 0}
+    - target: {fileID: 4004646040553433905, guid: 6dcefe49a934b344192723f0db92c7d1,
+        type: 3}
+      propertyPath: m_CameraRadius
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004646040553433905, guid: 6dcefe49a934b344192723f0db92c7d1,
+        type: 3}
+      propertyPath: m_CollideAgainst.m_Bits
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4004646040553433911, guid: 6dcefe49a934b344192723f0db92c7d1,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -658,6 +668,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1554565703647780043, guid: 9d5ff9635b5b72c4c88e5fea7d538d87,
+        type: 3}
+      propertyPath: objectName
+      value: Servant Quarters key (E)
+      objectReference: {fileID: 0}
     - target: {fileID: 2492422604056369481, guid: 9d5ff9635b5b72c4c88e5fea7d538d87,
         type: 3}
       propertyPath: m_Lens.m_SensorSize.x
@@ -678,15 +693,30 @@ PrefabInstance:
       propertyPath: m_BaseOffset
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3487106514911433858, guid: 9d5ff9635b5b72c4c88e5fea7d538d87,
+        type: 3}
+      propertyPath: objectName
+      value: Servant Quarters (E)
+      objectReference: {fileID: 0}
     - target: {fileID: 4770269544786059960, guid: 9d5ff9635b5b72c4c88e5fea7d538d87,
         type: 3}
       propertyPath: m_NavMeshLayer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6021786885492676393, guid: 9d5ff9635b5b72c4c88e5fea7d538d87,
+        type: 3}
+      propertyPath: objectName
+      value: Cellar (E)
+      objectReference: {fileID: 0}
     - target: {fileID: 7548561633705551751, guid: 9d5ff9635b5b72c4c88e5fea7d538d87,
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8532055094172376928, guid: 9d5ff9635b5b72c4c88e5fea7d538d87,
+        type: 3}
+      propertyPath: objectName
+      value: Cellar key (E)
       objectReference: {fileID: 0}
     - target: {fileID: 8829267020912494474, guid: 9d5ff9635b5b72c4c88e5fea7d538d87,
         type: 3}
