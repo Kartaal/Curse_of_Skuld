@@ -22,6 +22,9 @@ public class Key : MonoBehaviour, IInteractable
 
     public void Interact()
     {
+        if(!gameObject.activeSelf)
+            return;
+        
         UIManager.Instance.ClearScreen();
         UIManager.Instance.DisplayAndClearTextAfterDelay(textToDisplayAfterInteraction,4f);
         door.GetComponent<Door>().CanOpen();

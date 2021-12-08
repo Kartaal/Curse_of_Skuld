@@ -77,7 +77,7 @@ public class Enemy : MonoBehaviour
         DrawPath();
         anim.SetBool("IsChasing", _state == EnemyState.Chase);
         anim.SetBool("IsSuspicious", _state == EnemyState.Suspicious);
-
+        
         _timeSincePlayerLastVisible += Time.deltaTime;
 
         switch (_state)
