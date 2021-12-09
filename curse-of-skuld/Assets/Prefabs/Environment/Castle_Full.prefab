@@ -7427,7 +7427,7 @@ PrefabInstance:
     - target: {fileID: 2492422604627592243, guid: 8d16874ed5ed3164b8ea7c22f944a37e,
         type: 3}
       propertyPath: m_Lens.m_SensorSize.x
-      value: 1.775281
+      value: 1.3333334
       objectReference: {fileID: 0}
     - target: {fileID: 6179244733294549609, guid: 8d16874ed5ed3164b8ea7c22f944a37e,
         type: 3}
@@ -26250,14 +26250,14 @@ PrefabInstance:
     - target: {fileID: 4313747773596668579, guid: 67b65724684b92647892ee080f54fa6d,
         type: 3}
       propertyPath: textToDisplayAfterInteraction
-      value: "{The notes writing is childlike growing more difficult to read as it
-        progresses.}\r\n\r\nI emptied the chamber pots just as he said and he still
-        got mad at me, then this weird light came from the tower and I\u2019ve been
-        so thirsty since, I tried everything one of the maids told me not to drink
-        the ink but I tried it anyway, it was gross and it didn\u2019t even help.
-        I just want to go home, I don\u2019t know where dad is so many are crying
-        I don\u2019t understand what\u2019s happening.\r\n\n{The note ends there,
-        your aging heart struck by the words of a lost child you journey on.}\r\n"
+      value: "{The notes' writing is childlike growing more difficult to read as
+        it progresses.}\r\n\r\nI emptied the chamber pots just as he said and he
+        still got mad at me, then this weird light came from the tower and I\u2019ve
+        been so thirsty since, I tried everything one of the maids told me not to
+        drink the ink but I tried it anyway, it was gross and it didn\u2019t even
+        help. I just want to go home, I don\u2019t know where dad is so many are
+        crying I don\u2019t understand what\u2019s happening.\r\n\n{The note ends
+        there, your aging heart struck by the words of a lost child you journey on.}\r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 4313747773596668580, guid: 67b65724684b92647892ee080f54fa6d,
         type: 3}
@@ -26582,7 +26582,7 @@ PrefabInstance:
     - target: {fileID: 4313747773596668579, guid: 67b65724684b92647892ee080f54fa6d,
         type: 3}
       propertyPath: textToDisplayAfterInteraction
-      value: "{ A page from my own journal written my own hands shaking with age.
+      value: "{ A page from my own journal written by own hands shaking with age.
         }\r\n\r\nThe year is 451 of the era of the cockatrice, this note may be the
         final remnants I leave on this earth.\r\n\r\nI want to set things right.
         I\u2019ve returned to this castle after 20 long years with the intent to
@@ -41175,7 +41175,7 @@ PrefabInstance:
     - target: {fileID: 1554565703258871368, guid: 525e5713765925a4db68582590c1fb71,
         type: 3}
       propertyPath: objectName
-      value: Celler key (E)
+      value: Cellar key (E)
       objectReference: {fileID: 0}
     - target: {fileID: 3221488492494418290, guid: 525e5713765925a4db68582590c1fb71,
         type: 3}
