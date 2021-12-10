@@ -236,6 +236,11 @@ public class Enemy : MonoBehaviour
             StartCoroutine(BecomeSuspicious());
         }
 
+        if (_state == EnemyState.Chase)
+        {
+            _agent.ResetPath();
+        }
+
         _timeSincePlayerLastVisible = 0;
         _lastKnownLocation = visionData.LastKnownPosition;
     }
