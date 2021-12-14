@@ -2263,6 +2263,11 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.745283
       objectReference: {fileID: 0}
+    - target: {fileID: 145506476018931602, guid: f2051929a4362f64da6cad69b6e34a24,
+        type: 3}
+      propertyPath: m_text
+      value: Curse of Skuld
+      objectReference: {fileID: 0}
     - target: {fileID: 145506476018931603, guid: f2051929a4362f64da6cad69b6e34a24,
         type: 3}
       propertyPath: m_AnchorMax.y
