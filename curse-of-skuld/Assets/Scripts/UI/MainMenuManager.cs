@@ -40,7 +40,7 @@ public class MainMenuManager : MonoBehaviour
     {
         SceneManager.LoadScene(1);
         if(controlsParent.activeSelf)
-            continueParent.SetActive(false);
+            controlsParent.SetActive(false);
         
         if(settingsParent.activeSelf)
             settingsParent.SetActive(false);
@@ -57,7 +57,7 @@ public class MainMenuManager : MonoBehaviour
     public void ToggleSettings()
     {
         if(controlsParent.activeSelf)
-            continueParent.SetActive(false);
+            controlsParent.SetActive(false);
         settingsParent.SetActive(!settingsParent.activeSelf);
     }
 
